@@ -32,8 +32,6 @@ Zawartość
 ---------
 
 * :ref:`site-docs`
-* :ref:`feature-docs`
-* :ref:`about-docs`
 
 .. _site-docs:
 
