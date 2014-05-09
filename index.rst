@@ -31,17 +31,32 @@ Jest to dokumentacja opisująca korzystanie z projektów:
 Zawartość
 ---------
 
-* :ref:`site-docs`
+* :ref:`amber-docs`
+* :ref:`navi-docs`
 
-.. _site-docs:
+.. _amber-docs:
+
+Amber
+~~~~~
 
 .. toctree::
     :maxdepth: 2
 
-    src/getting_started
-    src/installation
-    src/settings
-    src/mediator
-    src/drivers
-    src/clients
-    src/support
+    amber/index
+    amber/getting_started
+    amber/installation
+    amber/settings
+    amber/mediator
+    amber/drivers
+    amber/clients
+    amber/support
+
+.. _navi-docs:
+
+Navi
+~~~~
+
+.. toctree::
+    :maxdepth: 2
+
+    navi/index
