@@ -12,13 +12,13 @@ Na obrazie świeżym (czysty, pure, raw, original, galancie) systemie (taki zale
 
 Następnie:
 
-* sklonować `dev-amber/amber-cpp-drivers <>`_
- * wykonać `make all`
-* sklonować dev-amber/amber-python-drivers
- * wykonać `sudo python setup.py install`
-* sklonować dev-amber/amber-main
- * wykonać `make all`
+* sklonować ``dev-amber/amber-cpp-drivers``
+ * wykonać ``make all``
+* sklonować ``dev-amber/amber-python-drivers``
+ * wykonać ``sudo python setup.py install``
+* sklonować ``dev-amber/amber-main``
+ * wykonać ``make all``
 
-Skopiować amber-main/apps/amber/priv/settings.erl.example do amber-main/apps/amber/priv/settings.erl z poprawkami (wystarczy odkomentować).
+Skopiować ``amber-main/apps/amber/priv/settings.config.example`` do ``amber-main/apps/amber/priv/settings.config`` z poprawkami (wystarczy odkomentować).
 
-I odpalić skrypt amber-main/start_amber.sh
+I odpalić skrypt ``amber-main/start_amber.sh``.
