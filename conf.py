@@ -20,7 +20,7 @@
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
-#needs_sphinx = '1.0'
+# needs_sphinx = '1.0'
 
 # Add any Sphinx extension module names here, as strings. They can be
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
@@ -325,3 +325,12 @@ epub_copyright = u'2014, paoolo'
 
 # If false, no index is generated.
 #epub_use_index = True
+
+# -- Options for locales ----------------------------------------------
+
+language = 'en'
+
+locale_dirs = [
+    'locale/',
+]
+gettext_compact = False
