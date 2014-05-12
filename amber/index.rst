@@ -38,8 +38,8 @@ Pliki wspólne
  * pliki opisu *ProtoBuf*
 
 .. _Amber: https://github.com/dev-amber
-.. _sterownikami: ./drivers
-.. _klientami: ./clients
+.. _sterownikami: ./drivers.html
+.. _klientami: ./clients.html
 .. _amber-main: https://github.com/dev-amber/amber-main
 .. _amber-cpp-drivers: https://github.com/dev-amber/amber-cpp-drivers
 .. _amber-python-drivers: https://github.com/dev-amber/amber-python-drivers
