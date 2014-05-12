@@ -3,14 +3,31 @@ Sterowniki
 
 Poniżej znajdziemy opis korzystania z sterowników oraz możliwości ich dalszego rozszerzania.
 
+Sterownik posiada przypisany typ urządzenia oraz numer urządzenia. Wartości te ustawiane są w `konfiguracji amber`_. Konfiguracja powinna być zapisana jako ``apps/amber/priv/settings.config``.
+
+Konfiguracja jednego z sterowników::
+
+    {supervised_driver,
+      {driver,
+        {nazwa_sterownika}
+      },
+      {numer_typu_sterownika, numer_sterownika},
+      [
+        {cdriver, "ścieżka/do/sterownika"},
+        {config_file, "ścieżka/do/konfiguracji/sterownika"},
+        {log_config_file, "ścieżka/do/konfiguracji/dziennika/sterownika"}
+      ]
+    }.
+
+Ścieżki konfiguracji nie są wymagane, ważne jest podanie ścieżki do pliku wykonywalnego, który uruchomi sterownik.
+
+.. _konfiguracji amber: https://github.com/dev-amber/amber-main/blob/master/apps/amber/priv/settings.config.example
+
 Sterownik jest:
 
 * aplikacją uruchamianą na robocie
-* komunikującą się z urządzeniem podłączonym do robota, na przykład
- * silnikami
- * laserowym dalmierzem
- * czujnikiem ruchu
-* komunikującą się z mediatorem
+* komunikującą się z urządzeniem podłączonym do robota
+* komunikującą się z mediatorem poprzez potoki
 
 Sterownik odpowiada za:
 
@@ -20,24 +37,27 @@ Sterownik odpowiada za:
 * wysyłanie wiadomości dla klientów, którzy zarejestrowali się jako nasłuchujący
 * odbieranie komunikatów, ich obsługę i odsyłanie wiadomości, jeśli to konieczne
 
-Komunikacja
------------
+Działanie
+---------
 
-Sterownik komunikuje się z mediatorem przy pomocy potoków. Są to potoki standardowego wyjścia i wejścia. Wymagane jest, by sterownik na standardowym wejściu oczekiwał na dane, a na standardowe wyjście umieszczał dane.
+Sterownik powinien realizować funkcjonalności takie jak:
 
-Format komunikacji z mediatorem jest następująca:
+* obsługę odbierania wiadomość typów:
+ * DATA - dane do przetworzenia przez sterownik, odebrane od klienta
+ * PING - zapytanie o działanie, realizowane przez mediator, obecnie nie używane, odpowiedzią na zapytanie jest odesłanie wiadomości typu PONG
+ * SUBSCRIBE i UNSUBSCRIBE - do rejestracji klienta nasłuchującego
+ * CLIENT_DIED - zgłoszenie klienta o zakończeniu pracy, w przypadku, gdy dany klient był zarejestrowanych jako słuchacz, należy postąpić z nim podobnie, jak w przypadku UNSUBSCRIBE
 
-* 2 bajty długości nagłówka wiadomości
-* nagłówek wiadomości o zadanej długości
-* 2 bajty długości wiadomości
-* wiadomość o zadanej długości
+Dodatkowo, co jest zalecane, sterownik powinien przy poprawnym zamykaniu się, wysłać do mediatora komunikat typu DRIVER_DIED.
 
-Wartość długości powinna być przesyłana w porządku ``big-endian``, zgodna z sieciowymi warunkami przesyłania danych. Należy zwrócić uwagę na to, czyli wartości są ``singed`` czy ``unsigned``. Ze względu na wykorzystywanie Java, przyjmuje się, że wartości bajtów są ``signed``.
+Oprócz obsługi wiadomości, sterownik powinien realizować:
 
-Nagłówek oraz wiadomość są binarnymi ciągami znaków. Należy zwrócić uwagę na sposób komunikacji z mediatorem poprzez potoki. W przypadku używania języka python, należy ustawić działanie interpretera na binarne obsługiwanie wejścia i wyjścia. Możliwe jest to dzięki opcji ``-u``.
+* inicjalizację pracy z urządzeniem
+* ustawienie określonych parametrów pracy
+* buforowanie danych z urządzenia
+* współbieżny dostęp do urządzenia
 
-Do serializacji i deserializacji wykorzystywane jest Google Protobuf. Wymagane jest, by co najmniej nagłówek był zgodny z przyjętym w mediatorze. Wiadomości przesyłane przez mediator nie są sprawdzane i może to być dowolny ciąg znaków. Zaleca się, by to było zgodne z protobuf i postacią wiadomości przyjętą w mediatorze.
+Przykładem sterownika, który realizuje powyższe funkcjonalności jest `DummyDriver`_. Sterowniki korzystają z `części wspólnej`_.
 
- Aktualna postać nagłówka i podstawowej wiadomości dostępna jest `dev-amber/amber-common/drivermsg.proto`_.
-
- .. _dev-amber/amber-common/drivermsg.proto: https://github.com/dev-amber/amber-common/blob/master/proto/drivermsg.proto
+.. _DummyDriver: https://github.com/dev-amber/amber-python-drivers/blob/master/src/amber/dummy/dummy.py
+.. _części wspólnej: https://github.com/dev-amber/amber-python-drivers/blob/master/src/amber/common/amber_pipes.py

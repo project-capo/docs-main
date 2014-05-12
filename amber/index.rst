@@ -3,6 +3,12 @@ Amber
 
 Repozytoria `Amber`_ zaczynamy od `amber-main`_: jest to projekt mediatora, który to dostarcza mechanizmu komunikacji pomiędzy poszczególnymi `sterownikami`_ oraz `klientami`_.
 
+W standardowym modelu zakłada się, że:
+
+* istnieje jeden mediator
+* używanych jest kilka sterowników, z których każdy komunikuje się z innym urządzeniem (nie ma sterowników duplikujących działanie)
+* podłączonych jest jeden lub wielu klientów, którzy korzystają z dostępnych urządzeń, jednocześnie
+
 Sterowniki
 ----------
 
@@ -32,8 +38,8 @@ Pliki wspólne
  * pliki opisu *ProtoBuf*
 
 .. _Amber: https://github.com/dev-amber
-.. _sterownikami: ./drivers
-.. _klientami: ./clients
+.. _sterownikami: ./drivers.html
+.. _klientami: ./clients.html
 .. _amber-main: https://github.com/dev-amber/amber-main
 .. _amber-cpp-drivers: https://github.com/dev-amber/amber-cpp-drivers
 .. _amber-python-drivers: https://github.com/dev-amber/amber-python-drivers

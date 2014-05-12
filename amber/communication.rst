@@ -7,17 +7,38 @@ Uczestnicy
 W komunikacji uczestniczą:
 
 * jeden mediator
-* klient lub wielu klientów
-* sterownik lub wiele sterowników
+* jeden klient lub wielu klientów
+* jeden sterownik lub wiele sterowników
 
 Mediator odpowiada za przekazywanie komunikatów pomiędzy określonymi klientami i sterownikami. Nie ingeruje w wiadomości, jakie są znane tylko sterownikom oraz klientom. Obsługuje i przetwarza nagłówki wiadomości, w których uzupełnia informacje o numerach klientów i wykorzystuje informacje o typie i numerze sterownika, z którym się komunikuje.
 
-Komunikaty
-----------
+
+Protokół
+--------
+
+Sterownik komunikuje się z mediatorem przy pomocy potoków. Są to potoki standardowego wyjścia i wejścia. Wymagane jest, by sterownik na standardowym wejściu oczekiwał na dane, a na standardowe wyjście umieszczał dane.
+
+Klient komunikuje się z mediatorem przy pomocy połączenia sieciowego, UDP. Mediator nasłuchuje na dostępnych interfejsach systemu, na porcie 26233.
+
+Protokół komunikacji z mediatorem jest następujący:
+
+* 2 bajty długości nagłówka wiadomości
+* nagłówek wiadomości o zadanej długości
+* 2 bajty długości wiadomości
+* wiadomość o zadanej długości
+
+Wartość długości powinna być przesyłana w porządku ``big-endian``, zgodna z sieciowymi warunkami przesyłania danych. Należy zwrócić uwagę na to, czyli wartości są ``singed`` czy ``unsigned``. Ze względu na wykorzystywanie Java, przyjmuje się, że wartości bajtów są ``signed``.
+
+Nagłówek oraz wiadomość są binarnymi ciągami znaków. Należy zwrócić uwagę na sposób komunikacji z mediatorem poprzez potoki. W przypadku używania języka python, należy ustawić działanie interpretera na binarne obsługiwanie wejścia i wyjścia. Możliwe jest to dzięki opcji ``-u``.
+
+Do serializacji i deserializacji wykorzystywane jest Google Protobuf. Wymagane jest, by co najmniej nagłówek był zgodny z przyjętym w mediatorze. Wiadomości przesyłane przez mediator nie są sprawdzane i może to być dowolny ciąg znaków. Zaleca się, by to było zgodne z protobuf i postacią wiadomości przyjętą w projekcie.
 
 Aktualna postać nagłówka i podstawowej wiadomości dostępna jest `dev-amber/amber-common/drivermsg.proto`_.
 
- .. _dev-amber/amber-common/drivermsg.proto: https://github.com/dev-amber/amber-common/blob/master/proto/drivermsg.proto
+.. _dev-amber/amber-common/drivermsg.proto: https://github.com/dev-amber/amber-common/blob/master/proto/drivermsg.proto
+
+Komunikaty
+----------
 
 Wiadomości przesyłane między klientami a sterownikami składają się z:
 
@@ -35,23 +56,18 @@ Wiadomości przesyłane między klientami a sterownikami składają się z:
 Obecna numeracja typów sterowników ``DeviceType``:
 
 * 0 - nieznany, nieużywany
-* 1 - `NineDof`_ (czujnik ruchu)
-* 2 - `Roboclaw`_ (silniki)
+* 1 - **NineDof** (czujnik ruchu)
+* 2 - **Roboclaw** (silniki)
 * 3 - nieużywany (dawniej Stargazer)
-* 4 - `Hokuyo`_ (laser)
-* 5 - `Dummy`_ (testowy)
-
-.. _NineDof:
-.. _Roboclaw:
-.. _Hokuyo:
-.. _Dummy:
+* 4 - **Hokuyo** (laser)
+* 5 - **Dummy** (testowy)
 
 Obecne typy wiadomości ``DriverMsg``:
 
-* DATA
-* PING
-* PONG
-* CLIENT_DIED
-* DRIVER_DIED
-* SUBSCRIBE
-* UNSUBSCRIBE
+* DATA - dane przesyłane i rozumiane przez sterownik i klienta
+* PING - zapytanie mediatora o działanie sterownika czy klienta, obecnie nieużywane
+* PONG - odpowiedź sterownika czy klienta, obecnie nie wymagana
+* CLIENT_DIED - komunikat wysyłany przez klienta, przy poprawnym zamknięciu klienta
+* DRIVER_DIED - komunikat wysyłany przez sterownik, przy poprawnym zamknięciu sterownika
+* SUBSCRIBE - subskrypcja klienta nasłuchującego wiadomości
+* UNSUBSCRIBE - zakończenie subskrypcji klienta
