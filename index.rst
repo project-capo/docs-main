@@ -43,9 +43,11 @@ Amber
     :maxdepth: 2
 
     amber/index
+    amber/device_types
     amber/getting_started
     amber/installation
     amber/settings
+    amber/communication
     amber/mediator
     amber/drivers
     amber/clients
