@@ -7,8 +7,8 @@ Uczestnicy
 W komunikacji uczestniczą:
 
 * jeden mediator
-* klient lub wielu klientów
-* sterownik lub wiele sterowników
+* jeden klient lub wielu klientów
+* jeden sterownik lub wiele sterowników
 
 Mediator odpowiada za przekazywanie komunikatów pomiędzy określonymi klientami i sterownikami. Nie ingeruje w wiadomości, jakie są znane tylko sterownikom oraz klientom. Obsługuje i przetwarza nagłówki wiadomości, w których uzupełnia informacje o numerach klientów i wykorzystuje informacje o typie i numerze sterownika, z którym się komunikuje.
 

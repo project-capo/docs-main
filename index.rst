@@ -17,10 +17,10 @@ Amber
 
     amber/index
     amber/device_types
+    amber/communication
     amber/getting_started
     amber/installation
     amber/settings
-    amber/communication
     amber/mediator
     amber/drivers
     amber/clients
