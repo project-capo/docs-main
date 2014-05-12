@@ -3,17 +3,17 @@ Typy urządzeń
 
 Obecnie obsługiwane są urządzenia:
 
-* Ninedof - odczytywanie wartości z przyspieszeniomierza, żyroskopu, kompasu
-* Roboclaw - sterowanie silnikami i odczytywanie aktualnej prędkości każdego silnika
-* Hokuyo - odczytywanie wartości odległości od otoczenia z skanera laserowego
+* **Ninedof** - odczytywanie wartości z **czujników ruchu**: przyspieszeniomierza, żyroskopu, kompasu
+* **Roboclaw** - sterowanie **silnikami** i odczytywanie aktualnej prędkości każdego silnika
+* **Hokuyo** - odczytywanie wartości **odległości** od otoczenia z skanera laserowego
 
 Ninedof
 -------
 
 Głównymi akcjami, które można wykonać przy pomocy czujnika są:
 
-* odczytanie wartości z przyspieszeniomierza, żyroskopu, kompasu
-* ciągłe odczytywanie danych z czujników
+* *jednorazowe odczytanie danych* z przyspieszeniomierza, żyroskopu, kompasu
+* *ciągłe odczytywanie danych* z czujników
 
 Możliwe jest określenie, które dane będą odczytywane z czujnika. Możliwe jest ustalenie tego przy pojedynczym odebraniu danych z czujnika, jak i w ciągłym trybie.
 
@@ -22,18 +22,18 @@ Roboclaw
 
 Głównymi akcjami, które można wykonać na silnikach są:
 
-* ustawienie prędkości każdego z czterech silników
-* odczytanie aktualnej prędkości z enkoderów z silników
+* *ustawienie prędkości* każdego z czterech silników
+* *odczytanie aktualnej prędkości* z enkoderów z silników
 
-Jednostką podawanych prędkości jest ``[mm/s]``.
+Jednostką podawanych prędkości jest ``mm/s``.
 
 Hokuyo
 ------
 
 Głównymi akcjami, które można wykonać przy pomocy skanera laserowego są:
 
-* jednorazowe odczytanie skanu otoczenia
-* ciągłe odczytywanie skanów otoczenia
+* *jednorazowe* odczytanie skanu otoczenia
+* *ciągłe* odczytywanie skanów otoczenia
 
 Skanem otoczenia jest zbiór danych, w których wartości kąta powiązane są wartościami odległości od otoczenia.
 

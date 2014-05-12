@@ -15,6 +15,10 @@ Mediator odpowiada za przekazywanie komunikatów pomiędzy określonymi klientam
 Komunikaty
 ----------
 
+Aktualna postać nagłówka i podstawowej wiadomości dostępna jest `dev-amber/amber-common/drivermsg.proto`_.
+
+ .. _dev-amber/amber-common/drivermsg.proto: https://github.com/dev-amber/amber-common/blob/master/proto/drivermsg.proto
+
 Wiadomości przesyłane między klientami a sterownikami składają się z:
 
 * nagłówka ``DriverHdr``, posiadający informację o
