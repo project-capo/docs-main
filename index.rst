@@ -18,10 +18,8 @@ Amber
     amber/index
     amber/device_types
     amber/communication
-    amber/getting_started
-    amber/installation
+    amber/startup
     amber/settings
-    amber/mediator
     amber/drivers
     amber/clients
     amber/support
