@@ -4,8 +4,18 @@ Dokumentacja mgr-docs!
 Zawartość
 ---------
 
+* :ref:`panda-docs`
 * :ref:`amber-docs`
 * :ref:`navi-docs`
+
+Panda
+~~~~~
+
+.. toctree::
+    :maxdepth: 2
+
+    panda/index
+    panda/install
 
 .. _amber-docs:
 
