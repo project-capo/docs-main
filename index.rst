@@ -8,6 +8,8 @@ Zawartość
 * :ref:`amber-docs`
 * :ref:`navi-docs`
 
+.. _panda-docs:
+
 Panda
 ~~~~~
 

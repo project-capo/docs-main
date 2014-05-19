@@ -17,8 +17,10 @@ lub
     sync
 
 * Wyciągnąć kartę z czytnika i umieścić w PandaBoard, po czym uruchomić PandaBoard.
-* Pierwsze ładowanie systemu spowoduje, że partycja z systemem rozszerzy się do wielkości karty. Nie należy przerywać uruchomiania systemu. Należy odczekać, aż do momentu, gdy jedna z diod na płytce będzie mrugała cyklicznie. Po tym można wyłączyć płytkę i usunąć kartę z płytki, umieszczając ją z powrotem do czytnika w komputerze.
-* Edytujemy plik odpowiedzialny za sieć: ``/etc/network/interfaces``
+
+Pierwsze ładowanie systemu spowoduje, że partycja z systemem rozszerzy się do wielkości karty. Nie należy przerywać uruchomiania systemu. Należy odczekać, aż do momentu, gdy jedna z diod na płytce będzie mrugała cyklicznie. Po tym można wyłączyć płytkę i usunąć kartę z płytki, umieszczając ją z powrotem do czytnika w komputerze.
+
+* Zmienić plik odpowiedzialny za sieć: ``/etc/network/interfaces``
 ::
 
     # interfaces(5) file used by ifup(8) and ifdown(8)
@@ -31,12 +33,12 @@ lub
         netmask 255.255.255.0
         gateway 192.168.2.1
 
-* Edytujemy plik odpowiedzialny za DNS: ``/etc/resolv.conf``
+* Zmienić plik odpowiedzialny za DNS: ``/etc/resolv.conf``
 ::
 
     nameserver 8.8.8.8
 
-* Edytujemy plik: ``/etc/rc.local``
+* Zmienić plik: ``/etc/rc.local``
 ::
 
     #!/bin/sh -e
@@ -56,7 +58,7 @@ lub
 
     exit 0
 
-* Edytujemy plik odpowiedzialne za hasła, usuwając x lub * z pola na hasło: ``/etc/passwd`` i ``/etc/shadow``
+* Zmienić plik odpowiedzialne za hasła, usuwając x lub * z pola na hasło: ``/etc/passwd`` i ``/etc/shadow``
 ::
 
     #!/etc/passwd
@@ -65,13 +67,24 @@ lub
     #!/etc/shadow
     root::15454:0:99999:7:::
 
-* Umieszczamy klucz publiczny w /root/.ssh/authorized_keys
+* Umieścić swój klucz publiczny SSH w ``/root/.ssh/authorized_keys``
 ::
 
     ssh-rsa AAA... user@hostname
 
-* Wyciągamy z czytnika, po uprzednim odmontowaniu i ponownie uruchamiamy płytkę z kartą. Czekamy aż się załaduje i zainstaluje. Płytkę łączymy kablem sieciowym z siecią, do której jesteśmy podłączeni. Logujemy się
-* Logujemy się do systemu poprzez ssh: ``ssh root@192.168.2.50``.
+* Wyciągnąć z czytnika, po uprzednim odmontowaniu.
+* Ponownie uruchamić płytkę z kartą.
+
+Czekamy aż się załaduje i zainstaluje.
+
+* Płytkę połączyć kablem sieciowym z siecią.
+* Zalogować się do systemu poprzez ssh: ``ssh root@192.168.2.50``.
+* Zaktualizować system poprzez **aptitude**.
+
+Polecam wykonać tę operację przez ``aptitude``. Początkowo należy pobrać nowe informacje z repozytorium, poprzez ``aptitude update``. Następnie, korzystając z UI, zaktualizować istniejące pakiety z najmniej nowo instalowanym pakietami. Polecam wyłączyć opcję instalowania polecanych pakietów. Wymaga przeładowania aplikacji.
+
+* Zainstalować sterowniki do WiFi, korzystając z dostępnych w repozytorium Ubuntu.
+* Ustawić hasło dla użytkownika root przy pomocy ``passwd``.
 
 .. _Ubuntu Server 12.04: http://cdimage.ubuntu.com/releases/12.04/release/ubuntu-12.04-preinstalled-server-armhf+omap4.img.gz
 .. _Ubuntu: http://cdimage.ubuntu.com/releases/12.04/release/
