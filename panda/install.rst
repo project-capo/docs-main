@@ -104,7 +104,7 @@ Następnie należy **przerwać** konfigurację płytki z wykorzystaniem kreatora
 
 Polecam wykonać tę operację przez ``aptitude``. Początkowo należy pobrać nowe informacje z repozytorium, poprzez ``aptitude update``. Następnie, korzystając z UI, zaktualizować istniejące pakiety, z najmniej nowo instalowanym pakietami. Polecam wyłączyć opcję instalowania polecanych pakietów. Wymaga zrestartowania aplikacji.
 
-* *Zainstalować* dodatkowe oprogramowanie, jak na przykład: ``htop``, ``psmisc``, ``mc``, ``unzip``, ``screen``, ``bash-completion``.
+* *Zainstalować* dodatkowe oprogramowanie, jak na przykład: ``htop``, ``psmisc``, ``mc``, ``unzip``, ``screen``, ``bash-completion``, ``cpufrequtils``.
 
 * **Zainstalować** ``wpasupplicant``.
 * **Zmienić** ustawienia sieci, w pliku ``/etc/network/interfaces``, ustawienia WiFi
@@ -136,7 +136,7 @@ Powyższa instrukcja pozwala na utworzenie czystego i zaktualizowanego systemu U
     python, python-dev, python-setuptools, python-pip, python-virtualenv
     g++, libcxxtools-dev
     libboost-dev, liblog4cxx10-dev, libboost-program-options-dev, libboost-thread-dev
-    protobuf-compiler, libprotoc-dev,
+    protobuf-compiler, libprotoc-dev
 
 
 W celu instalacji erlanga, potrzeba dodać repozytoria ``backports`` i ``updates`` oraz zmienić wersję z ``precise`` na ``raring``, *tymczasowo*. Zainstalować i wrócić do poprzedniej wersji systemu.
