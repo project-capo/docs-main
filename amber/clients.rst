@@ -15,6 +15,9 @@ Klient odpowiada za:
 * wysyłanie wiadomości do mediatora z odpowiednimi wartościami typu i numeru urządzenia
 * obsługę wiadomości przychodzących od mediatora
 
+Przykład
+--------
+
 Przykładem klienta, który realizuje powyższe funkcjonalności jest `DummyClient`_. Klienci korzystają z `części wspólnej`_.
 
 .. _DummyClient: https://github.com/dev-amber/amber-python-clients/blob/master/src/amber/dummy/dummy.py
