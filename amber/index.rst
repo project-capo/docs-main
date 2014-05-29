@@ -7,7 +7,7 @@ Amber
     index
     device_types
     communication
-    startup
+    install
     settings
     drivers
     clients

@@ -14,7 +14,7 @@ Panda
 ~~~~~
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     panda/index
     panda/install
@@ -25,12 +25,12 @@ Amber
 ~~~~~
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     amber/index
     amber/device_types
     amber/communication
-    amber/startup
+    amber/install
     amber/settings
     amber/drivers
     amber/clients
@@ -42,6 +42,7 @@ Navi
 ~~~~
 
 .. toctree::
-    :maxdepth: 2
+    :maxdepth: 1
 
     navi/index
+    navi/install

@@ -1,11 +1,8 @@
 Instalacja
 ==========
 
-Instrukcja
-----------
-
 Instalacja systemu na karcie
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------
 
 * **Pobrać** obraz `Ubuntu Server 12.04 amrhf+omap4`_ dla PandaBoard z strony `Ubuntu`_.
 * **Sprawdzić** sumy kontroler md5 z dostępnymi na `serwerze`_.
@@ -27,7 +24,7 @@ lub:
 * **Uruchomić** *PandaBoard*.
 
 Pierwsze uruchomienie instalacyjne
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------
 
 Pierwsze ładowanie systemu spowoduje, że partycja z systemem rozszerzy się do wielkości karty. **Nie należy przerywać** uruchomiania systemu. **Należy czekać** do momentu, gdy jedna z diod na płytce będzie mrugała cyklicznie.
 
@@ -36,7 +33,7 @@ Pierwsze ładowanie systemu spowoduje, że partycja z systemem rozszerzy się do
 * **Umieścić** ją w czytniku kart komputera.
 
 Przygotowanie systemu do konfiguracji
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-------------------------------------
 
 * **Zmienić** plik odpowiedzialny za sieć: ``/etc/network/interfaces``
 ::
@@ -75,10 +72,10 @@ Przygotowanie systemu do konfiguracji
 * **Zmienić** plik odpowiedzialne za hasła, usuwając znaki ``x`` lub ``*`` z pól odpowiedzialnych za hasło ``/etc/passwd`` i ``/etc/shadow``
 ::
 
-    #~/etc/passwd
+    #-/etc/passwd
     root::0:0:root:/root:/bin/bash
 
-    #~/etc/shadow
+    #-/etc/shadow
     root::15454:0:99999:7:::
 
 * **Dodać** swój klucz publiczny SSH w ``/root/.ssh/authorized_keys``
@@ -94,7 +91,7 @@ Przygotowanie systemu do konfiguracji
 Powyższe operacje spowodują, że system umieszczony na płytce, połączy się z siecią lokalną (tutaj z siecią ``192.168.2.0/24`` i bramą domyślną ``192.168.2.1``) i wykona operację instalacji serwera SSH. Dzięki temu, można się zalogować do systemu przez sieć lokalną.
 
 Drugie uruchomienie konfiguracyjne
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+----------------------------------
 
 * **Połączyć** płytkę, kablem sieciowym, z siecią, w której znajduje się Twój komputer.
 * **Zalogować** się do systemu poprzez ssh: ``ssh root@192.168.2.50``.
@@ -148,7 +145,7 @@ Polecam wykonać tę operację przez ``aptitude``. Początkowo należy pobrać n
 * **Połączyć** się podając przydzielony przez router adres IP (należy sprawdzić przez interfejs administratora routera).
 
 Post-konfiguracja
-~~~~~~~~~~~~~~~~~
+-----------------
 
 * **Zmienić** ``/etc/modules``:
 ::
