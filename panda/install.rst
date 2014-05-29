@@ -108,16 +108,14 @@ Następnie należy **przerwać** konfigurację płytki z wykorzystaniem kreatora
 * **Ustawić** hasło dla użytkownika ``root`` przy pomocy ``passwd``.
 * **Ustawić** nazwę systemu w plikach:
 
-** ``/etc/hostname``
+``/etc/hostname``
 ::
 
-    #~/etc/hostname
     panda.robonet
 
-** ``/etc/hosts``
+``/etc/hosts``
 ::
 
-    #~/etc/hosts
     127.0.0.1 localhost
     127.0.1.1 panda panda.robonet
 
@@ -165,7 +163,27 @@ Powyższa instrukcja pozwala na utworzenie czystego i zaktualizowanego systemu *
 
 W celu instalacji erlanga, potrzeba dodać repozytoria ``backports`` i ``updates`` oraz zmienić wersję z ``precise`` na ``raring``, *tymczasowo*. Zainstalować i wrócić do poprzedniej wersji systemu.
 
+* **Zmienić** ``/etc/modules``:
+::
+
+    ...
+    i2c-dev
+
+* **Zmienić** ``/etc/init.d/cpufrequtils``:
+::
+
+    ...
+    GOVERNOR="performance"
+    ...
+
 * **Dodać** użytkownika ``panda``.
+* **Zmienić** plik odpowiedzialny za grupy użytkowników ``/etc/groups``:
+::
+
+    ...
+    dialout:x:20:panda
+    ...
+
 * **Zmienić** zawartość pliku ``/etc/rc.local``
 ::
 
@@ -213,6 +231,10 @@ W celu instalacji erlanga, potrzeba dodać repozytoria ``backports`` i ``updates
 
     chgrp dialout /sys/class/gpio/gpio139/*
     chmod g+w /sys/class/gpio/gpio139/*
+
+    modprobe i2c-dev
+    chown root:dialout /dev/i2c*
+    chmod 660 /dev/i2c*
 
     #su - panda -c "/home/panda/amber/amber-main/start_amber.sh"
 
