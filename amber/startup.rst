@@ -1,8 +1,8 @@
 Uruchomienie
 ============
 
-Instalacja platformy Amber
-~~~~~~~~~~~~~~~~~~~~~~~~~~
+Instalacja
+~~~~~~~~~~
 
 Powyższa instrukcja pozwala na utworzenie czystego i zaktualizowanego systemu *Ubuntu 12.04.4* dla Panda Board. Do pracy z platformą *Amber* potrzebne są dodatkowe narzędzia:
 ::
@@ -136,6 +136,9 @@ Następnie należy pobrać i zainstalować *Amber* wraz z dodatkami.
         cp settings.config.example settings.config
         nano settings.config
     popd
+
+Uruchomienie
+~~~~~~~~~~~~
 
 * **Uruchomić** ``${HOME}/amber/amber-main/start_amber.sh``
 
