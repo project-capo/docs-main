@@ -4,26 +4,39 @@ Instalacja
 Instrukcja
 ----------
 
+Instalacja systemu na karcie
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 * **Pobrać** obraz `Ubuntu Server 12.04 amrhf+omap4`_ dla PandaBoard z strony `Ubuntu`_.
 * **Sprawdzić** sumy kontroler md5 z dostępnymi na `serwerze`_.
-* *Umieścić* kartę w czytniku kart.
-* *Wywołać* jeden z poniższych poleceń.
+* **Umieścić** kartę w czytniku kart komputera.
+* **Wywołać** jedno z poniższych poleceń:
 ::
 
     gunzip -c ubuntu-12.04-preinstalled-server-armhf+omap4.img.gz | sudo dd bs=1M of=/dev/<device name>
     sync
 
-lub
+lub:
 ::
 
     sudo sh -c 'zcat ubuntu-12.04-preinstalled-server-armhf+omap4.img.gz > /dev/<device name>'
     sync
 
-* *Wyciągnąć* kartę z czytnika.
-* *Umieścić* w PandaBoard.
-* *Uruchomić* PandaBoard.
+* **Wyciągnąć** kartę z czytnika.
+* **Umieścić** w *PandaBoard*.
+* **Uruchomić** *PandaBoard*.
 
-Pierwsze ładowanie systemu spowoduje, że partycja z systemem rozszerzy się do wielkości karty. **Nie należy przerywać** uruchomiania systemu. **Należy czekać** do momentu, gdy jedna z diod na płytce będzie mrugała cyklicznie. Można *wyłączyć* płytkę, *wyciągnąć* kartę z płytki i *umieścić* ją w czytniku.
+Pierwsze uruchomienie instalacyjne
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Pierwsze ładowanie systemu spowoduje, że partycja z systemem rozszerzy się do wielkości karty. **Nie należy przerywać** uruchomiania systemu. **Należy czekać** do momentu, gdy jedna z diod na płytce będzie mrugała cyklicznie.
+
+* **Wyłączyć** *PandaBoard*.
+* **Wyciągnąć** kartę z *PandaBoard*.
+* **Umieścić** ją w czytniku kart komputera.
+
+Przygotowanie systemu do konfiguracji
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * **Zmienić** plik odpowiedzialny za sieć: ``/etc/network/interfaces``
 ::
@@ -74,27 +87,35 @@ Pierwsze ładowanie systemu spowoduje, że partycja z systemem rozszerzy się do
     ssh-rsa AAA... user@hostname
 
 * **Odmontować** kartę pamięci.
-* *Wyciągnąć* kartę z czytnika.
-* *Umieścić* w PandaBoard.
-* *Uruchomić* PandaBoard.
+* **Wyciągnąć** kartę z czytnika.
+* **Umieścić** w *PandaBoard*.
+* **Uruchomić** *PandaBoard*.
 
 Powyższe operacje spowodują, że system umieszczony na płytce, połączy się z siecią lokalną (tutaj z siecią ``192.168.2.0/24`` i bramą domyślną ``192.168.2.1``) i wykona operację instalacji serwera SSH. Dzięki temu, można się zalogować do systemu przez sieć lokalną.
 
-* **Połączyć** płytkę, kablem sieciowym, z siecią.
-* *Zalogować* się do systemu poprzez ssh: ``ssh root@192.168.2.50``.
+Drugie uruchomienie konfiguracyjne
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Następnie należy **przerwać** konfigurację płytki z wykorzystaniem kreatora.
+* **Połączyć** płytkę, kablem sieciowym, z siecią, w której znajduje się Twój komputer.
+* **Zalogować** się do systemu poprzez ssh: ``ssh root@192.168.2.50``.
+
+Następnie należy **przerwać** konfigurację płytki z wykorzystaniem kreatora, który działa na konsoli.
 
 * **Wywołać** polecenie ``fuser -k /var/cache/debconf/config.dat`` do oporu.
 * **Usunąć** pakiet ``oem-config`` oraz katalog ``/var/lib/oem-config``.
 * **Zrestartować** system.
 
-* **Ustawić** hasło dla użytkownika root przy pomocy ``passwd``.
-* **Ustawić** nazwę systemu w plikach ``/etc/hostname`` i ``/etc/hosts``.
+* **Ustawić** hasło dla użytkownika ``root`` przy pomocy ``passwd``.
+* **Ustawić** nazwę systemu w plikach:
+
+** ``/etc/hostname``
 ::
 
     #~/etc/hostname
     panda.robonet
+
+** ``/etc/hosts``
+::
 
     #~/etc/hosts
     127.0.0.1 localhost
@@ -104,7 +125,7 @@ Następnie należy **przerwać** konfigurację płytki z wykorzystaniem kreatora
 
 Polecam wykonać tę operację przez ``aptitude``. Początkowo należy pobrać nowe informacje z repozytorium, poprzez ``aptitude update``. Następnie, korzystając z UI, zaktualizować istniejące pakiety, z najmniej nowo instalowanym pakietami. Polecam wyłączyć opcję instalowania polecanych pakietów. Wymaga zrestartowania aplikacji.
 
-* *Zainstalować* dodatkowe oprogramowanie, jak na przykład: ``htop``, ``psmisc``, ``mc``, ``unzip``, ``screen``, ``bash-completion``, ``cpufrequtils``.
+* **Zainstalować** dodatkowe oprogramowanie, jak na przykład: ``htop``, ``psmisc``, ``mc``, ``unzip``, ``screen``, ``bash-completion``, ``cpufrequtils``.
 
 * **Zainstalować** ``wpasupplicant``.
 * **Zmienić** ustawienia sieci, w pliku ``/etc/network/interfaces``, ustawienia WiFi
@@ -126,9 +147,12 @@ Polecam wykonać tę operację przez ``aptitude``. Początkowo należy pobrać n
         wpa-psk  "PASS"
 
 * **Zrestartować** system.
-* *Połączyć* się podając przydzielony przez router adres IP.
+* **Połączyć** się podając przydzielony przez router adres IP (należy sprawdzić przez interfejs administratora routera).
 
-Powyższa instrukcja pozwala na utworzenie czystego i zaktualizowanego systemu Ubuntu 12.04.4 dla Panda Board. Do pracy z platformą Amber potrzebne są dodatkowe narzędzia, takie jak
+Instalacja platformy Amber
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Powyższa instrukcja pozwala na utworzenie czystego i zaktualizowanego systemu *Ubuntu 12.04.4* dla Panda Board. Do pracy z platformą *Amber* potrzebne są dodatkowe narzędzia:
 ::
 
     git, make
@@ -200,7 +224,7 @@ W celu instalacji erlanga, potrzeba dodać repozytoria ``backports`` i ``updates
 
     ssh-rsa AAA... user@hostname
 
-Następnie należy pobrać i zainstalować Amber wraz z dodatkami.
+Następnie należy pobrać i zainstalować *Amber* wraz z dodatkami.
 ::
 
     mkdir -p ${HOME}/amber
@@ -220,8 +244,17 @@ Następnie należy pobrać i zainstalować Amber wraz z dodatkami.
         popd
     popd
 
-* *Odkomentować* ostatnią linijkę w ``/etc/rc.local``.
-* **Wyedtować** plik konfiguracyjny
+* **Odkomentować** ostatnią linijkę w ``/etc/rc.local``:
+::
+
+    ...
+
+    su - panda -c "/home/panda/amber/amber-main/start_amber.sh"
+
+    exit 0
+
+* **Zmienić** plik konfiguracyjny:
+::
 
     pushd ${HOME}/amber/amber-main/apps/amber/priv/
         cp settings.config.example settings.config
@@ -237,7 +270,7 @@ Następnie należy pobrać i zainstalować Amber wraz z dodatkami.
 Dodatkowe informacje
 --------------------
 
-Więcej informacji na
+Więcej informacji na stronach:
 
 * `Wiki/ARM/OMAP`_
 * `Wiki/ARM/Server/Install`_
