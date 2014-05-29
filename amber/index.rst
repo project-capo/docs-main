@@ -1,7 +1,7 @@
 Amber
 =====
 
-Repozytoria `Amber`_ zaczynamy od `amber-main`_: jest to projekt mediatora, który to dostarcza mechanizmu komunikacji pomiędzy poszczególnymi `sterownikami`_ oraz `klientami`_.
+Repozytoria `Amber`_ zaczynają się od `amber-main`_. Jest to projekt mediatora, który to dostarcza mechanizmu komunikacji pomiędzy poszczególnymi `sterownikami`_ oraz `klientami`_.
 
 W standardowym modelu zakłada się, że:
 
@@ -13,29 +13,36 @@ Sterowniki
 ----------
 
 * `amber-cpp-drivers`_ jest to projekt sterowników, napisanych w *C/C++*, które pozwalają na komunikację z urządzeniami umieszczonymi na robocie. Wspierane są:
- * **Roboclaw** - sterowanie silnikami robota
- * **Ninedof** - odczytywanie informacji z sensora umieszczonego na robocie, dostarczającego informacji z przyspieszeniomierza, żyroskopu oraz magnetometru
+
+    * **Roboclaw** - sterowanie silnikami robota
+    * **Ninedof** - odczytywanie informacji z sensora umieszczonego na robocie, dostarczającego informacji z przyspieszeniomierza, żyroskopu oraz magnetometru
+
 * `amber-python-drivers`_ jest to projekt sterowników, napisanych w *python*, które pozwalają na komunikację z urządzeniami umieszczonymi na robocie. Wspierane są:
- * **Roboclaw** - sterowanie silnikami robota
- * **Hokuyo** - odczytywanie informacji z sensora umieszczonego na robocie, dostarczającego informacji o odległościach innych przeszkód od robota
+
+    * **Roboclaw** - sterowanie silnikami robota
+    * **Hokuyo** - odczytywanie informacji z sensora umieszczonego na robocie, dostarczającego informacji o odległościach innych przeszkód od robota
 
 Klienci
 -------
 
 * `amber-java-clients`_ - jest to projekt dostarczają klientów, napisanych w *Java*, używanych przez korzystających z robota, w ich własnych aplikacjach, obsługiwane są:
- * **Roboclaw**
- * **Hokuyo**
- * **Ninedof**
+
+    * **Roboclaw**
+    * **Hokuyo**
+    * **Ninedof**
+
 * `amber-python-clients`_ jest to projekt dostarczają klientów, napisanych w *python*, używanych przez korzystających z robota, w ich własnych aplikacjach, obsługiwane są:
- * **Roboclaw**
- * **Hokuyo**
- * **Ninedof**
+
+    * **Roboclaw**
+    * **Hokuyo**
+    * **Ninedof**
 
 Pliki wspólne
 -------------
 
 * `amber-common`_ jest to projekt zawierający część wspólną wyżej wymienionych projektów, którymi są:
- * pliki opisu *ProtoBuf*
+
+    * pliki opisu protokołu komunikacji między sterownikami a klientami, przy użyciu *ProtoBuf*
 
 .. _Amber: https://github.com/dev-amber
 .. _sterownikami: ./drivers.html
