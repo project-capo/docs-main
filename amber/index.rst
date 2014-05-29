@@ -1,6 +1,18 @@
 Amber
 =====
 
+.. toctree::
+    :maxdepth: 2
+
+    index
+    device_types
+    communication
+    startup
+    settings
+    drivers
+    clients
+    support
+
 Repozytoria `Amber`_ zaczynają się od `amber-main`_. Jest to projekt mediatora, który to dostarcza mechanizmu komunikacji pomiędzy poszczególnymi `sterownikami`_ oraz `klientami`_.
 
 W standardowym modelu zakłada się, że:
