@@ -3,7 +3,10 @@ Sterowniki
 
 Poniżej znajdziemy opis korzystania z sterowników oraz możliwości ich dalszego rozszerzania.
 
-Sterownik posiada przypisany typ urządzenia oraz numer urządzenia. Wartości te ustawiane są w `konfiguracji amber`_. Konfiguracja powinna być zapisana jako ``apps/amber/priv/settings.config``.
+Konfiguracja z mediatorem
+-------------------------
+
+Sterownik posiada przypisany typ urządzenia oraz numer urządzenia. Wartości te ustawiane są w `konfiguracji Amber`_. Konfiguracja powinna być zapisana jako ``apps/amber/priv/settings.config``.
 
 Konfiguracja jednego z sterowników::
 
@@ -21,7 +24,7 @@ Konfiguracja jednego z sterowników::
 
 Ścieżki konfiguracji nie są wymagane, ważne jest podanie ścieżki do pliku wykonywalnego, który uruchomi sterownik.
 
-.. _konfiguracji amber: https://github.com/dev-amber/amber-main/blob/master/apps/amber/priv/settings.config.example
+.. _konfiguracji Amber: https://github.com/dev-amber/amber-main/blob/master/apps/amber/priv/settings.config.example
 
 Sterownik jest:
 
@@ -43,12 +46,13 @@ Działanie
 Sterownik powinien realizować funkcjonalności takie jak:
 
 * obsługę odbierania wiadomość typów:
- * DATA - dane do przetworzenia przez sterownik, odebrane od klienta
- * PING - zapytanie o działanie, realizowane przez mediator, obecnie nie używane, odpowiedzią na zapytanie jest odesłanie wiadomości typu PONG
- * SUBSCRIBE i UNSUBSCRIBE - do rejestracji klienta nasłuchującego
- * CLIENT_DIED - zgłoszenie klienta o zakończeniu pracy, w przypadku, gdy dany klient był zarejestrowanych jako słuchacz, należy postąpić z nim podobnie, jak w przypadku UNSUBSCRIBE
 
-Dodatkowo, co jest zalecane, sterownik powinien przy poprawnym zamykaniu się, wysłać do mediatora komunikat typu DRIVER_DIED.
+    * **DATA** - dane do przetworzenia przez sterownik, odebrane od klienta
+    * **PING** - zapytanie o działanie, realizowane przez mediator, obecnie nie używane, odpowiedzią na zapytanie jest odesłanie wiadomości typu PONG
+    * **SUBSCRIBE** i **UNSUBSCRIBE** - do rejestracji klienta nasłuchującego
+    * **CLIENT_DIED** - zgłoszenie klienta o zakończeniu pracy, w przypadku, gdy dany klient był zarejestrowanych jako słuchacz, należy postąpić z nim podobnie, jak w przypadku **UNSUBSCRIBE**
+
+Dodatkowo, co jest zalecane, sterownik powinien przy poprawnym zamykaniu się, wysłać do mediatora komunikat typu **DRIVER_DIED**.
 
 Oprócz obsługi wiadomości, sterownik powinien realizować:
 
