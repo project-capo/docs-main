@@ -61,6 +61,9 @@ Oprócz obsługi wiadomości, sterownik powinien realizować:
 * buforowanie danych z urządzenia
 * współbieżny dostęp do urządzenia
 
+Przykład
+--------
+
 Przykładem sterownika, który realizuje powyższe funkcjonalności jest `DummyDriver`_. Sterowniki korzystają z `części wspólnej`_.
 
 .. _DummyDriver: https://github.com/dev-amber/amber-python-drivers/blob/master/src/amber/dummy/dummy.py
