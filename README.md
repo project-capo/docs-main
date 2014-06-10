@@ -1,4 +1,4 @@
-Dokumentacja
-============
+Documentation
+=============
 
-Dokumentacja techniczna do projektu, nie będąca częścią pracy magisterskiej.
+Documentation for project Amber. Howto start with Panda and Amber on fresh board.
