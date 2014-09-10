@@ -31,7 +31,7 @@ W celu instalacji erlanga, potrzeba dodać repozytoria ``backports`` i ``updates
     ...
 
 * **Dodać** użytkownika ``panda``.
-* **Zmienić** plik odpowiedzialny za grupy użytkowników ``/etc/groups``:
+* **Zmienić** plik odpowiedzialny za grupy użytkowników ``/etc/group``:
 ::
 
     ...
@@ -112,7 +112,7 @@ Następnie należy pobrać i zainstalować *Amber* wraz z dodatkami.
         popd
         git clone https://github.com/dev-amber/amber-python-drivers.git
         pushd ${HOME}/amber/amber-python-drivers
-            ${HOME}/amber/amber-python-drivers/install.sh
+            ${HOME}/amber/amber-python-drivers/bin/install.sh
         popd
         git clone https://github.com/dev-amber/amber-main.git
         pushd ${HOME}/amber/amber-main
