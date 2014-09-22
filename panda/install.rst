@@ -95,6 +95,7 @@ Drugie uruchomienie konfiguracyjne
 
 * **Połączyć** płytkę, kablem sieciowym, z siecią, w której znajduje się Twój komputer.
 * **Zalogować** się do systemu poprzez ssh: ``ssh root@192.168.2.50``.
+* **Usunąć** linię ``yes | apt-get install openssh-server`` z pliku ``/etc/rc.local``.
 
 Następnie należy **przerwać** konfigurację płytki z wykorzystaniem kreatora, który działa na konsoli.
 
@@ -118,7 +119,7 @@ Następnie należy **przerwać** konfigurację płytki z wykorzystaniem kreatora
 
 * **Zaktualizować** system poprzez **aptitude**.
 
-Polecam wykonać tę operację przez ``aptitude``. Początkowo należy pobrać nowe informacje z repozytorium, poprzez ``aptitude update``. Następnie, korzystając z UI, zaktualizować istniejące pakiety, z najmniej nowo instalowanym pakietami. Polecam wyłączyć opcję instalowania polecanych pakietów. Wymaga zrestartowania aplikacji.
+**Polecam** wykonać tę operację przez ``aptitude``. **Polecam** wyłączyć opcję instalowania polecanych pakietów ([Ctrl]+[t] i wybór menu ``Options`` → ``Preferences`` i odznaczyć ``Install recommended packages automatically``). **Wymaga** zrestartowania aplikacji. Początkowo należy pobrać nowe informacje z repozytorium, poprzez ``aptitude update``. Następnie, korzystając z UI, zaktualizować istniejące pakiety, z najmniej nowo instalowanym pakietami.
 
 * **Zainstalować** dodatkowe oprogramowanie, jak na przykład: ``htop``, ``psmisc``, ``mc``, ``unzip``, ``screen``, ``bash-completion``, ``cpufrequtils``.
 
@@ -159,6 +160,10 @@ Post-konfiguracja
     ...
     GOVERNOR="performance"
     ...
+
+* **Zwrócić** uwagę na obecność skryptu ``/etc/init.d/ondemand``. Możliwe zmiany
+ * Wywołać ``update-rc.d ondemand remove``.
+ * W linii 27 pliku ``/etc/init.d/ondemand`` zmienić ``ondemand`` na ``performance``.
 
 .. _Ubuntu Server 12.04 amrhf+omap4: http://cdimage.ubuntu.com/releases/12.04/release/ubuntu-12.04-preinstalled-server-armhf+omap4.img.gz
 .. _Ubuntu: http://cdimage.ubuntu.com/releases/12.04/release/
