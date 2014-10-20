@@ -21,7 +21,7 @@ Kolejno wykonać co następuje:
 
     aptitude update
     aptitude install -y
-    aptitude install -y wpasupplicant # do obsługi sieci bezprzewodowej
+    aptitude install -y wpasupplicant wireless-tools # do obsługi sieci bezprzewodowej
     aptitude install -y htop psmisc mc unzip bash-completion cpufrequtils ntp # dodatkowe narzędzia
 
 * **Zmienić** ustawienia sieci, w pliku ``/etc/network/interfaces`` - dodać ustawienia sieci bezprzewodowej:
