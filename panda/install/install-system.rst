@@ -20,3 +20,8 @@ lub:
 * **Wyciągnąć** kartę z czytnika kart komputera.
 * **Umieścić** kartę w czytniku kart *PandaBoard*.
 * **Uruchomić** *PandaBoard* wykorzystując oryginalny zasilacz prądu stałego 5V i natężeniu ~ 2.5A.
+
+.. _Ubuntu Server 12.04 amrhf+omap4: http://cdimage.ubuntu.com/releases/12.04/release/ubuntu-12.04-preinstalled-server-armhf+omap4.img.gz
+.. _Ubuntu: http://cdimage.ubuntu.com/releases/12.04/release/
+.. _serwerze: http://cdimage.ubuntu.com/releases/12.04/release/MD5SUMS
+.. _ARM/OMAP: https://wiki.ubuntu.com/ARM/OMAP

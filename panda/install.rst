@@ -3,10 +3,10 @@ Instalacja
 
 .. toctree::
 
-    install-system
-    first-run
-    prepare-to-configuration
-    second-run
-    upload-system
-    post-configuration
-    more
+    install/install-system
+    install/first-run
+    install/prepare-to-configuration
+    install/second-run
+    install/update-system
+    install/post-configuration
+    install/more
