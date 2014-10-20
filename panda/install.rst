@@ -2,6 +2,7 @@ Instalacja
 ==========
 
 .. toctree::
+    :maxdepth: 2
 
     install-system
     first-run
