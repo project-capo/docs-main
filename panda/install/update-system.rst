@@ -17,6 +17,7 @@ Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
 * Odznaczyć ``Install recommended packages automatically``
 
 Kolejno wykonać co następuje:
+::
 
     aptitude update
     aptitude install -y
@@ -44,6 +45,7 @@ Kolejno wykonać co następuje:
 W celu poprawnego działania sieci bezprzewodowej wymagane jest ustawienie adresu MAC kart bezprzewodowej.
 
 Powyższe ustawienia sieci bezprzewodowej dotyczą sieci *Robolab*. Aktualne hasło do sieci *Robolab* udostępnione jest w laboratorium, w ogłoszeniach znajdujących się w widocznym miejscu. Adresy przydzielane są w oparciu o adresy MAC urządzeń bezprzewodowych. W sieci laboratoryjnej prefiksem MAC jest ``de:ad:be:ef:00:**``. Ostatnie dwa znaki heksadecymalne określają przypisywany adres IP, według następującego schematu:
+::
 
     de:ad:be:ef:00:00 - 192.168.2.200
     de:ad:be:ef:00:01 - 192.168.2.201
