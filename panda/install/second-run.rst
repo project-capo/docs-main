@@ -2,7 +2,7 @@ Drugie uruchomienie konfiguracyjne
 ----------------------------------
 
 * **Zalogować** się do systemu poprzez SSH: ``ssh root@192.168.2.50``.
-* **Ustawić** hasło dla użytkownika ``root`` przy pomocy ``passwd``.
+* **Ustawić** hasło dla użytkownika ``root`` przy pomocy ``passwd root``. Domyślny hasłem dla roota w *Robolab* jest ``panda2013``.
 * **Usunąć** linię ``apt-get install -y openssh-server`` z pliku ``/etc/rc.local``.
 * **Ustawić** nazwę systemu w plikach:
 

@@ -1,7 +1,28 @@
 Klienci
 =======
 
+Wspierani klienci
+-----------------
+
+* `amber-java-clients`_ - jest to projekt dostarczają klientów, napisanych w *Java*, używanych przez korzystających z robota, w ich własnych aplikacjach, obsługiwane są:
+
+    * **Roboclaw**
+    * **Hokuyo**
+    * **Ninedof**
+
+* `amber-python-clients`_ jest to projekt dostarczają klientów, napisanych w *python*, używanych przez korzystających z robota, w ich własnych aplikacjach, obsługiwane są:
+
+    * **Roboclaw**
+    * **Hokuyo**
+    * **Ninedof**
+
+.. _amber-java-clients: https://github.com/project-capo/amber-java-clients
+.. _amber-python-clients: https://github.com/project-capo/amber-python-clients
+
 Poniżej znajdziemy opis korzystania z klientów oraz możliwości ich dalszego rozszerzania.
+
+Cechy klienta
+-------------
 
 Klient jest:
 
@@ -20,5 +41,5 @@ Przykład
 
 Przykładem klienta, który realizuje powyższe funkcjonalności jest `DummyClient`_. Klienci korzystają z `części wspólnej`_.
 
-.. _DummyClient: https://github.com/dev-amber/amber-python-clients/blob/master/src/amber/dummy/dummy.py
-.. _części wspólnej: https://github.com/dev-amber/amber-python-clients/tree/master/src/amber/common
+.. _DummyClient: https://github.com/project-capo/amber-python-clients/blob/master/src/amber/dummy/dummy.py
+.. _części wspólnej: https://github.com/project-capo/amber-python-clients/tree/master/src/amber/common
