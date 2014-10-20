@@ -1,7 +1,20 @@
 Sterowniki
 ==========
 
-Poniżej znajdziemy opis korzystania z sterowników oraz możliwości ich dalszego rozszerzania.
+Wspierane sterowniki
+--------------------
+
+* `amber-cpp-drivers`_ jest to projekt sterowników, napisanych w *C/C++*, które pozwalają na komunikację z urządzeniami umieszczonymi na robocie. Wspierane są:
+
+    * **Roboclaw** - sterowanie silnikami robota
+    * **Ninedof** - odczytywanie informacji z sensora umieszczonego na robocie, dostarczającego informacji z przyspieszeniomierza, żyroskopu oraz magnetometru
+
+* `amber-python-drivers`_ jest to projekt sterowników, napisanych w *python*, które pozwalają na komunikację z urządzeniami umieszczonymi na robocie. Wspierane są:
+
+    * **Hokuyo** - odczytywanie informacji z sensora umieszczonego na robocie, dostarczającego informacji o odległościach innych przeszkód od robota
+
+.. _amber-cpp-drivers: https://github.com/project-capo/amber-cpp-drivers
+.. _amber-python-drivers: https://github.com/project-capo/amber-python-drivers
 
 Konfiguracja z mediatorem
 -------------------------
@@ -24,7 +37,10 @@ Konfiguracja jednego z sterowników::
 
 Ścieżki konfiguracji nie są wymagane, ważne jest podanie ścieżki do pliku wykonywalnego, który uruchomi sterownik.
 
-.. _konfiguracji Amber: https://github.com/dev-amber/amber-main/blob/master/apps/amber/priv/settings.config.example
+.. _konfiguracji Amber: https://github.com/project-capo/amber-main/blob/master/apps/amber/priv/settings.config.example
+
+Cechy sterownika
+----------------
 
 Sterownik jest:
 
@@ -66,5 +82,5 @@ Przykład
 
 Przykładem sterownika, który realizuje powyższe funkcjonalności jest `DummyDriver`_. Sterowniki korzystają z `części wspólnej`_.
 
-.. _DummyDriver: https://github.com/dev-amber/amber-python-drivers/blob/master/src/amber/dummy/dummy.py
-.. _części wspólnej: https://github.com/dev-amber/amber-python-drivers/blob/master/src/amber/common/amber_pipes.py
+.. _DummyDriver: https://github.com/project-capo/amber-python-drivers/blob/master/src/amber/dummy/dummy.py
+.. _części wspólnej: https://github.com/project-capo/amber-python-drivers/blob/master/src/amber/common/amber_pipes.py

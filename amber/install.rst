@@ -1,7 +1,9 @@
 Instalacja i uruchomienie
 =========================
 
-Przeprowadzenie instalacji odbyć można na dowolnym systemie Linux. Nie mniej jednak, funkcjonalności, które dostarczane są przez poszczególne sterowniki dostępne są *tylko* na robotach w laboratorium *Robolab*.
+Przeprowadzenie instalacji odbyć można na dowolnym systemie linux.
+
+Funkcjonalności, które dostarczane są przez poszczególne sterowniki dostępne są *tylko* na robotach w laboratorium *Robolab*.
 
 .. toctree::
 

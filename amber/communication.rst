@@ -40,9 +40,9 @@ Nagłówek oraz wiadomość są binarnymi ciągami znaków. Należy zwrócić uw
 
 Do serializacji i deserializacji wykorzystywane jest *Google Protobuf*. Wymagane jest, by co najmniej nagłówek był zgodny z przyjętym w mediatorze. Wiadomości przesyłane przez mediator nie są sprawdzane i może to być dowolny ciąg znaków. Zaleca się, by to było zgodne z protobuf i postacią wiadomości przyjętą w projekcie.
 
-Aktualna postać nagłówka i podstawowej wiadomości dostępna jest `dev-amber/amber-common/drivermsg.proto`_.
+Aktualna postać nagłówka i podstawowej wiadomości dostępna jest `project-capo/amber-common/drivermsg.proto`_.
 
-.. _dev-amber/amber-common/drivermsg.proto: https://github.com/dev-amber/amber-common/blob/master/proto/drivermsg.proto
+.. _project-capo/amber-common/drivermsg.proto: https://github.com/project-capo/amber-common/blob/master/proto/drivermsg.proto
 
 Komunikaty
 ----------
