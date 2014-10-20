@@ -3,8 +3,6 @@ Amber
 
 Komponenty Amber zaczynają się od `amber-erlang-mediator`_. Jest to projekt mediatora, który to dostarcza mechanizmu komunikacji pomiędzy poszczególnymi `sterownikami`_ oraz `klientami`_.
 
-Repozytoria `Amber`_ zaczynają się od `amber-main`_. Jest to projekt mediatora, który to dostarcza mechanizmu komunikacji pomiędzy poszczególnymi `sterownikami`_ oraz `klientami`_.
-
 W standardowym modelu zakłada się, że:
 
 * istnieje jeden mediator
