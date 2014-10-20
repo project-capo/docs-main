@@ -1,5 +1,5 @@
-Dokumentacja mgr-docs!
-======================
+Dokumentacja projektu Capo
+==========================
 
 Zawartość
 ---------
