@@ -20,5 +20,5 @@ Drugie uruchomienie konfiguracyjne
 Następnie należy **przerwać** konfigurację płytki z wykorzystaniem kreatora, który działa na konsoli (dostępnej przy instalacji z wykorzystaniem monitora i klawiatury).
 
 * **Wywołać** polecenie ``fuser -k /var/cache/debconf/config.dat`` do oporu.
-* **Usunąć** pakiet ``oem-config`` (z wykorzystaniem ``aptitude``) oraz katalog ``/var/lib/oem-config``.
+* **Usunąć** pakiet ``oem-config`` (z wykorzystaniem ``aptitude`` - ``aptitude purge oem-config``) oraz katalog ``/var/lib/oem-config``.
 * **Zrestartować** system poprzez ``reboot``.
