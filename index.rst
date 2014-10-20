@@ -5,7 +5,7 @@ Zawartość
 ---------
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 2
 
     panda/index
     amber/index
