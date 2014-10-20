@@ -77,7 +77,7 @@ Modyfikacja plików konfiguracyjnych
     chown root:dialout /dev/i2c*
     chmod 660 /dev/i2c*
 
-    #su - panda -c "/home/panda/amber/amber-main/start_amber.sh"
+    #su - panda -c "/home/panda/amber/amber-erlang-mediator/start_amber.sh"
 
     exit 0
 
