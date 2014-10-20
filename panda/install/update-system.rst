@@ -1,18 +1,27 @@
 Aktualizacja systemu
 --------------------
 
-* **Zainstalować** screen poprzez ``aptitude install screen``.
-* **Uruchomić** screen.
+* **Zainstalować** *screen* poprzez ``aptitude install screen``.
+* **Uruchomić** *screen* poprzez ``screen``.
 * **Zaktualizować** system poprzez ``do-release-upgrade``.
 
-Proces aktualizacji może trwać długo. Z wykorzystaniem screen możliwe jest odłączenie się od konsoli poprzez kombinacje klawiszy ``[Ctrl]+[a]`` i ``[d]``.
+Proces aktualizacji może trwać długo. Z wykorzystaniem screen możliwe jest odłączenie się od konsoli poprzez kombinacje klawiszy ``[Ctrl]+[a]`` i ``[d]``. Ponownie podłączenie poprzez polecenie ``screen -r``.
 
-* **Zaktualizować** system poprzez **aptitude**.
+Proszę monitorować stan aktualizacji. W trakcie aktualizacji pojawiać się będą pytania do akceptacji lub nie. Po zakończeniu procesu aktualizacji system zostanie uruchomiony ponownie, co wymaga potwierdzenia.
 
-**Polecam** wykonać tę operację przez ``aptitude``. **Polecam** wyłączyć opcję instalowania polecanych pakietów ([Ctrl]+[t] i wybór menu ``Options`` → ``Preferences`` i odznaczyć ``Install recommended packages automatically``). **Wymaga** zrestartowania aplikacji. Początkowo należy pobrać nowe informacje z repozytorium, poprzez ``aptitude update`` lub ``[u]``. Następnie, korzystając z UI, zaktualizować istniejące pakiety, z *najmniej* nowo instalowanym pakietami.
+Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
 
-* **Zainstalować** ``wpasupplicant`` do obsługi sieci bezprzewodowej.
-* **Zainstalować** dodatkowe oprogramowanie: ``htop``, ``psmisc``, ``mc``, ``unzip``, ``bash-completion``, ``cpufrequtils``.
+* Uruchomić ``aptitude``.
+* Skrót klawiszowy [Ctrl]+[t]
+* Wybór menu ``Options`` → ``Preferences``
+* Odznaczyć ``Install recommended packages automatically``
+
+Kolejno wykonać co następuje:
+
+    aptitude update
+    aptitude install -y
+    aptitude install -y wpasupplicant # do obsługi sieci bezprzewodowej
+    aptitude install -y htop psmisc mc unzip bash-completion cpufrequtils # dodatkowe narzędzia
 
 * **Zmienić** ustawienia sieci, w pliku ``/etc/network/interfaces`` - dodać ustawienia sieci bezprzewodowej:
 ::
