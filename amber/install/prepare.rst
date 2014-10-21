@@ -9,8 +9,8 @@ Do pracy z platformą *Amber* potrzebne są narzędzia:
 
     git make
     erlang
-    g++ libcxxtools-dev
-    libboost-dev liblog4cxx10-dev libboost-program-options-dev libboost-thread-dev
+    g++ libcxxtools-dev liblog4cxx10-dev
+    libboost-dev libboost-program-options-dev libboost-thread-dev libboost-system-dev
     protobuf-compiler libprotoc-dev
     python python-dev python-setuptools python-pip python-virtualenv
 
