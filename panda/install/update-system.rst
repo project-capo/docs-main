@@ -9,6 +9,10 @@ Proces aktualizacji może trwać długo. Z wykorzystaniem screen możliwe jest o
 
 Proszę monitorować stan aktualizacji. W trakcie aktualizacji pojawiać się będą pytania do akceptacji lub nie. Po zakończeniu procesu aktualizacji system zostanie uruchomiony ponownie, co wymaga potwierdzenia.
 
+.. note::
+
+    Interesującym miejscem, gdzie znajdują się pakiety używane na PandaBoard jest http://ports.ubuntu.com/ w `linux-ti-omap`_
+
 Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
 
 * Uruchomić ``aptitude``.
@@ -55,3 +59,5 @@ Powyższe ustawienia sieci bezprzewodowej dotyczą sieci *Robolab*. Aktualne has
 
 * **Zrestartować** system.
 * **Połączyć** się podając przydzielony przez router adres IP (*polecam* sprawdzić przypisany adres IP poprzez interfejs administratora routera).
+
+.. _linux-ti-omap: http://ports.ubuntu.com/pool/main/l/linux-ti-omap4/
