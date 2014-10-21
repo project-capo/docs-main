@@ -69,7 +69,7 @@ Obecna numeracja typów sterowników ``DeviceType``:
 * 3 - **Stargazer** (położenie w oparciu o znaczniki)
 * 4 - **Hokuyo** (laser)
 * 5 - **Dummy** (testowy)
-* 6 - **Location* (położenie w oparciu o skany z lasera i względne przemieszczenie)
+* 6 - **Location** (położenie w oparciu o skany z lasera i względne przemieszczenie)
 * 7 - **Hitec** (servo)
 
 Obecne typy wiadomości ``DriverMsg``:
