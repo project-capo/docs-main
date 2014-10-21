@@ -37,7 +37,7 @@ Konfiguracja jednego z sterowników::
 
 Ścieżki konfiguracji nie są wymagane, ważne jest podanie ścieżki do pliku wykonywalnego, który uruchomi sterownik.
 
-.. _konfiguracji Amber: https://github.com/project-capo/amber-main/blob/master/apps/amber/priv/settings.config.example
+.. _konfiguracji Amber: https://github.com/project-capo/amber-erlang-mediator/blob/master/apps/amber/priv/settings.config.example
 
 Cechy sterownika
 ----------------
