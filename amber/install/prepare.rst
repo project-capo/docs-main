@@ -85,11 +85,13 @@ Utworzenie użytkownika
 ~~~~~~~~~~~~~~~~~~~~~~
 
 * **Dodać** użytkownika ``panda``.
-* **Dodać** użytkownika ``panda`` do grupy ``dialout``. Plik odpowiedzialny za grupy użytkowników ``/etc/group``:
+* **Dodać** użytkownika ``panda`` do grup ``dialout`` i ``sudo`` przy pomocy polecenia ``adduser panda dialout; adduser panda sudo``. Plik odpowiedzialny za grupy użytkowników ``/etc/group``:
 ::
 
     ...
     dialout:x:20:panda
+    ...
+    sudo:x:27:panda
     ...
 
 * **Utworzyć** hasło dla użytkownika ``panda``: ``passwd panda``. Domyślny hasłem dla ``panda`` w *Robolab* jest hasło ``panda2013``.
