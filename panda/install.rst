@@ -5,7 +5,7 @@ Do przeprowadznia procesu instalacji potrzebne jest:
 
 * karta SD, minimum 8GB, dostępne w laboratorium
 * czytnik kart SD w komputerze
-* PandaBoard z zasilaczem
+* PandaBoard z zasilaczem prądu stałego 5V i natężeniu ~ 2.5A
 * router z Access Point
 * opcjonalnie monitor z wejściem HDMI oraz klawiatura na USB
 
