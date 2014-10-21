@@ -6,6 +6,7 @@ Post-konfiguracja
 
     ...
     i2c-dev
+    
 
 * **Zmienić** ``/etc/init.d/cpufrequtils``:
 ::
