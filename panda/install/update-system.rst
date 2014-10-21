@@ -73,13 +73,13 @@ W celu poprawnego działania sieci bezprzewodowej wymagane jest ustawienie adres
 
     Powyższe ustawienia sieci bezprzewodowej dotyczą sieci *Robolab*. Aktualne hasło do sieci *Robolab* udostępnione jest w laboratorium, w ogłoszeniach znajdujących się w widocznym miejscu. Adresy przydzielane są w oparciu o adresy MAC urządzeń bezprzewodowych. W sieci laboratoryjnej prefiksem MAC jest ``de:ad:be:ef:00:**``. Ostatnie dwa znaki heksadecymalne określają przypisywany adres IP, według następującego schematu:
 
-.. code-block::
-
-    de:ad:be:ef:00:00 - 192.168.2.200
-    de:ad:be:ef:00:01 - 192.168.2.201
-    ...
-    de:ad:be:ef:00:09 - 192.168.2.209
-    de:ad:be:ef:00:10 - 192.168.2.210
+    ::
+    
+        de:ad:be:ef:00:00 - 192.168.2.200
+        de:ad:be:ef:00:01 - 192.168.2.201
+        ...
+        de:ad:be:ef:00:09 - 192.168.2.209
+        de:ad:be:ef:00:10 - 192.168.2.210
 
 * **Zrestartować** system.
 * **Połączyć** się podając przydzielony przez router adres IP (*polecam* sprawdzić przypisany adres IP poprzez interfejs administratora routera).
