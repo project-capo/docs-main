@@ -18,7 +18,7 @@ Przygotowanie systemu do konfiguracji
 Powyższa konfiguracja dotyczy przypisania adresu ``192.168.2.50`` w sieci ``192.168.2.0/24`` do portu Ethernet znajdującego się na płytce. Dodatkowo, wskazywana jest brama domyślna o adresie ``192.168.2.1`` oraz serwer nazw DNS ``8.8.8.8``.
 
 
-.. _note:
+.. warning::
 
     **Uwaga!** Powyższa adresacja IPv4 stosowana jest w sieci *Robolab*. W twoim przypadku może być ona inna. Proszę, zwróć uwagę na adresację portu Ethernet.
 
