@@ -8,6 +8,8 @@ Wspierane sterowniki
 
     * **Roboclaw** - sterowanie silnikami robota
     * **Ninedof** - odczytywanie informacji z sensora umieszczonego na robocie, dostarczającego informacji z przyspieszeniomierza, żyroskopu oraz magnetometru
+    * **Hitec** - servo-mechanizmy wykorzystywane w ramieniu
+    * **Location** - programowa obsługa lokalizacji z wykorzystaniem algorytmu cząstek i analizy trakcji
 
 * `amber-python-drivers`_ jest to projekt sterowników, napisanych w *python*, które pozwalają na komunikację z urządzeniami umieszczonymi na robocie. Wspierane są:
 
@@ -45,19 +47,23 @@ Cechy sterownika
 Sterownik jest:
 
 * aplikacją uruchamianą na robocie
-* komunikującą się z urządzeniem podłączonym do robota
-* komunikującą się z mediatorem poprzez potoki
+* app. komunikującą się z urządzeniem podłączonym do robota
+* app. komunikującą się z mediatorem przez potoki powłoki systemu linux
 
 Sterownik odpowiada za:
 
 * ustawienie parametrów urządzenia
-* współbieżny dostęp do urządzenia przez wiele klientów
+* wsparcie obsługi współbieżnego dostęp do urządzenia przez wiele klientów
 * obserwowanie obecności klientów
-* wysyłanie wiadomości dla klientów, którzy zarejestrowali się jako nasłuchujący
+* wysyłanie wiadomości dla klientów, którzy zarejestrowali się jako nasłuchujący na dany typ wiadomości
 * odbieranie komunikatów, ich obsługę i odsyłanie wiadomości, jeśli to konieczne
 
 Działanie
 ---------
+
+.. warning:
+
+    Poniższe zalecenia wynikają z postaci wspólnej wszystkich wiadomości przesyłanych między klientami a sterownikami. Stosowanie `DriverMsg`_ nie jest konieczne. Możliwe jest ustanowienie własnej postaci wiadomości, przy czym obecna postać sterowników i klientów nie wspiera własnej postaci wiadomości.
 
 Sterownik powinien realizować funkcjonalności takie jak:
 
@@ -76,6 +82,8 @@ Oprócz obsługi wiadomości, sterownik powinien realizować:
 * ustawienie określonych parametrów pracy
 * buforowanie danych z urządzenia
 * współbieżny dostęp do urządzenia
+
+.. _DriverMsg: https://github.com/project-capo/amber-common/blob/master/proto/drivermsg.proto
 
 Przykład
 --------
