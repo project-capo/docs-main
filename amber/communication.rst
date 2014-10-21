@@ -25,7 +25,7 @@ Komunikacja i protokół
 
 Sterownik komunikuje się z mediatorem przy pomocy potoków. Są to potoki standardowego wyjścia i wejścia. Wymagane jest, by sterownik na standardowym wejściu oczekiwał na dane, a na standardowe wyjście umieszczał dane.
 
-Klient komunikuje się z mediatorem przy pomocy połączenia sieciowego, UDP. Mediator nasłuchuje na dostępnych interfejsach systemu, na porcie ``26233``.
+Klient komunikuje się z mediatorem przy pomocy datagramowego połączenia sieciowego ``UDP``. Mediator nasłuchuje na dostępnych interfejsach systemu, na porcie ``26233``.
 
 Protokół komunikacji z mediatorem jest następujący:
 
@@ -38,9 +38,7 @@ Wartość długości powinna być przesyłana w porządku ``big-endian``, zgodna
 
 Nagłówek oraz wiadomość są binarnymi ciągami znaków. Należy zwrócić uwagę na sposób komunikacji z mediatorem poprzez potoki. W przypadku używania języka *python*, należy ustawić działanie interpretera na binarne obsługiwanie wejścia i wyjścia. Możliwe jest to dzięki opcji ``-u``.
 
-Do serializacji i deserializacji wykorzystywane jest *Google Protobuf*. Wymagane jest, by co najmniej nagłówek był zgodny z przyjętym w mediatorze. Wiadomości przesyłane przez mediator nie są sprawdzane i może to być dowolny ciąg znaków. Zaleca się, by to było zgodne z protobuf i postacią wiadomości przyjętą w projekcie.
-
-Aktualna postać nagłówka i podstawowej wiadomości dostępna jest `project-capo/amber-common/drivermsg.proto`_.
+Do serializacji i deserializacji wykorzystywane jest *Google Protobuf*. Wymagane jest, by co najmniej nagłówek był zgodny z przyjętym w mediatorze. Wiadomości przesyłane przez mediator nie są sprawdzane i może to być dowolny ciąg znaków. Zaleca się, by to było zgodne z *protobuf* i postacią wiadomości przyjętą w projekcie. Aktualna postać nagłówka i podstawowej wiadomości dostępna jest `project-capo/amber-common/drivermsg.proto`_.
 
 .. _project-capo/amber-common/drivermsg.proto: https://github.com/project-capo/amber-common/blob/master/proto/drivermsg.proto
 
@@ -68,9 +66,11 @@ Obecna numeracja typów sterowników ``DeviceType``:
 * 0 - nieznany, nieużywany
 * 1 - **NineDof** (czujnik ruchu)
 * 2 - **Roboclaw** (silniki)
-* 3 - nieużywany (dawniej Stargazer)
+* 3 - **Stargazer** (położenie w oparciu o znaczniki)
 * 4 - **Hokuyo** (laser)
 * 5 - **Dummy** (testowy)
+* 6 - **Location** (położenie w oparciu o skany z lasera i względne przemieszczenie)
+* 7 - **Hitec** (servo)
 
 Obecne typy wiadomości ``DriverMsg``:
 

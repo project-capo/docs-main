@@ -5,7 +5,7 @@ Przeprowadzenie instalacji odbyć można na dowolnym systemie linux.
 
 .. note::
 
-    Funkcjonalności, które dostarczane są przez poszczególne sterowniki dostępne są *tylko* na robotach w laboratorium *Robolab*.
+    Funkcjonalności, jakie są dostarczane przez poszczególne sterowniki dostępne są *tylko* na robotach w laboratorium *Robolab*.
 
 .. toctree::
 

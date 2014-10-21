@@ -11,11 +11,18 @@ Do pracy z platformą *Amber* potrzebne są narzędzia:
     git make
     erlang
     g++ libcxxtools-dev liblog4cxx10-dev
-    libboost-dev libboost-program-options-dev libboost-thread-dev libboost-system-dev
-    protobuf-compiler libprotoc-dev
+    libboost-dev libboost-program-options-dev libboost-thread-dev libboost-system-dev protobuf-compiler libprotoc-dev
     python python-dev python-setuptools python-pip python-virtualenv
 
-Należy zainstalować powyższe narzędzia z wykorzystaniem polecenia ``aptitude install``, np. ``aptitude install -y git make``.
+Należy zainstalować powyższe narzędzia z wykorzystaniem polecenia ``aptitude install``:
+
+.. code-block:: sh
+
+    aptitude install -y git make
+    aptitude install -y erlang
+    aptitude install -y g++ libcxxtools-dev liblog4cxx10-dev libboost-dev libboost-program-options-dev libboost-thread-dev libboost-system-dev
+    aptitude install -y protobuf-compiler libprotoc-dev
+    aptitude install -y python python-dev python-setuptools python-pip python-virtualenv
 
 Modyfikacja plików konfiguracyjnych
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -27,7 +34,7 @@ Modyfikacja plików konfiguracyjnych
     ...
     i2c-dev
 
-* **Zmienić** zawartość pliku ``/etc/rc.local``
+* **Zmienić** zawartość pliku ``/etc/rc.local``:
 
 .. code-block:: sh
 
