@@ -2,13 +2,15 @@ Post-konfiguracja
 -----------------
 
 * **Dodać** do ``/etc/modules`` wpis:
-::
+
+.. code-block::
 
     ...
     i2c-dev
 
 * **Zmienić** ``/etc/init.d/cpufrequtils``:
-::
+
+.. code-block::
 
     ...
     GOVERNOR="performance"
