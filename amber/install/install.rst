@@ -32,6 +32,7 @@ Aktualizację platformy *Amber* z dodatkami można wykonać za pomocą poniższe
     popd
     pushd ${HOME}/amber/amber-python-drivers
         ${HOME}/amber/amber-python-drivers/bin/uninstall.sh
+        git pull
         ${HOME}/amber/amber-python-drivers/bin/install.sh
     popd
     pushd ${HOME}/amber/amber-erlang-mediator
