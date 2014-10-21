@@ -3,7 +3,7 @@ Przygotowanie systemu do konfiguracji
 
 * **Zmienić** plik odpowiedzialny za sieć: ``/etc/network/interfaces``
 
-.. code-block::
+::
 
     # interfaces(5) file used by ifup(8) and ifdown(8)
     auto lo
