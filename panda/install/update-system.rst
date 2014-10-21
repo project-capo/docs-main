@@ -39,7 +39,7 @@ Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
 * Wybór menu ``Options`` → ``Preferences``
 * Odznaczyć ``Install recommended packages automatically``
 
-Kolejno wykonać co następuje:
+Kolejno wykonać aktualizaję i zainstalowanie dodatkowych pakietów:
 
 .. code-block:: sh
 
@@ -69,7 +69,9 @@ Kolejno wykonać co następuje:
 
 W celu poprawnego działania sieci bezprzewodowej wymagane jest ustawienie adresu MAC kart bezprzewodowej.
 
-Powyższe ustawienia sieci bezprzewodowej dotyczą sieci *Robolab*. Aktualne hasło do sieci *Robolab* udostępnione jest w laboratorium, w ogłoszeniach znajdujących się w widocznym miejscu. Adresy przydzielane są w oparciu o adresy MAC urządzeń bezprzewodowych. W sieci laboratoryjnej prefiksem MAC jest ``de:ad:be:ef:00:**``. Ostatnie dwa znaki heksadecymalne określają przypisywany adres IP, według następującego schematu:
+.. note::
+
+    Powyższe ustawienia sieci bezprzewodowej dotyczą sieci *Robolab*. Aktualne hasło do sieci *Robolab* udostępnione jest w laboratorium, w ogłoszeniach znajdujących się w widocznym miejscu. Adresy przydzielane są w oparciu o adresy MAC urządzeń bezprzewodowych. W sieci laboratoryjnej prefiksem MAC jest ``de:ad:be:ef:00:**``. Ostatnie dwa znaki heksadecymalne określają przypisywany adres IP, według następującego schematu:
 
 .. code-block::
 
