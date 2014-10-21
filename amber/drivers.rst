@@ -61,9 +61,9 @@ Sterownik odpowiada za:
 Działanie
 ---------
 
-.. warning:
+.. warning::
 
-    Poniższe zalecenia wynikają z postaci wspólnej wszystkich wiadomości przesyłanych między klientami a sterownikami. Stosowanie `DriverMsg`_ nie jest konieczne. Możliwe jest ustanowienie własnej postaci wiadomości, przy czym obecna postać sterowników i klientów nie wspiera własnej postaci wiadomości.
+   Poniższe zalecenia wynikają z postaci wspólnej wszystkich wiadomości przesyłanych między klientami a sterownikami. Stosowanie `DriverMsg`_ nie jest konieczne. Możliwe jest ustanowienie własnej postaci wiadomości, przy czym obecna postać sterowników i klientów nie wspiera własnej postaci wiadomości.
 
 Sterownik powinien realizować funkcjonalności takie jak:
 
