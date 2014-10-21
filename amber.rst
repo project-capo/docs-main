@@ -13,11 +13,10 @@ W standardowym modelu zakłada się, że:
 
     amber/install
     amber/settings
+    amber/device_types
     amber/drivers
     amber/clients
-    amber/device_types
     amber/communication
-    amber/support
 
 .. _sterownikami: ./amber/drivers.html
 .. _klientami: ./amber/clients.html

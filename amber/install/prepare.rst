@@ -5,7 +5,8 @@ Instalacja dodatkowego oprogramowania
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Do pracy z platformą *Amber* potrzebne są narzędzia:
-::
+
+.. code-block:: sh
 
     git make
     erlang
@@ -20,13 +21,15 @@ Modyfikacja plików konfiguracyjnych
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 * **Dodać** wpis do pliku ``/etc/modules`` (jeśli nie zostało wykonane):
+
 ::
 
     ...
     i2c-dev
 
 * **Zmienić** zawartość pliku ``/etc/rc.local``
-::
+
+.. code-block:: sh
 
     #!/bin/sh -e
     #
@@ -85,18 +88,29 @@ Utworzenie użytkownika
 ~~~~~~~~~~~~~~~~~~~~~~
 
 * **Dodać** użytkownika ``panda``.
-* **Dodać** użytkownika ``panda`` do grup ``dialout`` i ``sudo`` przy pomocy polecenia ``adduser panda dialout; adduser panda sudo``. Plik odpowiedzialny za grupy użytkowników ``/etc/group``:
-::
+* **Dodać** użytkownika ``panda`` do grup ``dialout`` i ``sudo`` przy pomocy polecenia ``adduser panda dialout; adduser panda sudo``.
 
-    ...
-    dialout:x:20:panda
-    ...
-    sudo:x:27:panda
-    ...
+.. note::
 
-* **Utworzyć** hasło dla użytkownika ``panda``: ``passwd panda``. Domyślny hasłem dla ``panda`` w *Robolab* jest hasło ``panda2013``.
+    Plik odpowiedzialny za grupy użytkowników ``/etc/group``:
+    
+    .. code-block::
+    
+        ...
+        dialout:x:20:panda
+        ...
+        sudo:x:27:panda
+        ...
+
+* **Utworzyć** hasło dla użytkownika ``panda``: ``passwd panda``.
+
+.. note::
+
+    Domyślny hasłem dla ``panda`` w *Robolab* jest hasło ``panda2013``.
+
 * **Zalogować** się na użytkownika ``panda``: ``su - panda``.
 * **Dodać** swój klucz publiczny SSH do pliku ``/home/panda/.ssh/authorized_keys``
+
 ::
 
     ssh-rsa AAA... user@hostname

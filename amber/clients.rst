@@ -9,6 +9,8 @@ Wspierani klienci
     * **Roboclaw**
     * **Hokuyo**
     * **Ninedof**
+    * **Hitec**
+    * **Location**
 
 * `amber-python-clients`_ jest to projekt dostarczają klientów, napisanych w *python*, używanych przez korzystających z robota, w ich własnych aplikacjach, obsługiwane są:
 
