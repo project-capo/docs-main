@@ -6,6 +6,8 @@ Obecnie obsługiwane są urządzenia:
 * **Ninedof** - odczytywanie wartości z **czujników ruchu**: przyspieszeniomierza, żyroskopu, kompasu
 * **Roboclaw** - sterowanie **silnikami** i odczytywanie aktualnej prędkości każdego silnika
 * **Hokuyo** - odczytywanie wartości **odległości** od otoczenia z skanera laserowego
+* **Hitec** - obsługa **servo** motorów wykorzystywanych w ramieniu
+* **Location** - dostarczanie informacji o **położeniu** robota
 
 Ninedof
 -------
