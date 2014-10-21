@@ -1,7 +1,7 @@
 Instalacja
 ----------
 
-Instalacje należy wykonywać w katalogu domowym użytkownia ``panda``. Należy pobrać i zainstalować *Amber* wraz z dodatkami.
+Instalacje należy wykonywać jako użytkownik ``panda`` w katalogu domowym użytkownia ``panda``: ``/home/panda``. Należy pobrać i zainstalować *Amber* wraz z dodatkami.
 ::
 
     mkdir -p ${HOME}/amber
