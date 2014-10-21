@@ -6,13 +6,15 @@ Instalacja systemu na karcie
 * **Sprawdź** czy karta SD jest w trybie *do zapisu*. Przełącznik powinien być przesunięty do góry, gdzie u góry karty znajdują są styki.
 * **Umieścić** kartę w czytniku kart komputera.
 * **Wywołać** jedno z poniższych poleceń:
-::
+
+.. code-block:: sh
 
     gunzip -c ubuntu-12.04-preinstalled-server-armhf+omap4.img.gz | sudo dd bs=1M of=/dev/<device name>
     sync
 
 lub:
-::
+
+.. code-block:: sh
 
     sudo sh -c 'zcat ubuntu-12.04-preinstalled-server-armhf+omap4.img.gz > /dev/<device name>'
     sync
