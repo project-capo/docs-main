@@ -1,3 +1,6 @@
+Post-konfiguracja
+-----------------
+
 * **Odkomentować** ostatnią linijkę w ``/etc/rc.local``:
 ::
 
