@@ -1,6 +1,0 @@
-Panda
-=====
-
-.. toctree::
-
-    install
