@@ -22,7 +22,7 @@ Przygotowanie systemu do konfiguracji
 
 .. warning::
 
-    **Uwaga!** Powyższa adresacja IPv4 stosowana jest w sieci *Robolab*. W twoim przypadku może być ona inna. Proszę, zwróć uwagę na adresację portu Ethernet.
+    **Uwaga!** Powyższa adresacja IPv4 stosowana jest w sieci w laboratorium. W twoim przypadku może być ona inna. Proszę, zwróć uwagę na adresację portu Ethernet.
 
 * **Zmienić** plik: ``/etc/rc.local``
 
@@ -61,7 +61,7 @@ Przygotowanie systemu do konfiguracji
 
 .. note::
 
-    Powyższe zmiany powodują usunięcie hasła dla konta ``root``. Przy pierwszym logowaniu należy pamiętać o ustawieniu hasła dla administratora. Domyślny hasłem dla roota w *Robolab* jest ``panda2013``.
+    Powyższe zmiany powodują usunięcie hasła dla konta ``root``. Przy pierwszym logowaniu należy pamiętać o ustawieniu hasła dla administratora. Domyślny hasłem dla roota w laboratorium jest ``panda2013``.
 
 * **Dodać** swój klucz publiczny SSH w ``/root/.ssh/authorized_keys``
 
