@@ -6,7 +6,7 @@ Drugie uruchomienie konfiguracyjne
 
 .. note::
 
-    Domyślny hasłem dla roota w *Robolab* jest ``panda2013``.
+    Domyślny hasłem dla roota w laboratorium jest ``panda2013``.
 
 * **Usunąć** linię ``apt-get install -y openssh-server`` z pliku ``/etc/rc.local``.
 * **Ustawić** nazwę systemu w plikach:
