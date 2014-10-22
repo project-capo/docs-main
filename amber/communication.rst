@@ -20,8 +20,8 @@ Cechy mediatora:
     * wykorzystuje informacje o typie i numerze sterownika
 
 
-Komunikacja i protokół
-----------------------
+Protokół
+--------
 
 Sterownik komunikuje się z mediatorem przy pomocy potoków. Są to potoki standardowego wyjścia i wejścia. Wymagane jest, by sterownik na standardowym wejściu oczekiwał na dane, a na standardowe wyjście umieszczał dane.
 
