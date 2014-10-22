@@ -1,6 +1,7 @@
 Uruchomienie
 ~~~~~~~~~~~~
 
+* **Skopiować** przykładowy plik konfiguracyjny ``cp ${HOME}/amber/amber-erlang-mediator/apps/amber/priv/settings.config.example ${HOME}/amber/amber-erlang-mediator/apps/amber/priv/settings.config``.
 * **Uruchomić** ``${HOME}/amber/amber-erlang-mediator/start_amber.sh``
 
 Aby zakończyć pracę mediatora, należy wywołać polecenie ``killall heart``. Logi aplikacji znajdują się w ``${HOME}/amber/amber-main/log*``.
