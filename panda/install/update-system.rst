@@ -13,22 +13,6 @@ Aktualizacja systemu
 
     Proszę monitorować stan aktualizacji. W trakcie aktualizacji pojawiać się będą pytania do akceptacji lub nie. Po zakończeniu procesu aktualizacji system zostanie uruchomiony ponownie, co wymaga potwierdzenia.
 
-Polecam **zaktualizować** ręcznie pakiety odpowiedzialne za jądro systemu:
-
-.. code-block:: sh
-
-    wget http://ports.ubuntu.com/pool/main/l/linux-ti-omap4/linux-image-3.2.0-1455-omap4_3.2.0-1455.75_armhf.deb
-    wget http://ports.ubuntu.com/pool/main/l/linux-ti-omap4/linux-headers-3.2.0-1455-omap4_3.2.0-1455.75_armhf.deb
-    wget http://ports.ubuntu.com/pool/main/l/linux-ti-omap4/linux-headers-3.2.0-1455_3.2.0-1455.75_armhf.deb
-    wget http://ports.ubuntu.com/pool/main/l/linux-ti-omap4/linux-ti-omap4-tools-3.2.0-1455_3.2.0-1455.75_armhf.deb
-    wget http://ports.ubuntu.com/pool/main/l/linux-firmware/linux-firmware_1.127.8_all.deb
-    touch /boot/initrd.img-3.2.0-1455-omap4
-    dpkg -i linux-image-3.2.0-1455-omap4_3.2.0-1455.75_armhf.deb
-    dpkg -i linux-headers-3.2.0-1455-omap4_3.2.0-1455.75_armhf.deb linux-headers-3.2.0-1455_3.2.0-1455.75_armhf.deb
-    dpkg -i linux-ti-omap4-tools-3.2.0-1455_3.2.0-1455.75_armhf.deb
-    dpkg -i linux-firmware_1.127.8_all.deb
-
-
 Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
 
 * Uruchomić ``aptitude``.
@@ -38,17 +22,20 @@ Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
 
 .. seealso::
 
-    Interesującym miejscem, gdzie znajdują się pakiety używane na PandaBoard jest http://ports.ubuntu.com/ w `linux-ti-omap`_. Proponuję dodanie do repozytorium apt repozytoriów *omap*. Polecam **aktualizację** listy pakietów i **instalację** następujących pakietów
-    
-    .. code-block:: sh
-    
-        aptitude install -y software-properties-common
-        add-apt-repository ppa:tiomap-dev/release
-        aptitude update
-        touch /boot/initrd.img-3.13.0-37-generic
-        aptitude install linux-headers-omap linux-image-omap linux-omap
+    Interesującym miejscem, gdzie znajdują się pakiety używane na PandaBoard jest http://ports.ubuntu.com/ w `linux-ti-omap`_.
 
-**Wwykonać** aktualizaję i **zainstalowanie** dodatkowych pakietów:
+
+Po wykonaniu aktualizacji, system nie wspiera WiFi. Należy **dodać** do repozytorium *apt* repozytoriów *omap*. Następnie wykonać **aktualizację** listy pakietów i **instalację** następujących pakietów:
+
+.. code-block:: sh
+
+    aptitude install -y software-properties-common
+    add-apt-repository ppa:tiomap-dev/release
+    aptitude update
+    touch /boot/initrd.img-3.13.0-37-generic
+    aptitude install linux-headers-omap linux-image-omap linux-omap
+
+**Wykonać** ``reboot``. Po ponownym uruchomieniu systemu, **wykonać** aktualizaję i **instalację** dodatkowych pakietów:
 
 .. code-block:: sh
 
