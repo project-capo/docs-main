@@ -13,11 +13,7 @@ Aktualizacja systemu
 
     Proszę monitorować stan aktualizacji. W trakcie aktualizacji pojawiać się będą pytania do akceptacji lub nie. Po zakończeniu procesu aktualizacji system zostanie uruchomiony ponownie, co wymaga potwierdzenia.
 
-.. seealso::
-
-    Interesującym miejscem, gdzie znajdują się pakiety używane na PandaBoard jest http://ports.ubuntu.com/ w `linux-ti-omap`_
-
-**Zalecam** zaktualizować ręcznie pakiety odpowiedzialne za jądro systemu:
+Polecam **zaktualizować** ręcznie pakiety odpowiedzialne za jądro systemu:
 
 .. code-block:: sh
 
@@ -32,6 +28,7 @@ Aktualizacja systemu
     dpkg -i linux-ti-omap4-tools-3.2.0-1455_3.2.0-1455.75_armhf.deb
     dpkg -i linux-firmware_1.127.8_all.deb
 
+
 Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
 
 * Uruchomić ``aptitude``.
@@ -39,7 +36,19 @@ Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
 * Wybór menu ``Options`` → ``Preferences``
 * Odznaczyć ``Install recommended packages automatically``
 
-Kolejno wykonać aktualizaję i zainstalowanie dodatkowych pakietów:
+.. seealso::
+
+    Interesującym miejscem, gdzie znajdują się pakiety używane na PandaBoard jest http://ports.ubuntu.com/ w `linux-ti-omap`_. Proponuję dodanie do repozytorium apt repozytoriów *omap*. Polecam **aktualizację** listy pakietów i **instalację** następujących pakietów
+    
+    .. code-block:: sh
+    
+        aptitude install -y software-properties-common
+        add-apt-repository ppa:tiomap-dev/release
+        aptitude update
+        touch /boot/initrd.img-3.13.0-37-generic
+        aptitude install linux-headers-omap linux-image-omap linux-omap
+
+**Wwykonać** aktualizaję i **zainstalowanie** dodatkowych pakietów:
 
 .. code-block:: sh
 
