@@ -8,7 +8,12 @@ Instalacja systemu na karcie
     Więcej informacji na temat wsparcia Ubuntu dla płyt opartych o OMAP dostępne jest na stronie `ARM/OMAP`_.
 
 * **Sprawdzić** sumy kontroler md5 z dostępnymi na `serwerze`_.
-* **Sprawdź** czy karta SD jest w trybie *do zapisu*. Przełącznik powinien być przesunięty do góry, gdzie u góry karty znajdują są styki.
+* **Sprawdź** czy karta SD jest w trybie *do zapisu*.
+
+.. note::
+
+    Przełącznik powinien być przesunięty do góry, gdzie u góry karty znajdują są styki.
+
 * **Umieścić** kartę w czytniku kart komputera.
 * **Wywołać** jedno z poniższych poleceń:
 
