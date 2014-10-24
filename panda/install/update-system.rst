@@ -35,18 +35,19 @@ Po wykonaniu aktualizacji, system nie wspiera WiFi. Należy **dodać** do repozy
     touch /boot/initrd.img-3.13.0-37-generic
     aptitude install linux-headers-omap linux-image-omap linux-omap
 
-**Wykonać** ``reboot``. Po ponownym uruchomieniu systemu, **wykonać** aktualizaję i **instalację** dodatkowych pakietów:
+* **Wykonać** ``reboot``. Po ponownym uruchomieniu systemu, **wykonać** aktualizaję i **instalację** dodatkowych pakietów:
 
 .. code-block:: sh
 
     aptitude update
     aptitude install -y
-    aptitude install -y wpasupplicant wireless-tools # do obsługi sieci bezprzewodowej
+    aptitude install -y wpasupplicant wireless-tools wireless-crda wireless-regdb # do obsługi sieci bezprzewodowej
     aptitude install -y htop psmisc mc unzip bash-completion cpufrequtils ntp # dodatkowe narzędzia
 
+* **Dodać** do pliku ``/etc/rc.local`` linijkę ``iw reg set PL``. 
 * **Zmienić** ustawienia sieci, w pliku ``/etc/network/interfaces`` - dodać ustawienia sieci bezprzewodowej:
 
-.. code-block::
+::
 
     # interfaces(5) file used by ifup(8) and ifdown(8)
     auto lo
@@ -60,14 +61,14 @@ Po wykonaniu aktualizacji, system nie wspiera WiFi. Należy **dodać** do repozy
     auto wlan0
     iface wlan0 inet dhcp
         pre-up  ifconfig wlan0 hw ether de:ad:be:ef:00:10
-        wpa-ssid "Robolab"
+        wpa-ssid "robolab"
         wpa-psk  "password"
 
 W celu poprawnego działania sieci bezprzewodowej wymagane jest ustawienie adresu MAC kart bezprzewodowej.
 
 .. note::
 
-    Powyższe ustawienia sieci bezprzewodowej dotyczą sieci bezprzewodowej *Robolab* w laboratorium. Aktualne hasło do sieci *Robolab* udostępnione jest w laboratorium, w ogłoszeniach znajdujących się w widocznym miejscu. Adresy przydzielane są w oparciu o adresy MAC urządzeń bezprzewodowych. W sieci laboratoryjnej prefiksem MAC jest ``de:ad:be:ef:00:**``. Ostatnie dwa znaki heksadecymalne określają przypisywany adres IP, według następującego schematu:
+    Powyższe ustawienia sieci bezprzewodowej dotyczą sieci bezprzewodowej *robolab* w laboratorium. Aktualne hasło do sieci *robolab* udostępnione jest w laboratorium, w ogłoszeniach znajdujących się w widocznym miejscu. Adresy przydzielane są w oparciu o adresy MAC urządzeń bezprzewodowych. W sieci laboratoryjnej prefiksem MAC jest ``de:ad:be:ef:00:**``. Ostatnie dwa znaki heksadecymalne określają przypisywany adres IP, według następującego schematu:
 
     ::
     
