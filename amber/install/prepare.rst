@@ -113,7 +113,7 @@ Utworzenie użytkownika
 
 .. note::
 
-    Domyślny hasłem dla ``panda`` w *Robolab* jest hasło ``panda2013``.
+    Domyślny hasłem dla ``panda`` w laboratorium jest hasło ``panda2013``.
 
 * **Zalogować** się na użytkownika ``panda``: ``su - panda``.
 * **Dodać** swój klucz publiczny SSH do pliku ``/home/panda/.ssh/authorized_keys``
