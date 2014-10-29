@@ -11,11 +11,8 @@ Post-konfiguracja
 
     exit 0
 
-* **Zmienić** plik konfiguracyjny mediatora. Ustawienie sterowników obsługiwanych przez mediator:
+* **Skopiować** przykładowy plik konfiguracyjny:
 
 .. code-block:: sh
 
-    pushd ${HOME}/amber/amber-erlang-mediator/apps/amber/priv/
-        cp settings.config.example settings.config
-        nano settings.config
-    popd
+    cp ${HOME}/amber/amber-erlang-mediator/apps/amber/priv/settings.config.example ${HOME}/amber/amber-erlang-mediator/apps/amber/priv/settings.config
