@@ -11,7 +11,7 @@ Do przeprowadznia procesu instalacji potrzebne jest:
 
 .. warning::
 
-    Zwróć uwagę na wersję płytki, która jest określona na etykiecie umieszczonej na spodzie płytki. *Ubuntu 12.02.5 LTS* działa poprawnie na płytkach `rev A4`, `ES rev B2`. *Ubuntu 14.04.1 LTS* działa poprawnie na płytkach `rev A4`, `ES rev B2`. Póki co nie jest możliwe uruchomienie wykonanej wg poniższej instrukcji karty na płytce oznaczonej jako `ES rev B3`.
+    Zwróć uwagę na wersję płytki, która jest określona na etykiecie umieszczonej na spodzie płytki. *Ubuntu 12.02.5 LTS* działa poprawnie na płytkach ``rev A4``, ``ES rev B2``. *Ubuntu 14.04.1 LTS* działa poprawnie na płytkach ``rev A4``, ``ES rev B2``. Póki co nie jest możliwe uruchomienie wykonanej wg poniższej instrukcji karty na płytce oznaczonej jako ``ES rev B3``.
 
 Dodatkowo, wymagana jest znajomość, do wykonania poniższej instrukcji:
 
