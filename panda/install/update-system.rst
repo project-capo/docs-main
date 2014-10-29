@@ -3,11 +3,14 @@ Aktualizacja systemu
 
 * **Zainstalować** *screen* poprzez ``aptitude install screen``.
 * **Uruchomić** *screen* poprzez ``screen``.
-* **Zaktualizować** system poprzez ``do-release-upgrade``.
+
+.. warning::
+
+    Możliwe jest wykonanie aktualizacji do *Ubuntu 14.04.1* LTS przy pomocy polecenia ``do-release-upgrade``. Ze względu na problemy w obsłudze sterowników do *Ninedof* oraz *Roboclaw* jest to **niezalecane**. Można pominąć poniższe kroki do kroku aktualizacji_ pakietów.
 
 .. note::
 
-    Proces aktualizacji może trwać długo. Z wykorzystaniem screen możliwe jest odłączenie się od konsoli poprzez kombinacje klawiszy ``[Ctrl]+[a]`` i ``[d]``. Ponownie podłączenie poprzez polecenie ``screen -r``.
+    Proces aktualizacji przy pomocy ``do-release-upgrade`` może trwać kilka minut. Z wykorzystaniem screen możliwe jest odłączenie się od konsoli poprzez kombinacje klawiszy ``[Ctrl]+[a]`` i ``[d]``. Ponownie podłączenie poprzez polecenie ``screen -r``.
 
 .. warning::
 
@@ -16,7 +19,7 @@ Aktualizacja systemu
 Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
 
 * Uruchomić ``aptitude``.
-* Skrót klawiszowy [Ctrl]+[t]
+* Skrót klawiszowy ``[Ctrl]+[t]``
 * Wybór menu ``Options`` → ``Preferences``
 * Odznaczyć ``Install recommended packages automatically``
 
@@ -25,7 +28,7 @@ Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
     Interesującym miejscem, gdzie znajdują się pakiety używane na PandaBoard jest http://ports.ubuntu.com/ w `linux-ti-omap`_.
 
 
-Po wykonaniu aktualizacji, system nie wspiera WiFi. Należy **dodać** do repozytorium *apt* repozytoriów *omap*. Następnie wykonać **aktualizację** listy pakietów i **instalację** następujących pakietów:
+Po wykonaniu aktualizacji przy pomocy ``do-release-upgrade``, system nie wspiera WiFi. Należy **dodać** do repozytorium *apt* repozytoriów *omap*. Następnie wykonać **aktualizację** listy pakietów i **instalację** następujących pakietów:
 
 .. code-block:: sh
 
@@ -35,14 +38,31 @@ Po wykonaniu aktualizacji, system nie wspiera WiFi. Należy **dodać** do repozy
     touch /boot/initrd.img-3.13.0-37-generic
     aptitude install linux-headers-omap linux-image-omap linux-omap
 
-* **Wykonać** ``reboot``. Po ponownym uruchomieniu systemu, **wykonać** aktualizaję i **instalację** dodatkowych pakietów:
+.. warning::
+
+    Instalacja jądra systemu wymaga obecności plików w katalogu `/boot/`. W razie ich braku, wystarczy stworzyć brakujący plik przy pomocy polecenia `touch`.
+
+* **Wykonać** ``reboot``.
+
+.. _aktualizacji:
+
+Aktualizacja pakietów
+~~~~~~~~~~~~~~~~~~~~~
+
+* **Wykonać** aktualizację i **instalację** dodatkowych pakietów:
 
 .. code-block:: sh
 
     aptitude update
+    touch /boot/initrd.img-3.2.0-1455-omap4
+    aptitude full-upgrade
     aptitude install -y
     aptitude install -y wpasupplicant wireless-tools wireless-crda wireless-regdb # do obsługi sieci bezprzewodowej
     aptitude install -y htop psmisc mc unzip bash-completion cpufrequtils ntp # dodatkowe narzędzia
+
+.. warning::
+
+    Instalacja jądra systemu wymaga obecności plików w katalogu `/boot/`. W razie ich braku, wystarczy stworzyć brakujący plik przy pomocy polecenia `touch`.
 
 * **Dodać** do pliku ``/etc/rc.local`` linijkę ``iw reg set PL``. 
 * **Zmienić** ustawienia sieci, w pliku ``/etc/network/interfaces`` - dodać ustawienia sieci bezprzewodowej:
