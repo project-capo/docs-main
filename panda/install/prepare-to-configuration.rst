@@ -75,6 +75,6 @@ Przygotowanie systemu do konfiguracji
 
 * **Odmontować** kartę z czytnika kart komputera.
 * **Wyciągnąć** kartę z czytnika kart komputera.
-* **Połączyć** płytkę, kablem sieciowym, z siecią, w której znajduje się Twój komputer.
+* **Połączyć** płytkę, kablem sieciowym, z urządzeniem sieciowym (np. przełącznikiem) znajdującym się w sieci, w której znajduje się Twój komputer.
 * **Umieścić** kartę w czytniku kart *PandaBoard*.
 * **Uruchomić** *PandaBoard*.
