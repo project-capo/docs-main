@@ -19,7 +19,7 @@ Aktualizacja systemu
 Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
 
 * Uruchomić ``aptitude``.
-* Skrót klawiszowy ``[Ctrl]`` + ``[t]``
+* Skrót klawiszowy ``[Ctrl]+[t]``
 * Wybór menu ``Options`` → ``Preferences``
 * Odznaczyć ``Install recommended packages automatically``
 
