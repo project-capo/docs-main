@@ -16,13 +16,6 @@ Aktualizacja systemu
 
     Proszę monitorować stan aktualizacji. W trakcie aktualizacji pojawiać się będą pytania do akceptacji lub nie. Po zakończeniu procesu aktualizacji system zostanie uruchomiony ponownie, co wymaga potwierdzenia.
 
-Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
-
-* Uruchomić ``aptitude``.
-* Skrót klawiszowy ``[Ctrl]+[t]``
-* Wybór menu ``Options`` → ``Preferences``
-* Odznaczyć ``Install recommended packages automatically``
-
 .. seealso::
 
     Interesującym miejscem, gdzie znajdują się pakiety używane na PandaBoard jest http://ports.ubuntu.com/ w `linux-ti-omap`_.
@@ -48,6 +41,13 @@ Po wykonaniu aktualizacji przy pomocy ``do-release-upgrade``, system nie wspiera
 
 Aktualizacja pakietów
 ~~~~~~~~~~~~~~~~~~~~~
+
+Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
+
+* Uruchomić ``aptitude``.
+* Skrót klawiszowy ``[Ctrl]+[t]``
+* Wybór menu ``Options`` → ``Preferences``
+* Odznaczyć ``Install recommended packages automatically``
 
 * **Wykonać** aktualizację i **instalację** dodatkowych pakietów:
 
