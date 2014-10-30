@@ -96,6 +96,11 @@ Utworzenie użytkownika
 ~~~~~~~~~~~~~~~~~~~~~~
 
 * **Dodać** użytkownika ``panda``.
+
+.. note::
+
+    Domyślny hasłem dla ``panda`` w laboratorium jest hasło ``panda2013``.
+
 * **Dodać** użytkownika ``panda`` do grup ``dialout`` i ``sudo`` przy pomocy polecenia ``adduser panda dialout; adduser panda sudo``.
 
 .. note::
@@ -109,12 +114,6 @@ Utworzenie użytkownika
         ...
         sudo:x:27:panda
         ...
-
-* **Utworzyć** hasło dla użytkownika ``panda``: ``passwd panda``.
-
-.. note::
-
-    Domyślny hasłem dla ``panda`` w laboratorium jest hasło ``panda2013``.
 
 * **Zalogować** się na użytkownika ``panda``: ``su - panda``.
 * **Dodać** swój klucz publiczny SSH do pliku ``/home/panda/.ssh/authorized_keys``
