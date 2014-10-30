@@ -38,19 +38,31 @@ Po wykonaniu aktualizacji przy pomocy ``do-release-upgrade``, system nie wspiera
     touch /boot/initrd.img-3.13.0-37-generic
     aptitude install linux-headers-omap linux-image-omap linux-omap
 
+.. warning::
+
+    Instalacja jądra systemu wymaga obecności plików w katalogu `/boot/`. W razie ich braku, wystarczy stworzyć brakujący plik przy pomocy polecenia `touch`.
+
 * **Wykonać** ``reboot``.
 
 .. _aktualizacji:
+
+Aktualizacja pakietów
+~~~~~~~~~~~~~~~~~~~~~
 
 * **Wykonać** aktualizację i **instalację** dodatkowych pakietów:
 
 .. code-block:: sh
 
     aptitude update
+    touch /boot/initrd.img-3.2.0-1455-omap4
     aptitude full-upgrade
     aptitude install -y
     aptitude install -y wpasupplicant wireless-tools wireless-crda wireless-regdb # do obsługi sieci bezprzewodowej
     aptitude install -y htop psmisc mc unzip bash-completion cpufrequtils ntp # dodatkowe narzędzia
+
+.. warning::
+
+    Instalacja jądra systemu wymaga obecności plików w katalogu `/boot/`. W razie ich braku, wystarczy stworzyć brakujący plik przy pomocy polecenia `touch`.
 
 * **Dodać** do pliku ``/etc/rc.local`` linijkę ``iw reg set PL``. 
 * **Zmienić** ustawienia sieci, w pliku ``/etc/network/interfaces`` - dodać ustawienia sieci bezprzewodowej:
