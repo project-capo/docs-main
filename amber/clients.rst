@@ -6,17 +6,17 @@ Wspierani klienci
 
 * `amber-java-clients`_ - jest to projekt dostarczają klientów, napisanych w *Java*, używanych przez korzystających z robota, w ich własnych aplikacjach, obsługiwane są:
 
+    * **Ninedof**
     * **Roboclaw**
     * **Hokuyo**
-    * **Ninedof**
-    * **Hitec**
     * **Location**
+    * **Maestro**
 
 * `amber-python-clients`_ jest to projekt dostarczają klientów, napisanych w *python*, używanych przez korzystających z robota, w ich własnych aplikacjach, obsługiwane są:
 
+    * **Ninedof**
     * **Roboclaw**
     * **Hokuyo**
-    * **Ninedof**
 
 .. _amber-java-clients: https://github.com/project-capo/amber-java-clients
 .. _amber-python-clients: https://github.com/project-capo/amber-python-clients
