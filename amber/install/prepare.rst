@@ -4,6 +4,17 @@ Przygotowanie środowiska
 Instalacja dodatkowego oprogramowania
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+.. note::
+
+    W *Ubuntu 12.04.5 LTS* należy dodać dodatkowe repozytoria pozwalające na zainstalowanie wspieranej przez Amber wersji Erlang. Należy dodać do pliku ``/etc/apt/sources.list``:
+    
+    .. code-block:: sh
+    
+        deb http://packages.erlang-solutions.com/debian wheezy contrib
+    
+    Po dodaniu wpisu należy wykonać ``aptitude update``.
+    
+
 Do pracy z platformą *Amber* potrzebne są narzędzia:
 
 .. code-block:: sh
