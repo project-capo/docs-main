@@ -1,5 +1,8 @@
+Aktualizacja oprogramowania
+---------------------------
+
 Aktualizacja systemu
---------------------
+~~~~~~~~~~~~~~~~~~~~
 
 * **Zainstalować** *screen* poprzez ``aptitude install screen``.
 * **Uruchomić** *screen* poprzez ``screen``.
@@ -15,13 +18,6 @@ Aktualizacja systemu
 .. warning::
 
     Proszę monitorować stan aktualizacji. W trakcie aktualizacji pojawiać się będą pytania do akceptacji lub nie. Po zakończeniu procesu aktualizacji system zostanie uruchomiony ponownie, co wymaga potwierdzenia.
-
-Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
-
-* Uruchomić ``aptitude``.
-* Skrót klawiszowy ``[Ctrl]+[t]``
-* Wybór menu ``Options`` → ``Preferences``
-* Odznaczyć ``Install recommended packages automatically``
 
 .. seealso::
 
@@ -49,6 +45,13 @@ Po wykonaniu aktualizacji przy pomocy ``do-release-upgrade``, system nie wspiera
 Aktualizacja pakietów
 ~~~~~~~~~~~~~~~~~~~~~
 
+Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
+
+* Uruchomić ``aptitude``.
+* Skrót klawiszowy ``[Ctrl]+[t]``
+* Wybór menu ``Options`` → ``Preferences``
+* Odznaczyć ``Install recommended packages automatically``
+
 * **Wykonać** aktualizację i **instalację** dodatkowych pakietów:
 
 .. code-block:: sh
@@ -66,6 +69,9 @@ Aktualizacja pakietów
     Instalacja jądra systemu wymaga obecności plików w katalogu `/boot/`. W razie ich braku, wystarczy stworzyć brakujący plik przy pomocy polecenia `touch`.
 
 * **Dodać** do pliku ``/etc/rc.local`` linijkę ``iw reg set PL``. 
+
+.. _updatenetwork:
+
 * **Zmienić** ustawienia sieci, w pliku ``/etc/network/interfaces`` - dodać ustawienia sieci bezprzewodowej:
 
 ::
@@ -86,6 +92,10 @@ Aktualizacja pakietów
         wpa-psk  "password"
 
 W celu poprawnego działania sieci bezprzewodowej wymagane jest ustawienie adresu MAC kart bezprzewodowej.
+
+.. warning::
+
+    Zwróć uwagę na fakt, że adresacja portu Ethernet została zmieniona, tak aby na dwóch interfejsach karty przewodowej i bezprzewodowej nie było tej samej adresacji sieci.
 
 .. note::
 

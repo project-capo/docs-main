@@ -22,6 +22,12 @@ Przygotowanie systemu do konfiguracji
 
 .. warning::
 
+    Adresacja sieci ``192.168.2.0/24`` **docelowo** jest używana na interfejsie karty bezprzewodowej. Powyższa konfiguracja ulega zmianie w toku wykonywania tej instrukcji, w kroku `aktualizacji`_ ustawień sieciowych.
+
+.. _aktualizacji: update-system.html#updatenetwork
+
+.. warning::
+
     **Uwaga!** Powyższa adresacja IPv4 stosowana jest w sieci w laboratorium. W twoim przypadku może być ona inna. Proszę, zwróć uwagę na adresację portu Ethernet.
 
 * **Zmienić** plik: ``/etc/rc.local``
