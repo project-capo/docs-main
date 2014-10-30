@@ -5,9 +5,10 @@ Obecnie obsługiwane są urządzenia:
 
 * **Ninedof** - odczytywanie wartości z **czujników ruchu**: przyspieszeniomierza, żyroskopu, kompasu
 * **Roboclaw** - sterowanie **silnikami** i odczytywanie aktualnej prędkości każdego silnika
+* **Stargazer** - obsługa urządzenia o **lokalizacji** z wykorzystanie kamery i markerów
 * **Hokuyo** - odczytywanie wartości **odległości** od otoczenia z skanera laserowego
-* **Hitec** - obsługa **servo** motorów wykorzystywanych w ramieniu
-* **Location** - dostarczanie informacji o **położeniu** robota
+* **Location** - dostarczanie informacji o **lokalizacji** robota z wykorzystanie skanera laserowego i algorytmu lokalizującego
+* **Maestro** - obsługa sterownika **servo** motorów (np. wykorzystywanych w ramieniu)
 
 Ninedof
 -------
@@ -46,3 +47,8 @@ Dodatkowymi akcjami są odczytanie:
 * wersji oprogramowania sensora
 * stanu sensora
 * specyfikacji sensora
+
+Location
+--------
+
+Główną akcją, jaką można wykonać przy pomocy tego sterownika jest uzyskanie informacji o lokalizacji robota na mapie pomieszczenia, w które robot się lokalizuje. Wymagane jest, by robot posiadał włączony skaner laserowy *Hokuyo*.
