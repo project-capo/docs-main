@@ -6,10 +6,11 @@ Wspierane sterowniki
 
 * `amber-cpp-drivers`_ jest to projekt sterowników, napisanych w *C/C++*, które pozwalają na komunikację z urządzeniami umieszczonymi na robocie. Wspierane są:
 
-    * **Roboclaw** - sterowanie silnikami robota
     * **Ninedof** - odczytywanie informacji z sensora umieszczonego na robocie, dostarczającego informacji z przyspieszeniomierza, żyroskopu oraz magnetometru
-    * **Hitec** - servo-mechanizmy wykorzystywane w ramieniu
+    * **Roboclaw** - sterowanie silnikami robota
+    * **Stargazer** - obsługa lokalizacji w oparciu o kamerę oraz markery
     * **Location** - programowa obsługa lokalizacji z wykorzystaniem algorytmu cząstek i analizy trakcji
+    * **Maestro** - servo-mechanizmy wykorzystywane w ramieniu
 
 * `amber-python-drivers`_ jest to projekt sterowników, napisanych w *python*, które pozwalają na komunikację z urządzeniami umieszczonymi na robocie. Wspierane są:
 

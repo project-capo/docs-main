@@ -4,17 +4,18 @@ Przygotowanie środowiska
 Instalacja dodatkowego oprogramowania
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Do pracy z platformą *Amber* potrzebne są narzędzia:
+.. note::
 
-.. code-block:: sh
+    W *Ubuntu 12.04.5 LTS* należy dodać dodatkowe repozytoria pozwalające na zainstalowanie wspieranej przez Amber wersji Erlang. Należy dodać do pliku ``/etc/apt/sources.list``:
+    
+    .. code-block:: sh
+    
+        deb http://packages.erlang-solutions.com/debian wheezy contrib
+    
+    Po dodaniu wpisu należy wykonać ``aptitude update``.
+    
 
-    git make
-    erlang
-    g++ libcxxtools-dev liblog4cxx10-dev
-    libboost-dev libboost-program-options-dev libboost-thread-dev libboost-system-dev protobuf-compiler libprotoc-dev
-    python python-dev python-setuptools python-pip python-virtualenv
-
-Należy zainstalować powyższe narzędzia z wykorzystaniem polecenia ``aptitude install``:
+Do pracy z platformą *Amber* potrzebne są dodatkowe narzędzia. Należy zainstalować powyższe narzędzia z wykorzystaniem polecenia ``aptitude install``:
 
 .. code-block:: sh
 
@@ -95,6 +96,11 @@ Utworzenie użytkownika
 ~~~~~~~~~~~~~~~~~~~~~~
 
 * **Dodać** użytkownika ``panda``.
+
+.. note::
+
+    Domyślny hasłem dla ``panda`` w laboratorium jest hasło ``panda2013``.
+
 * **Dodać** użytkownika ``panda`` do grup ``dialout`` i ``sudo`` przy pomocy polecenia ``adduser panda dialout; adduser panda sudo``.
 
 .. note::
@@ -108,12 +114,6 @@ Utworzenie użytkownika
         ...
         sudo:x:27:panda
         ...
-
-* **Utworzyć** hasło dla użytkownika ``panda``: ``passwd panda``.
-
-.. note::
-
-    Domyślny hasłem dla ``panda`` w laboratorium jest hasło ``panda2013``.
 
 * **Zalogować** się na użytkownika ``panda``: ``su - panda``.
 * **Dodać** swój klucz publiczny SSH do pliku ``/home/panda/.ssh/authorized_keys``

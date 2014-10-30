@@ -59,6 +59,7 @@ Aktualizacja pakietów
     aptitude install -y
     aptitude install -y wpasupplicant wireless-tools wireless-crda wireless-regdb # do obsługi sieci bezprzewodowej
     aptitude install -y htop psmisc mc unzip bash-completion cpufrequtils ntp # dodatkowe narzędzia
+    aptitude install -y byobu tmux
 
 .. warning::
 
