@@ -70,7 +70,7 @@ Obecna numeracja typów sterowników ``DeviceType``:
 * 4 - **Hokuyo** (laser)
 * 5 - **Dummy** (testowy)
 * 6 - **Location** (położenie w oparciu o skany z lasera i względne przemieszczenie)
-* 7 - **Hitec** (servo)
+* 7 - **Maestro** (servo)
 
 Obecne typy wiadomości ``DriverMsg``:
 
