@@ -1,5 +1,8 @@
+Aktualizacja oprogramowania
+---------------------------
+
 Aktualizacja systemu
---------------------
+~~~~~~~~~~~~~~~~~~~~
 
 * **Zainstalować** *screen* poprzez ``aptitude install screen``.
 * **Uruchomić** *screen* poprzez ``screen``.
