@@ -42,12 +42,6 @@ Skanem otoczenia jest zbiór danych, w których wartości kąta powiązane są w
 
 W przypadku odległości większej niż obsługiwana przez lasera (w przypadku Hokuyo: >5m), występuje wartości ``zero``. Przyjąć należy, że ``zero`` nie jest odległości zerową. Budowa lasera i układów mierzących odległość nie dopuszcza odległości zerowej. Możliwa jest wartość bliska zerowej odległości.
 
-Dodatkowymi akcjami są odczytanie:
-
-* wersji oprogramowania sensora
-* stanu sensora
-* specyfikacji sensora
-
 Location
 --------
 
