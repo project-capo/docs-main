@@ -70,7 +70,7 @@ Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
 
 * **Dodać** do pliku ``/etc/rc.local`` linijkę ``iw reg set PL``. 
 
-.. _updatenetwork::
+.. _updatenetwork:
 
 * **Zmienić** ustawienia sieci, w pliku ``/etc/network/interfaces`` - dodać ustawienia sieci bezprzewodowej:
 
