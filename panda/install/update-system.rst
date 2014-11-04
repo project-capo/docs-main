@@ -93,6 +93,10 @@ Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
 
 W celu poprawnego działania sieci bezprzewodowej wymagane jest ustawienie adresu MAC kart bezprzewodowej.
 
+.. warning::
+
+    Zwróć uwagę na fakt, że adresacja portu Ethernet została zmieniona, tak aby na dwóch interfejsach karty przewodowej i bezprzewodowej nie było tej samej adresacji sieci.
+
 .. note::
 
     Powyższe ustawienia sieci bezprzewodowej dotyczą sieci bezprzewodowej *robolab* w laboratorium. Aktualne hasło do sieci *robolab* udostępnione jest w laboratorium, w ogłoszeniach znajdujących się w widocznym miejscu. Adresy przydzielane są w oparciu o adresy MAC urządzeń bezprzewodowych. W sieci laboratoryjnej prefiksem MAC jest ``de:ad:be:ef:00:**``. Ostatnie dwa znaki heksadecymalne określają przypisywany adres IP, według następującego schematu:
