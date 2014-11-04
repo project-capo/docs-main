@@ -22,7 +22,7 @@ Przygotowanie systemu do konfiguracji
 
 .. warning::
 
-    Adresacja sieci ``192.168.2.0/24`` **docelowo** jest używana na interfejsie karty bezprzewodowej. Powyższa konfiguracja ulega zmianie w toku wykonywania tej instrukcji, w kroku `aktualizacji` ustawień sieciowych.
+    Adresacja sieci ``192.168.2.0/24`` **docelowo** jest używana na interfejsie karty bezprzewodowej. Powyższa konfiguracja ulega zmianie w toku wykonywania tej instrukcji, w kroku `aktualizacji`_ ustawień sieciowych.
 
 .. _aktualizacji: update-system.html#updatenetwork
 
