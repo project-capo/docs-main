@@ -69,6 +69,9 @@ Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
     Instalacja jądra systemu wymaga obecności plików w katalogu `/boot/`. W razie ich braku, wystarczy stworzyć brakujący plik przy pomocy polecenia `touch`.
 
 * **Dodać** do pliku ``/etc/rc.local`` linijkę ``iw reg set PL``. 
+
+.. _updatenetwork::
+
 * **Zmienić** ustawienia sieci, w pliku ``/etc/network/interfaces`` - dodać ustawienia sieci bezprzewodowej:
 
 ::
