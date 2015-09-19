@@ -12,6 +12,8 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
+import alabaster
+
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
@@ -26,7 +28,15 @@
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+    'sphinx.ext.autodoc',
+    'sphinx.ext.doctest',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.todo',
+    'sphinx.ext.coverage',
+    'sphinx.ext.ifconfig',
+    'sphinx.ext.viewcode',
     'sphinx.ext.pngmath',
+    'alabaster'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -43,7 +53,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'capo-docs'
-copyright = u'2014, paoolo'
+copyright = u'2015, CAPO Team'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -97,7 +107,20 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'default'
+#html_theme = 'default'
+html_theme = 'alabaster'
+html_theme_path = [alabaster.get_path()]
+html_sidebars = {
+    '**': [
+        'about.html', 'navigation.html',
+    ]
+}
+html_theme_options = {
+    'logo': 'logo.jpeg',
+    'github_banner': False,
+    'github_button': True,
+    'show_powered_by': False,
+}
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -109,7 +132,7 @@ html_theme = 'default'
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 # "<project> v<release> documentation".
-#html_title = None
+html_title = 'Project CAPO Documentation'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #html_short_title = None
@@ -121,7 +144,7 @@ html_theme = 'default'
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
-#html_favicon = None
+html_favicon = 'favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -161,7 +184,7 @@ html_static_path = ['_static']
 #html_show_sourcelink = True
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
-#html_show_sphinx = True
+html_show_sphinx = False
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
 #html_show_copyright = True
@@ -196,7 +219,7 @@ latex_elements = {
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
     ('index', 'capo-docs.tex', u'Project Capo Documentation',
-     u'paoolo', 'manual'),
+     u'CAPO Team', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
@@ -226,7 +249,7 @@ latex_documents = [
 # (source start file, name, description, authors, manual section).
 man_pages = [
     ('index', 'capo-docs', u'capo-docs documentation',
-     [u'paoolo'], 1)
+     [u'CAPO Team'], 1)
 ]
 
 # If true, show URL addresses after external links.
@@ -240,7 +263,7 @@ man_pages = [
 #  dir menu entry, description, category)
 texinfo_documents = [
     ('index', 'capo-docs', u'capo-docs documentation',
-     u'paoolo', 'capo-docs', 'Documentation for Project Capo',
+     u'CAPO Team', 'capo-docs', 'Documentation for Project Capo',
      'Miscellaneous'),
 ]
 
@@ -261,9 +284,9 @@ texinfo_documents = [
 
 # Bibliographic Dublin Core info.
 epub_title = u'capo-docs'
-epub_author = u'paoolo'
-epub_publisher = u'paoolo'
-epub_copyright = u'2014, paoolo'
+epub_author = u'CAPO Team'
+epub_publisher = u'CAPO Team'
+epub_copyright = u'2015, CAPO Team'
 
 # The basename for the epub file. It defaults to the project name.
 #epub_basename = u'capo-docs'
