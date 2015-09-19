@@ -116,7 +116,7 @@ html_sidebars = {
     ]
 }
 html_theme_options = {
-    'logo': 'logo.jpeg',
+    'logo': 'logo.png',
     'github_banner': False,
     'github_button': True,
     'show_powered_by': False,
