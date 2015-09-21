@@ -1,17 +1,21 @@
-Instalacja
-==========
+Instalacja systemu
+==================
 
-Do przeprowadznia procesu instalacji potrzebne jest:
+Do przeprowadznia procesu instalacji systemu potrzebne są:
 
-* karta SD, minimum 8GB
-* czytnik kart SD w komputerze
-* płyta główna PandaBoard z zasilaczem prądu stałego 5V i natężeniu ~ 2.5A
-* router z Access Point
-* opcjonalnie monitor z wejściem HDMI oraz klawiatura na USB
+* karta SD, o pojemności minimum 8 GB
+* czytnik kart SD w komputerze (w przypadku posługiwania się maszyną wirtualną, czytnik kart SD na USB)
+* płyta główna *PandaBoard* z zasilaczem prądu stałego o napięciu 5 V i natężeniu ~ 2.5 A
+* router sieciowy WiFi
+* opcjonalnie monitor z wejściem HDMI oraz klawiatura na USB lub kabel komunikacji szeregowej RS-232 DE-9
 
 .. warning::
 
-    Zwróć uwagę na wersję płytki, która jest określona na etykiecie umieszczonej na spodzie płytki. *Ubuntu 12.02.5 LTS* działa poprawnie na płytkach ``rev A4``, ``ES rev B2``. *Ubuntu 14.04.1 LTS* działa poprawnie na płytkach ``rev A4``, ``ES rev B2``. Póki co nie jest możliwe uruchomienie wykonanej wg poniższej instrukcji karty na płytce oznaczonej jako ``ES rev B3``.
+    Zwróć uwagę na wersję płytki, która jest określona na etykiecie umieszczonej na spodzie płytki. Poniższa instrukcja opisuje instalację systemu na *PandaBoard* w wersji *ES Rev B3* oraz *ES Rev B2*.
+
+.. note::
+
+    Jeśli masz możliwość korzystania z portu szeregowego, to korzystaj z niego. Instalacja systemu będzie łatwiejsza w porównaniu do instalacji bez wykorzystania portu szeregowego.
 
 Dodatkowo, wymagana jest znajomość, do wykonania poniższej instrukcji:
 

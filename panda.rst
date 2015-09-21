@@ -1,14 +1,14 @@
 Panda
 =====
 
-*Pandą* nazywamy robota, który to jest dostępny w laboratorium. Składa się on z następujących komponentów:
+*Pandą* nazywamy robota, który jest dostępny w laboratorium *Robolab*. Robot posiada następujące komponenty:
 
-* silników Polulu obsługiwanych przez sterowniki silników Roboclaw
-* czujnika ruchu Ninedof
-* skanera laserowego Hokuyo (opcjonalnie)
-* dodatkowych części, jak servo silniki
-* płyty głównej Pandaboard
-* baterii, okablowania, obudowy i kół
+* silniki *Polulu* obsługiwane przez sterowniki silników *Roboclaw*
+* czujnik ruchu *Ninedof*
+* skaner laserowy *Hokuyo* (opcjonalnie)
+* dodatkowe części, np. servo silniki *Maestro*
+* płyta główna komputera robota *Pandaboard*
+* baterie, okablowanie, obudowa i napęd
 
 .. toctree::
 
