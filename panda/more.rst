@@ -1,5 +1,5 @@
 Dodatkowe informacje
---------------------
+====================
 
 Więcej informacji na stronach:
 

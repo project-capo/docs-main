@@ -1,4 +1,4 @@
 Budowa
 ======
 
-*Informacje na temat budowy robota*
+*Informacje na temat budowy robota.*
