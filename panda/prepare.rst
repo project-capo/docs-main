@@ -1,13 +1,8 @@
-Przygotowania do instalacji systemu
-===================================
+Przygotowanie do uruchomienia
+=============================
 
-Środowisko pracy
-----------------
-
-Na potrzeby instalacji systemu na karcie, przygotowana została maszyna wirtualna.
-
-Instalacja systemu na karcie
-----------------------------
+Wgranie systemu na kartę
+------------------------
 
 * **Pobierz** obraz `Ubuntu Server 12.04 amrhf+omap4`_ dla PandaBoard z strony `Ubuntu`_.
 

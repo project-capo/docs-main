@@ -1,12 +1,19 @@
 Wymagania
 =========
 
+Środowisko pracy
+----------------
+
 .. note::
 
     Zakłada się, że wgranie systemu na kartę odbywa się z poziomu systemu Linux. Modyfikowanie karty możliwe jest *tylko* z wykorzystaniem systemu Linux. Modyfikowanie odbywać się może po zamontowaniu partycji systemowej, na której wykorzystywany jest system plików ``ext4``.
 
-Technologie
------------
+.. note::
+
+    Na potrzeby instalacji systemu na karcie, przygotowana została maszyna wirtualna *RoboLab*.
+
+Wykorzystywane technologie i narzędzia
+--------------------------------------
 
 Do wykonania poniższej instrukcji wymagana jest znajomość:
 
@@ -15,9 +22,6 @@ Do wykonania poniższej instrukcji wymagana jest znajomość:
 * obsługi menadżera pakietów systemu Ubuntu ``aptitude``
 * obsługi aplikacji używanej do komunikacji z *PandaBoard* z wykorzystaniem portu komunikacji szeregowej
 * obsługi zdalnej konsoli SSH i generowania kluczy SSH z wykorzystaniem *Putty* (windows) lub ``ssh`` (Linux)
-
-Instalacja systemu
-------------------
 
 W celu przeprowadznia procesu instalacji systemu potrzebne są:
 
