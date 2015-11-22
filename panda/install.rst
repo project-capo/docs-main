@@ -1,5 +1,5 @@
-Instalacja
-==========
+Instalacja systemu
+==================
 
 Instalację systemu można przeprowadzić na dwa sposoby:
 

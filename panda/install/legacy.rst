@@ -1,3 +1,6 @@
+Starsza metoda
+==============
+
 Pierwsze uruchomienie instalacyjne
 ----------------------------------
 

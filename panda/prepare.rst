@@ -1,5 +1,5 @@
-Przygotowania
-=============
+Przygotowania do instalacji systemu
+===================================
 
 Środowisko pracy
 ----------------

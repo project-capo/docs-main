@@ -1,3 +1,6 @@
+Oficjalna metoda
+===============
+
 Pierwsze uruchomienie instalacyjne
 ----------------------------------
 

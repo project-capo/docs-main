@@ -5,8 +5,8 @@ Wymagania
 
     Zakłada się, że wgranie systemu na kartę odbywa się z poziomu systemu Linux. Modyfikowanie karty możliwe jest *tylko* z wykorzystaniem systemu Linux. Modyfikowanie odbywać się może po zamontowaniu partycji systemowej, na której wykorzystywany jest system plików ``ext4``.
 
-Znajomość technologii
----------------------
+Technologie
+-----------
 
 Do wykonania poniższej instrukcji wymagana jest znajomość:
 
