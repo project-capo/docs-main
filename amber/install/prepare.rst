@@ -7,13 +7,13 @@ Instalacja dodatkowego oprogramowania
 .. note::
 
     W *Ubuntu 12.04.5 LTS* należy dodać dodatkowe repozytoria pozwalające na zainstalowanie wspieranej przez Amber wersji Erlang. Należy dodać do pliku ``/etc/apt/sources.list``:
-    
+
     .. code-block:: sh
-    
+
         deb http://packages.erlang-solutions.com/debian wheezy contrib
-    
+
     Po dodaniu wpisu należy wykonać ``aptitude update``.
-    
+
 
 Do pracy z platformą *Amber* potrzebne są dodatkowe narzędzia. Należy zainstalować powyższe narzędzia z wykorzystaniem polecenia ``aptitude install``:
 
@@ -96,19 +96,14 @@ Utworzenie użytkownika
 ~~~~~~~~~~~~~~~~~~~~~~
 
 * **Dodać** użytkownika ``panda``.
-
-.. note::
-
-    Domyślny hasłem dla ``panda`` w laboratorium jest hasło ``panda2013``.
-
 * **Dodać** użytkownika ``panda`` do grup ``dialout`` i ``sudo`` przy pomocy polecenia ``adduser panda dialout; adduser panda sudo``.
 
 .. note::
 
     Plik odpowiedzialny za grupy użytkowników ``/etc/group``:
-    
+
     .. code-block::
-    
+
         ...
         dialout:x:20:panda
         ...
