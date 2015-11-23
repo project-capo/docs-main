@@ -7,10 +7,10 @@ Robot *Panda*, dostępny w laboratorium *Robolab*, posiada następujące kompone
 * czujnik ruchu *Ninedof*
 * skaner laserowy *Hokuyo* (opcjonalnie)
 * dodatkowe elementy, np. servo silniki *Maestro* (opcjonalnie)
-* płyta główna komputera robota *Pandaboard*
-* baterie, okablowanie, obudowa i napęd
+* komputer *Pandaboard*
+* baterię, okablowanie, obudowę i napęd
 
-Kolejne rozdziały opisują, jak zbudować i zainstalować system operacyjny.
+Kolejne rozdziały opisują, jak zainstalować system operacyjny i przygotować robota do pracy w laboratorium.
 
 .. toctree::
 

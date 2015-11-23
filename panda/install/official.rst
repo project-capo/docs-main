@@ -15,7 +15,7 @@ Pierwsze uruchomienie instalacyjne
 
 Pierwsze ładowanie systemu spowoduje, że partycja z systemem rozszerzy się do wielkości karty. **Nie należy przerywać** uruchamiania systemu. **Należy czekać** do momentu, gdy jedna z diod na płytce będzie mrugała cyklicznie.
 
-W trakcie pierwszego uruchamiania, w oknie aplikacji użytej do komunikacji z płytką, pojawiać się będą komunikaty o instalacji.
+W trakcie pierwszego uruchamiania, w oknie aplikacji użytej do komunikacji z płytką, pojawiać się będą komunikaty o procesie instalacji.
 
 .. code-block:: sh
 
@@ -133,7 +133,7 @@ W trakcie pierwszego uruchomienia następuje rozszerzenie partycji systemowej do
 Drugie uruchomienie konfiguracyjne
 ----------------------------------
 
-Po pierwszym uruchomieniu, następuje uruchomienie systemu.
+Po pierwszym uruchomieniu, następuje drugie uruchomienie systemu z kreatorem konfiguracji.
 
 .. code-block:: sh
 
@@ -461,7 +461,7 @@ Kolejnym krokiem jest ustawienie domyślnego interfejsu sieciowego:
      │                                                                           │
      └───────────────────────────────────────────────────────────────────────────┘
 
-Należy wybrać ``eth0``. Po tym nastąpi testowanie łącza kablowego. Nie jest wymagane, by ono się zakończyło sukcesem:
+Należy wybrać ``eth0``. Po wyborze nastąpi testowanie łącza przewodowego. Nie jest wymagane, by ono się zakończyło sukcesem:
 
 .. code-block:: sh
 
@@ -773,6 +773,26 @@ Po instalacji pakietu ``wpasupplicant``, należy zmienić plik ``/etc/network/in
 
 Po zapisaniu zmian, wywołać polecenia ``sudo ifconfig eth0 down`` i ``sudo ifup wlan0``. Następnie sprawdzić połączenie z siecią.
 
+.. note::
+
+    W celu poprawnego działania sieci bezprzewodowej wymagane jest ustawienie adresu MAC kart bezprzewodowej.
+
+.. warning::
+
+    Zwróć uwagę na fakt, że adresacja interfejsu sieci przewodowej została zmieniona, tak aby na dwóch interfejsach karty przewodowej i bezprzewodowej nie było takiej samej adresacji sieci.
+
+.. note::
+
+    Powyższe ustawienia sieci bezprzewodowej dotyczą sieci bezprzewodowej *robolab* w laboratorium. Aktualne hasło do sieci *robolab* udostępnione jest w laboratorium, w ogłoszeniach znajdujących się w widocznym miejscu. Adresy przydzielane są w oparciu o adresy MAC urządzeń bezprzewodowych. W sieci laboratoryjnej prefiksem MAC jest ``de:ad:be:ef:00:**``. Ostatnie dwa znaki heksadecymalne określają przypisywany adres IP, według następującego schematu:
+
+    ::
+
+        de:ad:be:ef:00:00 - 192.168.2.200
+        de:ad:be:ef:00:01 - 192.168.2.201
+        ...
+        de:ad:be:ef:00:09 - 192.168.2.209
+        de:ad:be:ef:00:10 - 192.168.2.210
+
 Aktualizacja systemu
 ~~~~~~~~~~~~~~~~~~~~
 
@@ -790,9 +810,9 @@ Aktualizacja systemu
 
 .. seealso::
 
-    Miejscem, gdzie znajdują się pakiety używane na PandaBoard jest repozytorium http://ports.ubuntu.com/ w `linux-ti-omap`_.
+    Miejscem, gdzie znajdują się pakiety używane na PandaBoard jest repozytorium http://ports.ubuntu.com/pool/main/l/linux-ti-omap4/.
 
-Po wykonaniu aktualizacji przy pomocy ``do-release-upgrade``, system nie wspiera WiFi. Należy **dodać** do repozytoriów *apt* repozytorium *omap*. Następnie wykonać **aktualizację** listy pakietów i **instalację** następujących pakietów:
+Po wykonaniu aktualizacji przy pomocy ``do-release-upgrade``, system nie wspiera poprawnie sieci bezprzewodowej. Należy **dodać** do repozytoriów *apt* repozytorium *omap*. Następnie wykonać **aktualizację** listy pakietów i **instalację** następujących pakietów:
 
 .. code-block:: sh
 
@@ -807,8 +827,6 @@ Po wykonaniu aktualizacji przy pomocy ``do-release-upgrade``, system nie wspiera
     Instalacja jądra systemu wymaga obecności plików w katalogu ``/boot/``. W razie ich braku, wystarczy stworzyć brakujący plik przy pomocy polecenia ``touch``.
 
 * **Wykonaj** ``reboot``.
-
-.. _aktualizacji:
 
 Aktualizacja pakietów
 ~~~~~~~~~~~~~~~~~~~~~
@@ -843,15 +861,25 @@ Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
 Aktualizacja bootloadera
 ~~~~~~~~~~~~~~~~~~~~~~~~
 
-Aby karta uruchamiała się na płytkach w wersji **B3**, należy pobrać ostatnią wersję bootloadera *u-boot* i manualnie go skompilować:
+Aby karta uruchamiała się na płytkach w wersji **B3**, należy pobrać ostatnią wersję bootloadera *u-boot* i manualnie go skompilować według poniższej instrukcji. Do wykonania tych poleceń wymagane jest zainstalowanie dodatkowego oprogramowania:
+
+* make
+* g++
+* gcc
+* u-boot-tools
+* g++-arm-linux-gnueabihf
+* gcc-arm-linux-gnueabihf
+* binutils-arm-linux-gnueabihf
+
+Polecenie do wywołania: ``apt-get install make g++ gcc u-boot-tools g++-arm-linux-gnueabihf gcc-arm-linux-gnueabihf binutils-arm-linux-gnueabihf``. Dla niektórych systemów, wymagana jest zmiana wersji systemu. Dla systemu Debian, aktualna wersja ``testing`` posiada wymienione pakiety.
 
 .. code-block: sh
 
-    $ wget ftp://ftp.denx.de/pub/u-boot/u-boot-latest.tar.bz2
-     [..]
-    $ tar xf u-boot-latest.tar.bz2
-    $ cd u-boot-*
-    $ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- omap4_panda_config
+    wget ftp://ftp.denx.de/pub/u-boot/u-boot-latest.tar.bz2
+      [..]
+    tar xf u-boot-latest.tar.bz2
+    cd u-boot-*
+    make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- omap4_panda_config
       HOSTCC  scripts/basic/fixdep
       HOSTCC  scripts/kconfig/conf.o
       SHIPPED scripts/kconfig/zconf.tab.c
@@ -862,27 +890,49 @@ Aby karta uruchamiała się na płytkach w wersji **B3**, należy pobrać ostatn
     #
     # configuration written to .config
     #
-    $ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
-     [..]
-    $ cat > boot.script
+    make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
+      [..]
+    cat <<EOF > boot.script
     fatload mmc 0:1 0x80000000 uImage
     setenv bootargs rw vram=32M fixrtc mem=1G@0x80000000 root=/dev/mmcblk0p2 console=ttyO2,115200n8 rootwait
     bootm 0x80000000
-    $ mkimage -A arm -T script -C none -n "Boot Image" -d boot.script boot.scr
-    Image Name:   Boot Image
-    Created:      Fri Nov 20 17:48:09 2015
-    Image Type:   ARM Linux Script (uncompressed)
-    Data Size:    164 Bytes = 0.16 kB = 0.00 MB
-    Load Address: 00000000
-    Entry Point:  00000000
-    Contents:
-       Image 0: 156 Bytes = 0.15 kB = 0.00 MB
-    $ mkimage -A arm -T script -C none -n "Boot Image" -d boot.script boot.scr
+    EOF
+    mkimage -A arm -T script -C none -n "Boot Image" -d boot.script boot.scr
+      Image Name:   Boot Image
+      Created:      Fri Nov 20 17:48:09 2015
+      Image Type:   ARM Linux Script (uncompressed)
+      Data Size:    164 Bytes = 0.16 kB = 0.00 MB
+      Load Address: 00000000
+      Entry Point:  00000000
+      Contents:
+        Image 0: 156 Bytes = 0.15 kB = 0.00 MB
+    mkimage -A arm -T script -C none -n "Boot Image" -d boot.script boot.scr
 
 Wynikiem wykonania tych operacji będą pliki, które należy umieścić na pierwszej partycji zamontowanej karty:
 
-* boot.scr
-* boot.script
-* MLO
-* u-boot.bin
-* u-boot.img
+* ``boot.scr``
+* ``boot.script``
+* ``MLO``
+* ``u-boot.bin``
+* ``u-boot.img``
+
+Po podmianie tych plików, karta może być używana na obu typach płyt *PandaBoard* **B2** i **B3**.
+
+Post-konfiguracja
+-----------------
+
+* **Dodaj** do ``/etc/modules`` wpis:
+::
+
+    ...
+    i2c-dev
+
+
+* **Zmień** ``/etc/init.d/cpufrequtils``:
+::
+
+    ...
+    GOVERNOR="performance"
+    ...
+
+* **Zwróć** uwagę na obecność skryptu ``/etc/init.d/ondemand``. Należy go wyłączyć poprzez ``update-rc.d -f ondemand remove``.

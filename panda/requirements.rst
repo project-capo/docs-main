@@ -17,24 +17,24 @@ Wykorzystywane technologie i narzędzia
 
 Do wykonania poniższej instrukcji wymagana jest znajomość:
 
-* obsługi podstawowych poleceń w powłoce systemu Linux, jakimi są polecenia ``cd``, ``ls``, etc.
+* obsługi podstawowych poleceń w powłoce systemu Linux, jakimi są polecenia ``cd``, ``ls``, ``tar``, ``gz``, etc.
 * obsługi edytora tekstu, jak na przykład ``vim`` czy ``nano``
-* obsługi menadżera pakietów systemu Ubuntu ``aptitude``
+* obsługi menadżera pakietów systemu Ubuntu ``aptitude`` lub ``apt-get``
 * obsługi aplikacji używanej do komunikacji z *PandaBoard* z wykorzystaniem portu komunikacji szeregowej
 * obsługi zdalnej konsoli SSH i generowania kluczy SSH z wykorzystaniem *Putty* (windows) lub ``ssh`` (Linux)
 
-W celu przeprowadznia procesu instalacji systemu potrzebne są:
+W celu przeprowadzenia procesu instalacji systemu potrzebne są:
 
 * karta SD o pojemności minimum 8 GB
 * czytnik kart SD
- * w przypadku posługiwania się maszyną wirtualną *Robolab* wymagany jest czytnik kart na USB
+ * w przypadku posługiwania się maszyną wirtualną *Robolab* wymagany jest czytnik kart USB
 * port szeregowy (instnieje możliwość instalacji bez użycia portu szeregowego)
- * w przypadku posługiwania się maszyną wirtualną *Robolab* wymagany jest port szeregowy na USB
+ * w przypadku posługiwania się maszyną wirtualną *Robolab* wymagany jest konwenter USB portu szeregowego
 * płyta główna *PandaBoard* z zasilaczem prądu stałego o napięciu 5 V i natężeniu ok. 2.5 A
 * router sieciowy z WiFi
 * monitor z wejściem HDMI oraz klawiatura na USB lub kabel komunikacji szeregowej RS-232 DE-9 (opcjonalnie)
-* stosowne przewody do komunikacji sieciowej i szeregowej
+* stosowne przewody do komunikacji sieciowej
 
 .. warning::
 
-    Zwróć uwagę na wersję płytki, która jest określona na etykiecie umieszczonej na spodzie płytki. Poniższa instrukcja opisuje instalację systemu na *PandaBoard* w wersji *ES Rev B2* oraz *ES Rev B3*.
+    Zwróć uwagę na wersję *PandaBoard*, która jest opisana na etykiecie umieszczonej na spodzie płytki. Poniższa instrukcja opisuje instalację systemu na *PandaBoard* w wersji *ES Rev B2* oraz *ES Rev B3*.

@@ -8,7 +8,7 @@ Pierwsze ładowanie systemu spowoduje, że partycja z systemem rozszerzy się do
 
 .. note::
 
-    Jeśli posiadasz monitor z wejściem HDMI oraz klawiaturę lub port komunikacji szeregowej, dalszy proces instalacji możesz wykonać zgodnie z instrukacjami pojawiającymi się na ekranie. Jeśli nie posiadasz, możliwe jest dokończenie instalacji systemu według poniższej instrukcji.
+    Jeśli posiadasz monitor z wejściem HDMI oraz klawiaturę lub port komunikacji szeregowej, dalszy proces instalacji możesz wykonać zgodnie z instrukacjami pojawiającymi się na ekranie (według oficjalnej metody). Jeśli nie posiadasz, możliwe jest dokończenie instalacji systemu według poniższej instrukcji.
 
 * **Włącz** *PandaBoard*.
 * **Czekaj** do momentu, gdy jedna z diod będzie mrugała cyklicznie.
@@ -156,9 +156,9 @@ Aktualizacja systemu
 
 .. seealso::
 
-    Miejscem, gdzie znajdują się pakiety używane na PandaBoard jest repozytorium http://ports.ubuntu.com/ w `linux-ti-omap`_.
+    Miejscem, gdzie znajdują się pakiety używane na PandaBoard jest repozytorium http://ports.ubuntu.com/pool/main/l/linux-ti-omap4/.
 
-Po wykonaniu aktualizacji przy pomocy ``do-release-upgrade``, system nie wspiera WiFi. Należy **dodać** do repozytoriów *apt* repozytorium *omap*. Następnie wykonać **aktualizację** listy pakietów i **instalację** następujących pakietów:
+Po wykonaniu aktualizacji przy pomocy ``do-release-upgrade``, system nie wspiera poprawnie sieci bezprzewodowej. Należy **dodać** do repozytoriów *apt* repozytorium *omap*. Następnie wykonać **aktualizację** listy pakietów i **instalację** następujących pakietów:
 
 .. code-block:: sh
 
@@ -173,8 +173,6 @@ Po wykonaniu aktualizacji przy pomocy ``do-release-upgrade``, system nie wspiera
     Instalacja jądra systemu wymaga obecności plików w katalogu ``/boot/``. W razie ich braku, wystarczy stworzyć brakujący plik przy pomocy polecenia ``touch``.
 
 * **Wykonaj** ``reboot``.
-
-.. _aktualizacji:
 
 Aktualizacja pakietów
 ~~~~~~~~~~~~~~~~~~~~~
@@ -204,9 +202,6 @@ Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
     Instalacja jądra systemu wymaga obecności plików w katalogu ``/boot/``. W razie ich braku, wystarczy stworzyć brakujący plik przy pomocy polecenia ``touch``.
 
 * **Dodaj** do pliku ``/etc/rc.local`` linijkę ``iw reg set PL``.
-
-.. _updatenetwork:
-
 * **Zmień** ustawienia sieci: do pliku ``/etc/network/interfaces`` dodaj ustawienia sieci bezprzewodowej:
 
 ::
@@ -249,7 +244,65 @@ Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
 * **Zrestartuj** system.
 * **Połącz** się podając przydzielony przez router adres IP. *Polecam* sprawdzić przypisany adres IP poprzez interfejs administratora routera.
 
-.. _linux-ti-omap: http://ports.ubuntu.com/pool/main/l/linux-ti-omap4/
+Aktualizacja bootloadera
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Aby karta uruchamiała się na płytkach w wersji **B3**, należy pobrać ostatnią wersję bootloadera *u-boot* i manualnie go skompilować według poniższej instrukcji. Do wykonania tych poleceń wymagane jest zainstalowanie dodatkowego oprogramowania:
+
+* make
+* g++
+* gcc
+* u-boot-tools
+* g++-arm-linux-gnueabihf
+* gcc-arm-linux-gnueabihf
+* binutils-arm-linux-gnueabihf
+
+Polecenie do wywołania: ``apt-get install make g++ gcc u-boot-tools g++-arm-linux-gnueabihf gcc-arm-linux-gnueabihf binutils-arm-linux-gnueabihf``. Dla niektórych systemów, wymagana jest zmiana wersji systemu. Dla systemu Debian, aktualna wersja ``testing`` posiada wymienione pakiety.
+
+.. code-block: sh
+
+    wget ftp://ftp.denx.de/pub/u-boot/u-boot-latest.tar.bz2
+      [..]
+    tar xf u-boot-latest.tar.bz2
+    cd u-boot-*
+    make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- omap4_panda_config
+      HOSTCC  scripts/basic/fixdep
+      HOSTCC  scripts/kconfig/conf.o
+      SHIPPED scripts/kconfig/zconf.tab.c
+      SHIPPED scripts/kconfig/zconf.lex.c
+      SHIPPED scripts/kconfig/zconf.hash.c
+      HOSTCC  scripts/kconfig/zconf.tab.o
+      HOSTLD  scripts/kconfig/conf
+    #
+    # configuration written to .config
+    #
+    make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
+      [..]
+    cat <<EOF > boot.script
+    fatload mmc 0:1 0x80000000 uImage
+    setenv bootargs rw vram=32M fixrtc mem=1G@0x80000000 root=/dev/mmcblk0p2 console=ttyO2,115200n8 rootwait
+    bootm 0x80000000
+    EOF
+    mkimage -A arm -T script -C none -n "Boot Image" -d boot.script boot.scr
+      Image Name:   Boot Image
+      Created:      Fri Nov 20 17:48:09 2015
+      Image Type:   ARM Linux Script (uncompressed)
+      Data Size:    164 Bytes = 0.16 kB = 0.00 MB
+      Load Address: 00000000
+      Entry Point:  00000000
+      Contents:
+        Image 0: 156 Bytes = 0.15 kB = 0.00 MB
+    mkimage -A arm -T script -C none -n "Boot Image" -d boot.script boot.scr
+
+Wynikiem wykonania tych operacji będą pliki, które należy umieścić na pierwszej partycji zamontowanej karty:
+
+* ``boot.scr``
+* ``boot.script``
+* ``MLO``
+* ``u-boot.bin``
+* ``u-boot.img``
+
+Po podmianie tych plików, karta może być używana na obu typach płyt *PandaBoard* **B2** i **B3**.
 
 Post-konfiguracja
 -----------------
