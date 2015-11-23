@@ -873,13 +873,13 @@ Aby karta uruchamiała się na płytkach w wersji **B3**, należy pobrać ostatn
 
 Polecenie do wywołania: ``apt-get install make g++ gcc u-boot-tools g++-arm-linux-gnueabihf gcc-arm-linux-gnueabihf binutils-arm-linux-gnueabihf``. Dla niektórych systemów, wymagana jest zmiana wersji systemu. Dla systemu Debian, aktualna wersja ``testing`` posiada wymienione pakiety.
 
-.. code-block: sh
+.. code-block:: sh
 
-    wget ftp://ftp.denx.de/pub/u-boot/u-boot-latest.tar.bz2
+    $ wget ftp://ftp.denx.de/pub/u-boot/u-boot-latest.tar.bz2
       [..]
-    tar xf u-boot-latest.tar.bz2
-    cd u-boot-*
-    make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- omap4_panda_config
+    $ tar xf u-boot-latest.tar.bz2
+    $ cd u-boot-*
+    $ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- omap4_panda_config
       HOSTCC  scripts/basic/fixdep
       HOSTCC  scripts/kconfig/conf.o
       SHIPPED scripts/kconfig/zconf.tab.c
@@ -890,14 +890,14 @@ Polecenie do wywołania: ``apt-get install make g++ gcc u-boot-tools g++-arm-lin
     #
     # configuration written to .config
     #
-    make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
+    $ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
       [..]
-    cat <<EOF > boot.script
+    $ cat <<EOF > boot.script
     fatload mmc 0:1 0x80000000 uImage
     setenv bootargs rw vram=32M fixrtc mem=1G@0x80000000 root=/dev/mmcblk0p2 console=ttyO2,115200n8 rootwait
     bootm 0x80000000
     EOF
-    mkimage -A arm -T script -C none -n "Boot Image" -d boot.script boot.scr
+    $ mkimage -A arm -T script -C none -n "Boot Image" -d boot.script boot.scr
       Image Name:   Boot Image
       Created:      Fri Nov 20 17:48:09 2015
       Image Type:   ARM Linux Script (uncompressed)
@@ -906,7 +906,7 @@ Polecenie do wywołania: ``apt-get install make g++ gcc u-boot-tools g++-arm-lin
       Entry Point:  00000000
       Contents:
         Image 0: 156 Bytes = 0.15 kB = 0.00 MB
-    mkimage -A arm -T script -C none -n "Boot Image" -d boot.script boot.scr
+    $ mkimage -A arm -T script -C none -n "Boot Image" -d boot.script boot.scr
 
 Wynikiem wykonania tych operacji będą pliki, które należy umieścić na pierwszej partycji zamontowanej karty:
 
