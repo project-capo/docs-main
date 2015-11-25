@@ -8,7 +8,7 @@ Do uruchomienia mediatora, potrzeba skonfigurować sterowniki, które będą uru
 
 .. note::
 
-    Obecnie w pełni wspierane sterowniki są *Roboclaw*, *Hokuyo* oraz *Location*. Te należy odkomentować z pliku konfiguracyjnego mediatora znadującego się w ``apps/amber/priv/settings.config``.
+    Obecnie w pełni wspierane sterowniki są *Roboclaw*, *Ninedof*, *Hokuyo* oraz *Location*. Te należy odkomentować z pliku konfiguracyjnego mediatora znadującego się w ``apps/amber/priv/settings.config``.
 
 .. _Przykładową konfigurację: https://github.com/project-capo/amber-erlang-mediator/blob/master/apps/amber/priv/settings.config.example
 

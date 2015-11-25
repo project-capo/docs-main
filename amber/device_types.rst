@@ -5,7 +5,8 @@ Obecnie obsługiwane są urządzenia:
 
 * **Ninedof** - odczytywanie wartości z **czujników ruchu**: przyspieszeniomierza, żyroskopu, kompasu
 * **Roboclaw** - sterowanie **silnikami** i odczytywanie aktualnej prędkości każdego silnika
-* **Stargazer** - obsługa urządzenia o **lokalizacji** z wykorzystanie kamery i markerów
+* **DriveSupport** - sterowanie **silnikami** z wsparciem ze strony skanera laserowego oraz czujnika ruchu (zależne od **Hokuyo** i **Ninedof**)
+* **DriveToPoint** - poruszanie się według określonej trasy z wykorzystaniem informacji o lokalizacji oraz otoczenia (zależne od **Roboclaw** lub **DriveSupport** oraz **Location**)
 * **Hokuyo** - odczytywanie wartości **odległości** od otoczenia z skanera laserowego
 * **Location** - dostarczanie informacji o **lokalizacji** robota z wykorzystanie skanera laserowego i algorytmu lokalizującego
 * **Maestro** - obsługa sterownika **servo** motorów (np. wykorzystywanych w ramieniu)
@@ -29,6 +30,22 @@ Głównymi akcjami, które można wykonać na silnikach są:
 * *odczytanie aktualnej prędkości* z enkoderów z silników
 
 Jednostką podawanych prędkości jest ``mm/s``.
+
+DriveSupport
+------------
+
+Identyczne operacje jak w przypadku **Roboclaw**. Klient pozostaje ten sam co w przypadku **Roboclaw**.
+
+DriveToPoint
+------------
+
+Operacje jakie są dostarczane z sterownikiem **DriveToPoint** są:
+
+* ustawienie listy punktów do przebycia
+* odczytanie listy punktów, jakie zostały osiągnięte
+* odczytanie ostatnio osiągniętego punktu
+* odczytanie listy punktów, jakie są do osiągnięcia
+* odczytanie punktu, jaki ma zostać osiągnięty jako kolejny
 
 Hokuyo
 ------

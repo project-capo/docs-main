@@ -71,6 +71,9 @@ Obecna numeracja typów sterowników ``DeviceType``:
 * 5 - **Dummy** (testowy)
 * 6 - **Location** (położenie w oparciu o skany z lasera i względne przemieszczenie)
 * 7 - **Maestro** (servo)
+* 8 - **DriveToPoint** (poruszanie się według zadanej listy punktów)
+* 9 - **CollisionAvoidance** (nie używane)
+* 10 - **PidFollowTrajectory** (poruszanie się wedłu linii)
 
 Obecne typy wiadomości ``DriverMsg``:
 

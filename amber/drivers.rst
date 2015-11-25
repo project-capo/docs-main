@@ -15,6 +15,9 @@ Wspierane sterowniki
 * `amber-python-drivers`_ jest to projekt sterowników, napisanych w *python*, które pozwalają na komunikację z urządzeniami umieszczonymi na robocie. Wspierane są:
 
     * **Hokuyo** - odczytywanie informacji z sensora umieszczonego na robocie, dostarczającego informacji o odległościach innych przeszkód od robota
+    * **DriveSupport** - osbługa sterowania silnikami ze wsparciem skanera laserowego oraz czujnika ruchu
+    * **DriveToPoint** - obsługa poruszania się według listy punktów
+    * **Roboclaw** - obsługa sterowania silnikami
 
 .. _amber-cpp-drivers: https://github.com/project-capo/amber-cpp-drivers
 .. _amber-python-drivers: https://github.com/project-capo/amber-python-drivers

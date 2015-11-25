@@ -11,12 +11,15 @@ Wspierani klienci
     * **Hokuyo**
     * **Location**
     * **Maestro**
+    * **DriveToPoint**
 
 * `amber-python-clients`_ jest to projekt dostarczają klientów, napisanych w *python*, używanych przez korzystających z robota, w ich własnych aplikacjach, obsługiwane są:
 
     * **Ninedof**
     * **Roboclaw**
     * **Hokuyo**
+    * **Location**
+    * **DriveToPoint**
 
 .. _amber-java-clients: https://github.com/project-capo/amber-java-clients
 .. _amber-python-clients: https://github.com/project-capo/amber-python-clients
@@ -43,5 +46,5 @@ Przykład
 
 Przykładem klienta, który realizuje powyższe funkcjonalności jest `DummyClient`_. Klienci korzystają z `części wspólnej`_.
 
-.. _DummyClient: https://github.com/project-capo/amber-python-clients/blob/master/src/amber/dummy/dummy.py
-.. _części wspólnej: https://github.com/project-capo/amber-python-clients/tree/master/src/amber/common
+.. _DummyClient: https://github.com/project-capo/amber-python-clients/blob/master/src/amberclient/dummy/dummy.py
+.. _części wspólnej: https://github.com/project-capo/amber-python-clients/tree/master/src/amberclient/common
