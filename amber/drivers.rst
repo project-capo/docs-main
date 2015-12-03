@@ -94,5 +94,5 @@ Przykład
 
 Przykładem sterownika, który realizuje powyższe funkcjonalności jest `DummyDriver`_. Sterowniki korzystają z `części wspólnej`_.
 
-.. _DummyDriver: https://github.com/project-capo/amber-python-drivers/blob/master/src/amber/dummy/dummy.py
-.. _części wspólnej: https://github.com/project-capo/amber-python-drivers/blob/master/src/amber/common/amber_pipes.py
+.. _DummyDriver: https://github.com/project-capo/amber-python-drivers/blob/master/src/amberdriver/dummy/dummy.py
+.. _części wspólnej: https://github.com/project-capo/amber-python-drivers/blob/master/src/amberdriver/common/amber_pipes.py
