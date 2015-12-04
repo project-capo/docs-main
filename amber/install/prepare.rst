@@ -12,7 +12,11 @@ Instalacja dodatkowego oprogramowania
 
         deb http://packages.erlang-solutions.com/debian wheezy contrib
 
-    Po dodaniu wpisu należy wykonać ``aptitude update``.
+    Po dodaniu wpisu należy wykonać ``aptitude update``. Jeśli wystąpią problemy z pobieraniem listy pakietów z powodu braku klucza, należy dodać klucz przy pomocy polecenia:
+
+    .. code-block:: sh
+
+        apt-key adv --recv-keys --keyserver keyserver.ubuntu.com D208507CA14F4FCA
 
 
 Do pracy z platformą *Amber* potrzebne są dodatkowe narzędzia. Należy zainstalować powyższe narzędzia z wykorzystaniem polecenia ``aptitude install``:
@@ -20,7 +24,7 @@ Do pracy z platformą *Amber* potrzebne są dodatkowe narzędzia. Należy zainst
 .. code-block:: sh
 
     aptitude install -y git make
-    aptitude install -y erlang
+    aptitude install -y esl-erlang
     aptitude install -y g++ libcxxtools-dev liblog4cxx10-dev libboost-dev libboost-program-options-dev libboost-thread-dev libboost-system-dev
     aptitude install -y protobuf-compiler libprotoc-dev
     aptitude install -y python python-dev python-setuptools python-pip python-virtualenv
