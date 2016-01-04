@@ -1,13 +1,13 @@
 Amber
 =====
 
-Instalacja Amber zaczyna się od `amber-erlang-mediator`_. Jest to projekt mediatora, który to dostarcza mechanizmu komunikacji pomiędzy poszczególnymi `sterownikami`_ oraz `klientami`_.
+Amber installation begins from `amber-erlang-mediator`_. It is a mediator, which is used in comunication between `drivers`_ and `clients`_.
 
-W standardowym modelu zakłada się, że:
+In a normal scenario, there are following components:
 
-* istnieje jeden mediator
-* używanych jest kilka sterowników, z których każdy komunikuje się z innym urządzeniem, nie ma sterowników duplikujących działanie
-* podłączonych jest jeden lub wielu klientów, którzy korzystają jednocześnie z dostępnych na robocie urządzeń
+* there is only one mediator
+* there are different multiple drivers, which are communicating with different devices, there is no duplicated drivers
+* there are multiple clients connected to mediator, which they use available devices
 
 .. toctree::
 
@@ -18,6 +18,6 @@ W standardowym modelu zakłada się, że:
     amber/clients
     amber/communication
 
-.. _sterownikami: ./amber/drivers.html
-.. _klientami: ./amber/clients.html
+.. _drivers: ./amber/drivers.html
+.. _clients: ./amber/clients.html
 .. _amber-erlang-mediator: https://github.com/project-capo/amber-erlang-mediator

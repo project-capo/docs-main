@@ -1,7 +1,7 @@
-Instalacja
-----------
+Installation
+------------
 
-Instalacje należy wykonywać jako użytkownik ``panda`` w katalogu domowym użytkownia ``panda``: ``/home/panda``. Należy pobrać i zainstalować *Amber* wraz z dodatkami według poniższego skryptu:
+Installation need to be done as ``panda`` user in home directory of this user: ``/home/panda``. Need to download and install *Amber* with extras with following script:
 
 .. code-block:: sh
 
@@ -21,7 +21,7 @@ Instalacje należy wykonywać jako użytkownik ``panda`` w katalogu domowym uży
         popd
     popd
 
-Aktualizację platformy *Amber* z dodatkami można wykonać za pomocą poniższego skryptu, jako użytkownik ``panda``:
+Update of *Amber* platform with extras can be done with following script executed as ``panda``:
 
 .. code-block:: sh
 

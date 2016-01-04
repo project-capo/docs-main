@@ -1,25 +1,24 @@
-Przygotowanie środowiska
-------------------------
+Prepare environment
+-------------------
 
-Instalacja dodatkowego oprogramowania
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Additional software installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. note::
 
-    W *Ubuntu 12.04.5 LTS* należy dodać dodatkowe repozytoria pozwalające na zainstalowanie wspieranej przez Amber wersji Erlang. Należy dodać do pliku ``/etc/apt/sources.list``:
+    For *Ubuntu 12.04.5 LTS* need to add additional repository used to install supported by *Amber* Erlang verion. Following line need to be added to ``/etc/apt/sources.list``:
 
     .. code-block:: sh
 
         deb http://packages.erlang-solutions.com/debian wheezy contrib
 
-    Po dodaniu wpisu należy wykonać ``aptitude update``. Jeśli wystąpią problemy z pobieraniem listy pakietów z powodu braku klucza, należy dodać klucz przy pomocy polecenia:
+    After adding this entry ``aptitude update`` need to be executed. If there will be some issues with downloading packages list key need to be added with following command:
 
     .. code-block:: sh
 
         apt-key adv --recv-keys --keyserver keyserver.ubuntu.com D208507CA14F4FCA
 
-
-Do pracy z platformą *Amber* potrzebne są dodatkowe narzędzia. Należy zainstalować powyższe narzędzia z wykorzystaniem polecenia ``aptitude install``:
+To work with *Amber* platform additional software need to be installed. Additional software can be installed with following commands:
 
 .. code-block:: sh
 
@@ -29,17 +28,17 @@ Do pracy z platformą *Amber* potrzebne są dodatkowe narzędzia. Należy zainst
     aptitude install -y protobuf-compiler libprotoc-dev
     aptitude install -y python python-dev python-setuptools python-pip python-virtualenv
 
-Modyfikacja plików konfiguracyjnych
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Configuration file modifications
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-* **Dodać** wpis do pliku ``/etc/modules`` (jeśli nie zostało wykonane):
+* **Add** entry to file ``/etc/modules``:
 
 ::
 
     ...
     i2c-dev
 
-* **Zmienić** zawartość pliku ``/etc/rc.local``:
+* **Change** content of file ``/etc/rc.local``:
 
 .. code-block:: sh
 
@@ -96,15 +95,15 @@ Modyfikacja plików konfiguracyjnych
 
     exit 0
 
-Utworzenie użytkownika
-~~~~~~~~~~~~~~~~~~~~~~
+User creation
+~~~~~~~~~~~~~
 
-* **Dodać** użytkownika ``panda``.
-* **Dodać** użytkownika ``panda`` do grup ``dialout`` i ``sudo`` przy pomocy polecenia ``adduser panda dialout; adduser panda sudo``.
+* **Create** user ``panda``.
+* **Add** user ``panda`` to group ``dialout`` and ``sudo`` with commands ``adduser panda dialout; adduser panda sudo``.
 
 .. note::
 
-    Plik odpowiedzialny za grupy użytkowników ``/etc/group``:
+    File responsible for groups ``/etc/group``:
 
     .. code-block::
 
@@ -114,8 +113,8 @@ Utworzenie użytkownika
         sudo:x:27:panda
         ...
 
-* **Zalogować** się na użytkownika ``panda``: ``su - panda``.
-* **Dodać** swój klucz publiczny SSH do pliku ``/home/panda/.ssh/authorized_keys``
+* **Login** with user ``panda``: ``su - panda``.
+* **Add** your public SSH key to file ``/home/panda/.ssh/authorized_keys``
 
 ::
 

@@ -1,7 +1,7 @@
-Instalacja i konfiguracja systemu
-=================================
+Installation and system configuration
+=====================================
 
-Instalację systemu można przeprowadzić na dwa sposoby:
+Operating system installation can be done in two ways:
 
 .. toctree::
 

@@ -1,98 +1,98 @@
-Sterowniki
-==========
+Drivers
+=======
 
-Wspierane sterowniki
---------------------
+Supported drivers
+-----------------
 
-* `amber-cpp-drivers`_ jest to projekt sterowników, napisanych w *C/C++*, które pozwalają na komunikację z urządzeniami umieszczonymi na robocie. Wspierane są:
+* `amber-cpp-drivers`_ is a project which contains drivers written in *C/C++*. Supported drivers are following:
 
-    * **Ninedof** - odczytywanie informacji z sensora umieszczonego na robocie, dostarczającego informacji z przyspieszeniomierza, żyroskopu oraz magnetometru
-    * **Roboclaw** - sterowanie silnikami robota
-    * **Stargazer** - obsługa lokalizacji w oparciu o kamerę oraz markery
-    * **Location** - programowa obsługa lokalizacji z wykorzystaniem algorytmu cząstek i analizy trakcji
-    * **Maestro** - servo-mechanizmy wykorzystywane w ramieniu
+    * **Ninedof** - reading information from sensor located on robot which provides information about motion from sensors accelerometer, gyroscope and compass
+    * **Roboclaw** - controlling engines
+    * **Stargazer** - provides ability to localize robot using camera and markers
+    * **Location** - software computed location based on information from *Roboclaw* and *Hokuyo*
+    * **Maestro** - servo-motors used in arm
 
-* `amber-python-drivers`_ jest to projekt sterowników, napisanych w *python*, które pozwalają na komunikację z urządzeniami umieszczonymi na robocie. Wspierane są:
+* `amber-python-drivers`_ is a project which contains drivers written in *python*. Supported drivers are following:
 
-    * **Hokuyo** - odczytywanie informacji z sensora umieszczonego na robocie, dostarczającego informacji o odległościach innych przeszkód od robota
-    * **DriveSupport** - osbługa sterowania silnikami ze wsparciem skanera laserowego oraz czujnika ruchu
-    * **DriveToPoint** - obsługa poruszania się według listy punktów
-    * **Roboclaw** - obsługa sterowania silnikami
+    * **Hokuyo** - reading information from scanner about environment
+    * **DriveSupport** - used to control engines, additional data are used like scans and motion data
+    * **DriveToPoint** - allow to drive the route by list of points
+    * **Roboclaw** - used to control engines without any additional support
 
 .. _amber-cpp-drivers: https://github.com/project-capo/amber-cpp-drivers
 .. _amber-python-drivers: https://github.com/project-capo/amber-python-drivers
 
-Konfiguracja z mediatorem
--------------------------
+Mediator configuration
+----------------------
 
-Sterownik posiada przypisany typ urządzenia oraz numer urządzenia. Wartości te ustawiane są w `konfiguracji Amber`_. Konfiguracja powinna być zapisana jako ``apps/amber/priv/settings.config``.
+Each driver has device type and number assigned. That values are set in `Amber configuration`_. Configuration sould be saved in file ``apps/amber/priv/settings.config``.
 
-Konfiguracja jednego z sterowników::
+Example configuration::
 
     {supervised_driver,
       {driver,
-        {nazwa_sterownika}
+        {driver_name}
       },
-      {numer_typu_sterownika, numer_sterownika},
+      {driver_type_number, driver_nummber},
       [
-        {cdriver, "ścieżka/do/sterownika"},
-        {config_file, "ścieżka/do/konfiguracji/sterownika"},
-        {log_config_file, "ścieżka/do/konfiguracji/dziennika/sterownika"}
+        {cdriver, "path/to/driver"},
+        {config_file, "path/to/driver/configuration"},
+        {log_config_file, "path/to/log/configuration"}
       ]
     }.
 
-Ścieżki konfiguracji nie są wymagane, ważne jest podanie ścieżki do pliku wykonywalnego, który uruchomi sterownik.
+Paths to configuration are not required. Required is path to executable file used to start the driver.
 
-.. _konfiguracji Amber: https://github.com/project-capo/amber-erlang-mediator/blob/master/apps/amber/priv/settings.config.example
+.. _Amber configuration: https://github.com/project-capo/amber-erlang-mediator/blob/master/apps/amber/priv/settings.config.example
 
-Cechy sterownika
-----------------
+Driver features
+---------------
 
-Sterownik jest:
+Driver is:
 
-* aplikacją uruchamianą na robocie
-* app. komunikującą się z urządzeniem podłączonym do robota
-* app. komunikującą się z mediatorem przez potoki powłoki systemu linux
+* an application which is running on robot
+* an app. which is communicating with device connect to robot
+* an app. which is communicating with mediator using pipes
 
-Sterownik odpowiada za:
+Driver is responsible for:
 
-* ustawienie parametrów urządzenia
-* wsparcie obsługi współbieżnego dostęp do urządzenia przez wiele klientów
-* obserwowanie obecności klientów
-* wysyłanie wiadomości dla klientów, którzy zarejestrowali się jako nasłuchujący na dany typ wiadomości
-* odbieranie komunikatów, ich obsługę i odsyłanie wiadomości, jeśli to konieczne
+* setting device parameters
+* supporting simultaneous and parallel access to device
+* monitoring clients presence and activity
+* sending messages to clients which are registered as subscribers for specific type of messages
+* receiving messages, servicing that messages and replying if it is needed
 
-Działanie
----------
+How it work
+-----------
 
 .. warning::
 
-   Poniższe zalecenia wynikają z postaci wspólnej wszystkich wiadomości przesyłanych między klientami a sterownikami. Stosowanie `DriverMsg`_ nie jest konieczne. Możliwe jest ustanowienie własnej postaci wiadomości, przy czym obecna postać sterowników i klientów nie wspiera własnej postaci wiadomości.
+   Following guidelines are as a consequence of common part in messages sent between clients and drivers. Using `DriverMsg`_ is not required. Message format can be manully definded, but so far drivers and clients does not support it.
 
-Sterownik powinien realizować funkcjonalności takie jak:
+Driver should support following features:
 
-* obsługę odbierania wiadomość typów:
+* handling received messages:
 
-    * **DATA** - dane do przetworzenia przez sterownik, odebrane od klienta
-    * **PING** - zapytanie o działanie, realizowane przez mediator, obecnie nie używane, odpowiedzią na zapytanie jest odesłanie wiadomości typu PONG
-    * **SUBSCRIBE** i **UNSUBSCRIBE** - do rejestracji klienta nasłuchującego
-    * **CLIENT_DIED** - zgłoszenie klienta o zakończeniu pracy, w przypadku, gdy dany klient był zarejestrowanych jako słuchacz, należy postąpić z nim podobnie, jak w przypadku **UNSUBSCRIBE**
+    * **DATA** - contains data which should be processed by driver
+    * **PING** - echo request sent by mediator to check if driver is still alive, current not used, as a result driver should reply from **PONG**
+    * **SUBSCRIBE** i **UNSUBSCRIBE** - used for client registration
+    * **CLIENT_DIED** - used to inform driver about closed client, as a result client should be removed from subscribers list similar to **UNSUBSCRIBE**
 
-Dodatkowo, co jest zalecane, sterownik powinien przy poprawnym zamykaniu się, wysłać do mediatora komunikat typu **DRIVER_DIED**.
+Additionally it is recommended that driver should sent **DRIVER_DIED** to mediator when it is closing correctly.
 
-Oprócz obsługi wiadomości, sterownik powinien realizować:
+Also driver should support:
 
-* inicjalizację pracy z urządzeniem
-* ustawienie określonych parametrów pracy
-* buforowanie danych z urządzenia
-* współbieżny dostęp do urządzenia
+* initialize device
+* set device parameters
+* buffer data from device
+* synchronous access to device
 
 .. _DriverMsg: https://github.com/project-capo/amber-common/blob/master/proto/drivermsg.proto
 
-Przykład
+Example
 --------
 
-Przykładem sterownika, który realizuje powyższe funkcjonalności jest `DummyDriver`_. Sterowniki korzystają z `części wspólnej`_.
+Example of driver can be `DummyDriver`_. Drivers use `common parts`_.
 
 .. _DummyDriver: https://github.com/project-capo/amber-python-drivers/blob/master/src/amberdriver/dummy/dummy.py
-.. _części wspólnej: https://github.com/project-capo/amber-python-drivers/blob/master/src/amberdriver/common/amber_pipes.py
+.. _common parts: https://github.com/project-capo/amber-python-drivers/blob/master/src/amberdriver/common/amber_pipes.py

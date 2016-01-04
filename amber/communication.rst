@@ -1,86 +1,83 @@
-Komunikacja
-===========
+Communication
+=============
 
-Uczestnicy
-----------
+Participants
+------------
 
-W komunikacji uczestniczą:
+In communication participate:
 
-* jeden mediator
-* jeden klient lub wielu klientów
-* jeden sterownik lub wiele sterowników
+* one mediator
+* one or more client(s)
+* one or more driver(s)
 
-Cechy mediatora:
+Mediator features:
 
-* odpowiada za przekazywanie komunikatów pomiędzy określonymi klientami i sterownikami
-* nie ingeruje w wiadomości, jakie są znane tylko sterownikom oraz klientom
-* obsługuje i przetwarza nagłówki wiadomości, w których
+* is responsible for routing messages between clients and drivers
+* does not modify message which is known only for driver and client
+* processes message headers:
 
-    * uzupełnia informacje o numerach klientów
-    * wykorzystuje informacje o typie i numerze sterownika
+    * updates information about clients
+    * updates information about type and number of device
 
-
-Protokół
+Protocol
 --------
 
-Sterownik komunikuje się z mediatorem przy pomocy potoków. Są to potoki standardowego wyjścia i wejścia. Wymagane jest, by sterownik na standardowym wejściu oczekiwał na dane, a na standardowe wyjście umieszczał dane.
+Driver communicates with mediator using pipes - standard input and output. It is required that driver will wait for data on standard input and will send data using standard output. Client communicates with mediator using UDP. Mediator is listening on port ``26233``.
 
-Klient komunikuje się z mediatorem przy pomocy datagramowego połączenia sieciowego ``UDP``. Mediator nasłuchuje na dostępnych interfejsach systemu, na porcie ``26233``.
+Format of message used in communication with mediator:
 
-Protokół komunikacji z mediatorem jest następujący:
+* 2 bytes which contain information about header length
+* header data
+* 2 bytes which contain information about message length
+* message data
 
-* 2 bajty długości nagłówka wiadomości
-* nagłówek wiadomości o zadanej długości
-* 2 bajty długości wiadomości
-* wiadomość o zadanej długości
+Length value should be sent in ``big-endian`` format (used in network). Be aware if used data are ``signed`` or ``unsigned``. Due to fact that *Java* ``signed`` should be used.
 
-Wartość długości powinna być przesyłana w porządku ``big-endian``, zgodna z sieciowymi warunkami przesyłania danych. Należy zwrócić uwagę na to, czyli wartości są ``singed`` czy ``unsigned``. Ze względu na wykorzystywanie języka *Java*, przyjmuje się, że wartości bajtów są ``signed``.
+Header and message data are binary data. Be aware how driver is communicating with mediator, what are the settings for pipes. For example in *python* interpreter should be started with option ``-u`` which allow using standard input and output in binary mode.
 
-Nagłówek oraz wiadomość są binarnymi ciągami znaków. Należy zwrócić uwagę na sposób komunikacji z mediatorem poprzez potoki. W przypadku używania języka *python*, należy ustawić działanie interpretera na binarne obsługiwanie wejścia i wyjścia. Możliwe jest to dzięki opcji ``-u``.
-
-Do serializacji i deserializacji wykorzystywane jest *Google Protobuf*. Wymagane jest, by co najmniej nagłówek był zgodny z przyjętym w mediatorze. Wiadomości przesyłane przez mediator nie są sprawdzane i może to być dowolny ciąg znaków. Zaleca się, by to było zgodne z *protobuf* i postacią wiadomości przyjętą w projekcie. Aktualna postać nagłówka i podstawowej wiadomości dostępna jest `project-capo/amber-common/drivermsg.proto`_.
+For serialization *Google Protobuf* is used. It is required that header will be combatible with used by mediator. Messages are not touched by mediator. It is recommended to use *protobuf* for message and to have message in format combatible with used in Amber project. Current header and message format is published in file `project-capo/amber-common/drivermsg.proto`_.
 
 .. _project-capo/amber-common/drivermsg.proto: https://github.com/project-capo/amber-common/blob/master/proto/drivermsg.proto
 
-Komunikaty
-----------
+Messages
+--------
 
-Wiadomości przesyłane między klientami a sterownikami składają się z:
+Messages sent between clients and drivers contain:
 
-* nagłówka ``DriverHdr``
+* header ``DriverHdr``
 
-    * ``deviceType`` - typie urządzenia
-    * ``deviceID`` - numerze urządzenia
-    * ``clientIDs`` - numerach klientów, którzy wysłali dany komunikat do sterownika
+    * ``deviceType`` - device type
+    * ``deviceID`` - device number
+    * ``clientIDs`` - clients numbers
 
-* wiadomości ``DriverMsg``
+* message ``DriverMsg``
 
-    * ``type`` - typie wiadomości
-    * ``synNum`` - numerze zapytania, nadanym przez klienta
-    * ``ackNum`` - numerze odpowiedzi, nadanym przez sterownik, odpowiadającym numerowi ``synNum``
-    * ``listenerNum`` - numerze określający listener
-    * dodatkowych pól (``extensions``)
+    * ``type``  - message type
+    * ``synNum`` - request number, set by client
+    * ``ackNum`` - reply number, set by driver
+    * ``listenerNum`` - listener number
+    * additional fields (``extensions``)
 
-Obecna numeracja typów sterowników ``DeviceType``:
+Current device types ``DeviceType``:
 
-* 0 - nieznany, nieużywany
-* 1 - **NineDof** (czujnik ruchu)
-* 2 - **Roboclaw** (silniki)
-* 3 - **Stargazer** (położenie w oparciu o znaczniki)
-* 4 - **Hokuyo** (laser)
-* 5 - **Dummy** (testowy)
-* 6 - **Location** (położenie w oparciu o skany z lasera i względne przemieszczenie)
-* 7 - **Maestro** (servo)
-* 8 - **DriveToPoint** (poruszanie się według zadanej listy punktów)
-* 9 - **CollisionAvoidance** (nie używane)
-* 10 - **PidFollowTrajectory** (poruszanie się wedłu linii)
+* 0 - unknown, not used
+* 1 - **NineDof** (motion sensor)
+* 2 - **Roboclaw** (engines)
+* 3 - **Stargazer** (robot location based on markers)
+* 4 - **Hokuyo** (laser scanner)
+* 5 - **Dummy** (testing)
+* 6 - **Location** (computed robot location)
+* 7 - **Maestro** (servo-motors)
+* 8 - **DriveToPoint** (following list of points)
+* 9 - **CollisionAvoidance** (not used)
+* 10 - **PidFollowTrajectory** (following line)
 
-Obecne typy wiadomości ``DriverMsg``:
+Current driver type messages ``DriverMsg``:
 
-* **DATA** - dane przesyłane i rozumiane przez sterownik i klienta
-* **PING** - zapytanie mediatora o działanie sterownika czy klienta, obecnie nieużywane
-* **PONG** - odpowiedź sterownika czy klienta, obecnie nie wymagana
-* **CLIENT_DIED** - komunikat wysyłany przez klienta, przy poprawnym zamknięciu klienta
-* **DRIVER_DIED** - komunikat wysyłany przez sterownik, przy poprawnym zamknięciu sterownika
-* **SUBSCRIBE** - subskrypcja klienta nasłuchującego wiadomości
-* **UNSUBSCRIBE** - zakończenie subskrypcji klienta
+* **DATA** - data sent between clients and drivers
+* **PING** - echo request sent by mediator, currently not used
+* **PONG** - echo reply sent by driver or client, currently not used
+* **CLIENT_DIED** - information sent by client when client was correctly closed
+* **DRIVER_DIED** - information sent by driver when driver was correctly closed
+* **SUBSCRIBE** - subcribe messages sent by client
+* **UNSUBSCRIBE** - closing subscribtion

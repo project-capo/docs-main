@@ -1,43 +1,43 @@
-Przygotowanie do uruchomienia
-=============================
+Prepare to run
+==============
 
-Wgranie obrazu systemu na kartę
--------------------------------
+Write OS image to SD card
+-------------------------
 
-* **Pobierz** obraz `Ubuntu Server 12.04 amrhf+omap4`_ dla PandaBoard ze strony `Ubuntu`_.
+* **Download** `Ubuntu Server 12.04 amrhf+omap4`_ image for PandaBoard from website `Ubuntu`_.
 
 .. seealso::
 
-    Więcej informacji na temat wsparcia Ubuntu dla płyt opartych o OMAP dostępne jest na stronie `ARM/OMAP`_.
+    More information about Ubuntu support for board based on OMAP are available on website `ARM/OMAP`_.
 
-* **Sprawdź** sumy kontrolne *md5* z dostępnymi na `serwerze`_ obrazów.
-* **Sprawdź** czy karta SD jest w trybie *do zapisu*.
+* **Check** *md5* sums with sums which are available on `server`_.
+* **Check** if SD card is in *write mode*.
 
 .. note::
 
-    Przełącznik zapisu powinien być przesunięty do góry, gdzie u góry karty znajdują są styki.
+    Write switch on card should be in **up** position, closed to contacts.
 
-* **Umieść** kartę w czytniku kart komputera.
-* **Wywołaj** jedno z poniższych zestawów poleceń:
+* **Insert** card in computer card reader.
+* **Execute** one of following commands sets:
 
 .. code-block:: sh
 
     gunzip -c ubuntu-12.04-preinstalled-server-armhf+omap4.img.gz | sudo dd bs=1M of=/dev/<device name>
     sync
 
-lub:
+or:
 
 .. code-block:: sh
 
     sudo sh -c 'zcat ubuntu-12.04-preinstalled-server-armhf+omap4.img.gz > /dev/<device name>'
     sync
 
-``<device name`` powinno być zastąpione nazwą urządzenia blokowego.
+``<device name>`` should be replaced with the block device name.
 
-* **Wyciągnij** kartę z czytnika kart komputera.
-* **Umieść** kartę w czytniku kart *PandaBoard*.
+* **Pull** card from card reader.
+* **Insert** card *PandaBoard* card reader.
 
 .. _Ubuntu Server 12.04 amrhf+omap4: http://cdimage.ubuntu.com/releases/12.04/release/ubuntu-12.04-preinstalled-server-armhf+omap4.img.gz
 .. _Ubuntu: http://cdimage.ubuntu.com/releases/12.04/release/
-.. _serwerze: http://cdimage.ubuntu.com/releases/12.04/release/MD5SUMS
+.. _server: http://cdimage.ubuntu.com/releases/12.04/release/MD5SUMS
 .. _ARM/OMAP: https://wiki.ubuntu.com/ARM/OMAP

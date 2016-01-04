@@ -1,7 +1,7 @@
-Post-konfiguracja
------------------
+Post-configuration
+------------------
 
-* **Odkomentować** ostatnią linijkę w ``/etc/rc.local``:
+* **Uncomment** following line in file ``/etc/rc.local``:
 
 .. code-block:: sh
 
@@ -11,7 +11,7 @@ Post-konfiguracja
 
     exit 0
 
-* **Skopiować** przykładowy plik konfiguracyjny:
+* **Copy** example configuration file:
 
 .. code-block:: sh
 

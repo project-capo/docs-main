@@ -1,40 +1,40 @@
-Wymagania
-=========
+Requirements
+============
 
-Środowisko pracy
+Working environment
 ----------------
 
 .. note::
 
-    Zakłada się, że wgranie systemu na kartę odbywa się z poziomu systemu Linux. Modyfikowanie karty możliwe jest *tylko* z wykorzystaniem systemu Linux. Modyfikowanie odbywać się może po zamontowaniu partycji systemowej, na której wykorzystywany jest system plików ``ext4``.
+    It is assumed that writing OS on card is done from Linux system. Modifying files on card can be done *only* from Linux system. Modification should be done after mounting system partition which file system is ``ext4``.
 
 .. note::
 
-    Na potrzeby instalacji systemu na karcie, przygotowana została maszyna wirtualna *RoboLab*.
+    For installation process, virtual machine *Robolab* has been prepared.
 
-Wykorzystywane technologie i narzędzia
---------------------------------------
+Used technologies and tools
+---------------------------
 
-Do wykonania poniższej instrukcji wymagana jest znajomość:
+To understand and execute following instruction you need to be familiar with following things:
 
-* obsługi podstawowych poleceń w powłoce systemu Linux, jakimi są polecenia ``cd``, ``ls``, ``tar``, ``gz``, etc.
-* obsługi edytora tekstu, jak na przykład ``vim`` czy ``nano``
-* obsługi menadżera pakietów systemu Ubuntu ``aptitude`` lub ``apt-get``
-* obsługi aplikacji używanej do komunikacji z *PandaBoard* z wykorzystaniem portu komunikacji szeregowej
-* obsługi zdalnej konsoli SSH i generowania kluczy SSH z wykorzystaniem *Putty* (windows) lub ``ssh`` (Linux)
+* using basic Linux commands, eg. ``cd``, ``ls``, ``tar``, ``gz``, etc.
+* using console text editore, eg. ``vim`` or ``nano``
+* using package manager used in Ubuntu eg. ``aptitude`` or ``apt-get``
+* using console serial port application used in communication with *PandaBoard* eg. ``minicom``
+* using SSH remote console and generating SSH keys eg. *Putty* (windows) or ``ssh`` (Linux)
 
-W celu przeprowadzenia procesu instalacji systemu potrzebne są:
+To follow the operating system installation process following things are required:
 
-* karta SD o pojemności minimum 8 GB
-* czytnik kart SD
- * w przypadku posługiwania się maszyną wirtualną *Robolab* wymagany jest czytnik kart USB
-* port szeregowy (instnieje możliwość instalacji bez użycia portu szeregowego)
- * w przypadku posługiwania się maszyną wirtualną *Robolab* wymagany jest konwenter USB portu szeregowego
-* płyta główna *PandaBoard* z zasilaczem prądu stałego o napięciu 5 V i natężeniu ok. 2.5 A
-* router sieciowy z WiFi
-* monitor z wejściem HDMI oraz klawiatura na USB lub kabel komunikacji szeregowej RS-232 DE-9 (opcjonalnie)
-* stosowne przewody do komunikacji sieciowej
+* SD card size 8 GB or bigger
+* SD card reader
+ * if you are using virtual machine *Robolab* you need to have USD card reader
+* serial port (there is ability to install system without using serial port)
+ * if you are using virtual machine *Robolab* required is USB serial port conventer
+* board *PandaBoard* with power supply with DC voltage 5 V and current ca. 2.5 A
+* WiFi network router
+* display with HDMI input and keyboard on USB or serial port communication cable RS-232 DE-9 (optional)
+* other required network cables
 
 .. warning::
 
-    Zwróć uwagę na wersję *PandaBoard*, która jest opisana na etykiecie umieszczonej na spodzie płytki. Poniższa instrukcja opisuje instalację systemu na *PandaBoard* w wersji *ES Rev B2* oraz *ES Rev B3*.
+    Please check *PandaBoard* board version. You should find this on label which can be found at the bottom of board. Following instruction describes installation process on boards *ES Rev B2* and *ES Rev B3*.

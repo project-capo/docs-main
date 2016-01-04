@@ -1,11 +1,11 @@
-Instalacja i uruchomienie
-=========================
+Installation and running
+========================
 
-Przeprowadzenie instalacji odbyć można na dowolnym systemie linux.
+Installation can be done on any Linux system.
 
 .. note::
 
-    Funkcjonalności, jakie są dostarczane przez poszczególne sterowniki dostępne są *tylko* na robotach w laboratorium.
+    Provided features are *only* available on robots which are in laboratory.
 
 .. toctree::
 

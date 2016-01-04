@@ -1,26 +1,26 @@
-Starsza metoda
-==============
+Legacy method
+=============
 
-Pierwsze uruchomienie instalacyjne
-----------------------------------
+First installation boot
+-----------------------
 
-Pierwsze ładowanie systemu spowoduje, że partycja z systemem rozszerzy się do wielkości karty. **Nie należy przerywać** uruchamiania systemu. **Należy czekać** do momentu, gdy jedna z diod na płytce będzie mrugała cyklicznie.
+First system loading will cause that the system partition will be expanded to the size of memory card. That process **cannot be interrupted**. You **need to wait** till the moment when one of LEDs will blink.
 
 .. note::
 
-    Jeśli posiadasz monitor z wejściem HDMI oraz klawiaturę lub port komunikacji szeregowej, dalszy proces instalacji możesz wykonać zgodnie z instrukacjami pojawiającymi się na ekranie (według oficjalnej metody). Jeśli nie posiadasz, możliwe jest dokończenie instalacji systemu według poniższej instrukcji.
+    If you have display with HDMI input and keyboard or serial port in your PC, you are able to follow instructions which will be displayed on console (official method). If you do not have it, it is able to finish system installation as per this instruction.
 
-* **Włącz** *PandaBoard*.
-* **Czekaj** do momentu, gdy jedna z diod będzie mrugała cyklicznie.
-* **Wyłącz** *PandaBoard*.
-* **Wyciągnij** kartę z czytnika z *PandaBoard*.
-* **Umieść** kartę w czytniku kart komputera.
+* **Turn on** *PandaBoard*.
+* **Wait** till the moment when on of LEDs will blink.
+* **Turn off** *PandaBoard*.
+* **Pull out** memory card from *PandaBoard* card reader.
+* **Put** memory card in computer card reader.
 
-Przygotowanie systemu do konfiguracji
--------------------------------------
+Prepare system to configuration
+-------------------------------
 
-* **Zamontuj** partycję systemową (drugą).
-* **Zmień** plik odpowiedzialny za ustawienia sieci, znajdujący się na partycji systemowej, pod ścieżką ``/etc/network/interfaces``.
+* **Mount** system partition (second partition).
+* **Change** file which has network settings, which is located on system partition - path ``/etc/network/interfaces``.
 
 ::
 
@@ -37,19 +37,19 @@ Przygotowanie systemu do konfiguracji
 
 .. note::
 
-    Powyższa konfiguracja powoduje przypisanie adresu ``192.168.2.50`` w sieci ``192.168.2.0/24`` do interfejsu sieci przewodowej znajdującego się na płytce. Dodatkowo, ustawiona jest brama domyślna o adresie ``192.168.2.1`` oraz serwer nazw DNS ``8.8.8.8``.
+    Applied configuration causes assigning address ``192.168.2.50`` in network ``192.168.2.0/24`` to the wired interface which is located on board. Additionally, default gateway is set with IP address ``192.168.2.1`` and DNS with IP ``8.8.8.8``.
 
 .. warning::
 
-    **Uwaga!** Powyższa adresacja IPv4 stosowana jest w sieci w laboratorium. W twoim przypadku może być ona inna. Proszę, zwróć uwagę na adresację Twojej sieci.
+    **Attentione!** That addressing schema is used in network in laboratory. In your network might be different. Please check it.
 
 .. warning::
 
-    Adresacja sieci ``192.168.2.0/24`` **docelowo** jest używana na interfejsie karty bezprzewodowej w laboratorium. Powyższa konfiguracja ulega zmianie w toku wykonywania tej instrukcji, w kroku `aktualizacji`_ ustawień sieciowych.
+    Network ``192.168.2.0/24`` **eventually** is used on wireless interface. Configuration will be changed in next steps of this instruction, in step related to `updating network settings`_.
 
-.. _aktualizacji: #updatenetwork
+.. _updating network settings: #updatenetwork
 
-* **Zmień** plik znajdujący się na partycji systemowej, pod ścieżką ``/etc/rc.local``.
+* **Change** file which is located on system partition - path ``/etc/rc.local``.
 
 .. code-block:: sh
 
@@ -72,9 +72,9 @@ Przygotowanie systemu do konfiguracji
 
 .. note::
 
-    Powyższa konfiguracja spowoduje zainstalowanie serwera zdalnego dostępu SSH w trakcie uruchomienia systemu. Należy pamiętać, aby po pierwszym zalogowaniu usunąć linijkę ``apt-get...`` z pliku ``/etc/rc.local``.
+    That configuration causes installation of remote access server SSH when the system is booting. Remember that after first login you need to remove line starting with ``apt-get...`` from file ``/etc/rc.local``.
 
-* **Zmień** plik odpowiedzialne za hasła, usuwając znaki ``x`` lub ``*`` z pól odpowiedzialnych za hasło, w plikach znajdujących się na partycji systemowej ``/etc/passwd`` i ``/etc/shadow``
+* **Change** file responsible for passwords, by removing characters ``x`` or ``*`` from fields responsible for password, which are in files ``/etc/passwd`` and ``/etc/shadow``.
 
 .. code-block:: sh
 
@@ -86,9 +86,9 @@ Przygotowanie systemu do konfiguracji
 
 .. note::
 
-    Powyższe zmiany spowodują usunięcie hasła dla konta ``root``. Przy pierwszym logowaniu należy pamiętać o ustawieniu hasła dla administratora.
+    That changes will remove password for ``root`` account. After first login please remember about setting password for administrator.
 
-* **Dodaj** swój klucz publiczny SSH w ``/root/.ssh/authorized_keys``
+* **Add** your own public SSH key to file ``/root/.ssh/authorized_keys``
 
 .. code-block:: sh
 
@@ -96,21 +96,21 @@ Przygotowanie systemu do konfiguracji
 
 .. note::
 
-    Twój klucz publiczny SSH znajduje się w pliku ``~/.ssh/id_rsa.pub``. Jeśli pliku nie posiadasz, oznacza to, że nie posiadasz klucza SSH. W celu wygenerowania klucza prywatnego i publicznego SSH należy wywołać polecenie ``ssh-keygen``.
+    Your public SSH key is located in file ``~/.ssh/id_rsa.pub``. If you do not have this file it means that you do not have SSH key. To generate the private and public key, please execute command ``ssh-keygen``. That works on Linux only.
 
-* **Odmontuj** kartę z czytnika kart komputera.
-* **Wyciągnij** kartę z czytnika kart komputera.
-* **Połącz** płytkę, kablem sieciowym, z urządzeniem sieciowym (np. przełącznikiem) znajdującym się w sieci, w której znajduje się Twój komputer.
-* **Umieść** kartę w czytniku kart *PandaBoard*.
-* **Uruchom** *PandaBoard*.
+* **Unmount** system partition.
+* **Pull out** card from reader.
+* **Connect** board with network device, eg. switch, using network cable..
+* **Put** card in reader in *PandaBoard*.
+* **Turn on** *PandaBoard*.
 
-Drugie uruchomienie konfiguracyjne
-----------------------------------
+Second configuration boot
+-------------------------
 
-* **Zaloguj** się do systemu poprzez SSH: ``ssh root@192.168.2.50``.
-* **Ustaw** hasło dla użytkownika ``root`` przy pomocy ``passwd root``.
-* **Usuń** linię ``apt-get install -y openssh-server`` z pliku ``/etc/rc.local``.
-* **Ustaw** nazwę systemu w plikach:
+* **Login** to the system using SSH ``ssh root@192.168.2.50``.
+* **Set** password for ``root`` using command ``passwd root``.
+* **Remove** line ``apt-get install -y openssh-server`` from file ``/etc/rc.local``.
+* **Set** system name in file:
 
 ``/etc/hostname``
 
@@ -127,38 +127,40 @@ Drugie uruchomienie konfiguracyjne
 
 .. warning::
 
-    Należy **przerwać** konfigurację płytki z wykorzystaniem kreatora, który działa na konsoli (dostępnej przy instalacji z wykorzystaniem monitora i klawiatury lub portu komunikacji szeregowej).
+    **Interrupt** board wizard configuration which is running on the console (available when serial port is used).
 
-* **Wywołaj** polecenie ``fuser -k /var/cache/debconf/config.dat`` do oporu.
-* **Usuń** pakiet ``oem-config`` (z wykorzystaniem ``aptitude`` - ``aptitude purge oem-config``) oraz katalog ``/var/lib/oem-config``.
-* **Zrestartuj** system przy pomocy polecenia ``reboot``.
+* **Execute** command ``fuser -k /var/cache/debconf/config.dat`` sevaral times.
+* **Remove** package ``oem-config`` (using ``aptitude`` - ``aptitude purge oem-config``) and directory ``/var/lib/oem-config``.
+* **Restart** system using command ``reboot``.
 
-Aktualizacja oprogramowania
----------------------------
+Updating software
+-----------------
 
-Aktualizacja systemu
-~~~~~~~~~~~~~~~~~~~~
+Updating system
+~~~~~~~~~~~~~~~
 
-* **Zainstaluj** *screen* poprzez ``aptitude install screen``.
-* **Uruchom** *screen* poprzez ``screen``.
+* **Install** *screen* using ``aptitude install screen``.
+* **Start** *screen* using ``screen``.
 
 .. warning::
 
-    Możliwe jest wykonanie aktualizacji do *Ubuntu 14.04.1* LTS przy pomocy polecenia ``do-release-upgrade``. Ze względu na problemy w obsłudze sterowników dla urządzeń *Ninedof* oraz *Roboclaw* jest to **niezalecane**. Można pominąć poniższe kroki do kroku aktualizacji_ pakietów.
+    It is available updating to *Ubuntu 14.04.1* LTS using command ``do-release-upgrade``. Due to issues with modules for devices *Ninedof* and *Roboclaw* it is **not recommended**. Following steps could skipped and you can jump to step related to `updating packages`_.
+
+.. _updating packages: #updatepackages
 
 .. note::
 
-    Proces aktualizacji przy pomocy ``do-release-upgrade`` może trwać kilka minut. Z wykorzystaniem screen możliwe jest odłączenie się od konsoli poprzez kombinacje klawiszy ``[Ctrl]+[a]`` i ``[d]``. Ponownie podłączenie następuje poprzez wywołanie polecenia ``screen -r``.
+    Update process executed by command ``do-release-upgrade`` can take few minutes. Using *screen* prevents situation that command execution will be interrupted and allows detaching from console/session with keys ``[Ctrl]+[a]`` and ``[d]``.  Reconnecting can be done by executing command ``screen -r``.
 
 .. warning::
 
-    Proszę monitorować stan aktualizacji. W trakcie aktualizacji pojawiać się będą pytania do akceptacji lub nie. Po zakończeniu procesu aktualizacji system zostanie uruchomiony ponownie, co wymaga potwierdzenia.
+    Please monitor updating process. During updating there will be several questions. When updating process will finish system need to be rebooted. Reboot need to be confirmed.
 
 .. seealso::
 
-    Miejscem, gdzie znajdują się pakiety używane na PandaBoard jest repozytorium http://ports.ubuntu.com/pool/main/l/linux-ti-omap4/.
+    Packages which are used by *PandaBoard* are published in the repository http://ports.ubuntu.com/pool/main/l/linux-ti-omap4/.
 
-Po wykonaniu aktualizacji przy pomocy ``do-release-upgrade``, system nie wspiera poprawnie sieci bezprzewodowej. Należy **dodać** do repozytoriów *apt* repozytorium *omap*. Następnie wykonać **aktualizację** listy pakietów i **instalację** następujących pakietów:
+After finished update by tool ``do-release-upgrade`` system does not support wireless network. You need **add** *omap* repository to repositories. After this, **update** packages list need to be done and following packages need to be installed:
 
 .. code-block:: sh
 
@@ -170,22 +172,24 @@ Po wykonaniu aktualizacji przy pomocy ``do-release-upgrade``, system nie wspiera
 
 .. warning::
 
-    Instalacja jądra systemu wymaga obecności plików w katalogu ``/boot/``. W razie ich braku, wystarczy stworzyć brakujący plik przy pomocy polecenia ``touch``.
+    Kernel installation requires files in directory ``/boot/``. When some files are missing, please create them using command ``touch``.
 
-* **Wykonaj** ``reboot``.
+* **Execute** ``reboot``.
 
-Aktualizacja pakietów
-~~~~~~~~~~~~~~~~~~~~~
+.. _updatepackages:
 
-Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
+Updating packages
+~~~~~~~~~~~~~~~~~
 
-* Uruchomić ``aptitude``
-* Skrót klawiszowy ``[Ctrl]+[t]``
-* Wybór menu ``Options`` → ``Preferences``
-* Odznaczyć ``Install recommended packages automatically``
-* Wyłączyć *aptitude* przy pomocy ``[Ctrl]+[q]``
+Recommended is to **turn off** installing recommended packages in *aptitude*:
 
-* **Wykonaj** aktualizację i **instalację** dodatkowych pakietów:
+* Start ``aptitude``
+* Use keys ``[Ctrl]+[t]``
+* Go to menu ``Options`` → ``Preferences``
+* Disable option ``Install recommended packages automatically``
+* Close *aptitude* using keys ``[Ctrl]+[q]``
+
+* **Perform** update i **install** additional packages:
 
 .. code-block:: sh
 
@@ -193,16 +197,19 @@ Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
     touch /boot/initrd.img-3.2.0-1455-omap4
     aptitude full-upgrade
     aptitude install -y
-    aptitude install -y wpasupplicant wireless-crda wireless-regdb # do obsługi sieci bezprzewodowej
-    aptitude install -y htop psmisc mc unzip bash-completion cpufrequtils ntp # dodatkowe narzędzia
+    aptitude install -y wpasupplicant wireless-crda wireless-regdb
+    aptitude install -y htop psmisc mc unzip bash-completion cpufrequtils ntp
     aptitude install -y byobu tmux
 
 .. warning::
 
-    Instalacja jądra systemu wymaga obecności plików w katalogu ``/boot/``. W razie ich braku, wystarczy stworzyć brakujący plik przy pomocy polecenia ``touch``.
+    Kernel installation requires files in directory ``/boot/``. When some files are missing, please create them using command ``touch``.
 
-* **Dodaj** do pliku ``/etc/rc.local`` linijkę ``iw reg set PL``.
-* **Zmień** ustawienia sieci: do pliku ``/etc/network/interfaces`` dodaj ustawienia sieci bezprzewodowej:
+* **Add** to file ``/etc/rc.local`` line ``iw reg set PL``.
+
+.. _updatenetwork:
+
+* **Change** network settings: to file ``/etc/network/interfaces`` add settings related to wireless network:
 
 ::
 
@@ -223,15 +230,15 @@ Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
 
 .. note::
 
-    W celu poprawnego działania sieci bezprzewodowej wymagane jest ustawienie adresu MAC kart bezprzewodowej.
+    To have correctly working wireless network MAC address need to be setup manually.
 
 .. warning::
 
-    Zwróć uwagę na fakt, że adresacja interfejsu sieci przewodowej została zmieniona, tak aby na dwóch interfejsach karty przewodowej i bezprzewodowej nie było takiej samej adresacji sieci.
+    Be aware that network addressing settings have been changed in last step due to fact that the same network cannot be used on both interfaces.
 
 .. note::
 
-    Powyższe ustawienia sieci bezprzewodowej dotyczą sieci bezprzewodowej *robolab* w laboratorium. Aktualne hasło do sieci *robolab* udostępnione jest w laboratorium, w ogłoszeniach znajdujących się w widocznym miejscu. Adresy przydzielane są w oparciu o adresy MAC urządzeń bezprzewodowych. W sieci laboratoryjnej prefiksem MAC jest ``de:ad:be:ef:00:**``. Ostatnie dwa znaki heksadecymalne określają przypisywany adres IP, według następującego schematu:
+    Above configuration is used in wireless network *robolab* which is in laboratory. Current preshared key for wireless network is published in laboratory. IP addresses are connected with MAC addresses. In laboratory used MAC prefix is ``de:ad:be:ef:00:**``. Last two characters decide which IP address will be assigned. Following scheme is used:
 
     ::
 
@@ -241,13 +248,13 @@ Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
         de:ad:be:ef:00:09 - 192.168.2.209
         de:ad:be:ef:00:10 - 192.168.2.210
 
-* **Zrestartuj** system.
-* **Połącz** się podając przydzielony przez router adres IP. *Polecam* sprawdzić przypisany adres IP poprzez interfejs administratora routera.
+* **Reboot** system.
+* **Connect** to the system using IP address assigned by router. You can check it via administrative portal.
 
-Aktualizacja bootloadera
-~~~~~~~~~~~~~~~~~~~~~~~~
+Updating bootloader
+~~~~~~~~~~~~~~~~~~~
 
-Aby karta uruchamiała się na płytkach w wersji **B3**, należy pobrać ostatnią wersję bootloadera *u-boot* i manualnie go skompilować według poniższej instrukcji. Do wykonania tych poleceń wymagane jest zainstalowanie dodatkowego oprogramowania:
+To have card combatible with board in version **B3**, you need download latest bootloader version *u-boot* and manually compile it as per following instruction. To execute following commands additional software need to be installed:
 
 * make
 * g++
@@ -257,7 +264,9 @@ Aby karta uruchamiała się na płytkach w wersji **B3**, należy pobrać ostatn
 * gcc-arm-linux-gnueabihf
 * binutils-arm-linux-gnueabihf
 
-Polecenie do wywołania: ``apt-get install make g++ gcc u-boot-tools g++-arm-linux-gnueabihf gcc-arm-linux-gnueabihf binutils-arm-linux-gnueabihf``. Dla niektórych systemów, wymagana jest zmiana wersji systemu. Dla systemu Debian, aktualna wersja ``testing`` posiada wymienione pakiety.
+Command to execute: ``apt-get install make g++ gcc u-boot-tools g++-arm-linux-gnueabihf gcc-arm-linux-gnueabihf binutils-arm-linux-gnueabihf``.
+
+For some distributions version need to be changed. For Debian, current ``testing`` version has listed packages.
 
 .. code-block:: sh
 
@@ -294,7 +303,7 @@ Polecenie do wywołania: ``apt-get install make g++ gcc u-boot-tools g++-arm-lin
         Image 0: 156 Bytes = 0.15 kB = 0.00 MB
     $ mkimage -A arm -T script -C none -n "Boot Image" -d boot.script boot.scr
 
-Wynikiem wykonania tych operacji będą pliki, które należy umieścić na pierwszej partycji zamontowanej karty:
+As a result of these commands, following files will be generated and should be copied on first partition of memory card:
 
 * ``boot.scr``
 * ``boot.script``
@@ -302,23 +311,23 @@ Wynikiem wykonania tych operacji będą pliki, które należy umieścić na pier
 * ``u-boot.bin``
 * ``u-boot.img``
 
-Po podmianie tych plików, karta może być używana na obu typach płyt *PandaBoard* **B2** i **B3**.
+After copying that files, card can be used on both *PandaBoard* types **B2** and **B3**.
 
-Post-konfiguracja
------------------
+Post-configuration
+------------------
 
-* **Dodaj** do ``/etc/modules`` wpis:
+* **Add** to ``/etc/modules`` line:
 ::
 
     ...
     i2c-dev
 
 
-* **Zmień** ``/etc/init.d/cpufrequtils``:
+* **Update** ``/etc/init.d/cpufrequtils``:
 ::
 
     ...
     GOVERNOR="performance"
     ...
 
-* **Zwróć** uwagę na obecność skryptu ``/etc/init.d/ondemand``. Należy go wyłączyć poprzez ``update-rc.d -f ondemand remove``.
+* **Be aware** about script ``/etc/init.d/ondemand``. It need to be disabled from runlevel by command ``update-rc.d -f ondemand remove``.

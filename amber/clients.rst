@@ -1,10 +1,10 @@
-Klienci
+Clients
 =======
 
-Wspierani klienci
+Supported clients
 -----------------
 
-* `amber-java-clients`_ - jest to projekt dostarczają klientów, napisanych w *Java*, używanych przez korzystających z robota, w ich własnych aplikacjach, obsługiwane są:
+* `amber-java-clients`_ - it is a project which contains clients written in *Java*. Following devices are supported:
 
     * **Ninedof**
     * **Roboclaw**
@@ -13,7 +13,7 @@ Wspierani klienci
     * **Maestro**
     * **DriveToPoint**
 
-* `amber-python-clients`_ jest to projekt dostarczają klientów, napisanych w *python*, używanych przez korzystających z robota, w ich własnych aplikacjach, obsługiwane są:
+* `amber-python-clients`_ - it is a project which contains clients written in *python*. Following devices are supported:
 
     * **Ninedof**
     * **Roboclaw**
@@ -24,27 +24,25 @@ Wspierani klienci
 .. _amber-java-clients: https://github.com/project-capo/amber-java-clients
 .. _amber-python-clients: https://github.com/project-capo/amber-python-clients
 
-Poniżej znajdziemy opis korzystania z klientów oraz możliwości ich dalszego rozszerzania.
+Client features
+---------------
 
-Cechy klienta
--------------
+Client:
 
-Klient jest:
+* is library used in client application
+* provides ability to communicate with devices located on robot
+* communicates with mediator over network
 
-* biblioteką wykorzystywaną w aplikacji
-* dostarczającą możliwości komunikacji z danymi sterownikami
-* komunikującą się z mediatorem przez sieć
+Client is responsible for:
 
-Klient odpowiada za:
+* setting connection with mediator over UDP
+* sending messages to mediator with correct type and number of device
+* handling messages which are coming from mediator
 
-* zestawienie połączenia z mediatorem, opartym na UDP
-* wysyłanie wiadomości do mediatora z odpowiednimi wartościami typu i numeru urządzenia
-* obsługę wiadomości przychodzących od mediatora
+Example
+-------
 
-Przykład
---------
-
-Przykładem klienta, który realizuje powyższe funkcjonalności jest `DummyClient`_. Klienci korzystają z `części wspólnej`_.
+Example of driver can be `DummyClient`_. Drivers use `common parts`_.
 
 .. _DummyClient: https://github.com/project-capo/amber-python-clients/blob/master/src/amberclient/dummy/dummy.py
-.. _części wspólnej: https://github.com/project-capo/amber-python-clients/tree/master/src/amberclient/common
+.. _common parts: https://github.com/project-capo/amber-python-clients/tree/master/src/amberclient/common

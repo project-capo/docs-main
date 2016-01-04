@@ -1,10 +1,10 @@
-Uruchomienie
-~~~~~~~~~~~~
+Run
+~~~
 
-* **Uruchomić** ``${HOME}/amber/amber-erlang-mediator/start_amber.sh``
+* **Run** ``${HOME}/amber/amber-erlang-mediator/start_amber.sh``
 
-Aby zakończyć pracę mediatora, należy wywołać polecenie ``killall heart``. Logi aplikacji znajdują się w ``${HOME}/amber/amber-erlang-mediator/log*``.
+To finish command ``killall heart`` need to executed. Application logs are in directory ``${HOME}/amber/amber-erlang-mediator/log*``.
 
 .. note::
 
-    Możliwe jest uruchomienie w trybie deweloperskim. Jest to standardowe uruchomienie mediatora, z włączonymi przeglądaniem logów oraz zamknięciem mediatora, po przerwaniu przeglądania logów ``[Ctrl]+[c]``. Wywoływane jest przez polecenie ``${HOME}/amber/amber-erlang-mediator/start_devel_amber.sh``.
+    It is possible to run platform in developer mode. It is standard mode with ability to view logs live and interrupt working with ``[Ctrl]+[c]``. Command to use: ``${HOME}/amber/amber-erlang-mediator/start_devel_amber.sh``.

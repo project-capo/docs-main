@@ -1,65 +1,66 @@
-Typy urządzeń
-=============
+Device types
+============
 
-Obecnie obsługiwane są urządzenia:
+Currently supported devices:
 
-* **Ninedof** - odczytywanie wartości z **czujników ruchu**: przyspieszeniomierza, żyroskopu, kompasu
-* **Roboclaw** - sterowanie **silnikami** i odczytywanie aktualnej prędkości każdego silnika
-* **DriveSupport** - sterowanie **silnikami** z wsparciem ze strony skanera laserowego oraz czujnika ruchu (zależne od **Hokuyo** i **Ninedof**)
-* **DriveToPoint** - poruszanie się według określonej trasy z wykorzystaniem informacji o lokalizacji oraz otoczenia (zależne od **Roboclaw** lub **DriveSupport** oraz **Location**)
-* **Hokuyo** - odczytywanie wartości **odległości** od otoczenia z skanera laserowego
-* **Location** - dostarczanie informacji o **lokalizacji** robota z wykorzystanie skanera laserowego i algorytmu lokalizującego
-* **Maestro** - obsługa sterownika **servo** motorów (np. wykorzystywanych w ramieniu)
+* **Ninedof** - read values from **motion sensor**: accelerometer, gyroscope, compass
+* **Roboclaw** - managing **engines** and reading current speed of each engine
+* **DriveSupport** - managing **engines** with support from laser scanner and motion sensor (depends on **Hokuyo** and **Ninedof**)
+* **DriveToPoint** - moving robot from point to point as per provided list of points, additional information about environment is used like location and view of visible area (depends on **Roboclaw** or **DriveSupport** and **Location**)
+* **Hokuyo** - used to read values about distance between robot and obstacles located around robot
+* **Location** - provides information about approximate location of robot in closed area (depends on **Hokuyo** and **Roboclaw**)
+* **Maestro** - managing controller for servo motors (eg. used in arm)
+* **PidFollowTrajectory** - moving robot by following line (depends on **Roboclaw** or **DriveSupport** and **Location**)
 
 Ninedof
 -------
 
-Głównymi akcjami, które można wykonać przy pomocy czujnika są:
+Main functions provided by this driver are following:
 
-* *jednorazowe odczytanie danych* z przyspieszeniomierza, żyroskopu, kompasu
-* *ciągłe odczytywanie danych* z czujników
+* *one-time read* data from accelerometer, gyroscope, compass
+* *all-time read* data from sensors
 
-Możliwe jest określenie, które dane będą odczytywane z czujnika. Możliwe jest ustalenie tego przy pojedynczym odebraniu danych z czujnika, jak i w ciągłym trybie.
+It is possible to decide which data will be read from sensors. It is possible to set this for one-time and all-time operations.
 
 Roboclaw
 --------
 
-Głównymi akcjami, które można wykonać na silnikach są:
+Main function which can be done with engines are following:
 
-* *ustawienie prędkości* każdego z czterech silników
-* *odczytanie aktualnej prędkości* z enkoderów z silników
+* *set speed* for each engine
+* *read current speed*  from engines encoders
 
-Jednostką podawanych prędkości jest ``mm/s``.
+Used unit for speed is ``mm/s``.
 
 DriveSupport
 ------------
 
-Identyczne operacje jak w przypadku **Roboclaw**. Klient pozostaje ten sam co w przypadku **Roboclaw**.
+That driver provides identical operations as *Roboclaw* driver. Used client is the same as for *Roboclaw*.
 
 DriveToPoint
 ------------
 
-Operacje jakie są dostarczane z sterownikiem **DriveToPoint** są:
+That driver allow to do following operations:
 
-* ustawienie listy punktów do przebycia
-* odczytanie listy punktów, jakie zostały osiągnięte
-* odczytanie ostatnio osiągniętego punktu
-* odczytanie listy punktów, jakie są do osiągnięcia
-* odczytanie punktu, jaki ma zostać osiągnięty jako kolejny
+* set list of points which should be reached
+* read list of points which were reached
+* read last reached point
+* read list of points which should be reached
+* read point which should be reached as next
 
 Hokuyo
 ------
 
-Głównymi akcjami, które można wykonać przy pomocy skanera laserowego są:
+Main functions which are provided by this device are following:
 
-* *jednorazowe* odczytanie skanu otoczenia
-* *ciągłe* odczytywanie skanów otoczenia
+* *one-time read* data from scanner
+* *all-time read* data from scanner
 
-Skanem otoczenia jest zbiór danych, w których wartości kąta powiązane są wartościami odległości od otoczenia.
+Scan is a set of data combined in tuples which are having angle and distance.
 
-W przypadku odległości większej niż obsługiwana przez lasera (w przypadku Hokuyo: >5m), występuje wartości ``zero``. Przyjąć należy, że ``zero`` nie jest odległości zerową. Budowa lasera i układów mierzących odległość nie dopuszcza odległości zerowej. Możliwa jest wartość bliska zerowej odległości.
+Scanner has a range of activity in which the distance is correctly measured. In our case it is between 50 ``mm`` and 5 ``m``. When the distance is higher than 5 ``m`` it is marked as ``zero``. When the distance is lower than 50 ``mm`` or close to ``zero`` it means that is *almost* zero and it should be treated as too close.
 
 Location
 --------
 
-Główną akcją, jaką można wykonać przy pomocy tego sterownika jest uzyskanie informacji o lokalizacji robota na mapie pomieszczenia, w które robot się lokalizuje. Wymagane jest, by robot posiadał włączony skaner laserowy *Hokuyo*.
+Main function of this driver is provinding information about location. That driver depends on *Hokuyo* and *Roboclaw* drivers.

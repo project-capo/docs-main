@@ -1,7 +1,7 @@
-Dokumentacja projektu Capo
+Project Capo documentation
 ==========================
 
-Niniejsza dokumentacja zawiera opis przygotowania robota do pracy w laboratorium.
+Following documentation provides information about preparing robot to use it in laboratory.
 
 .. toctree::
 

@@ -1,21 +1,21 @@
-Oficjalna metoda
+Official method
 ===============
 
-Pierwsze uruchomienie instalacyjne
-----------------------------------
+First installation boot
+-----------------------
 
-* **Uruchom** aplikację do pracy z portem szeregowym, np. ``miniterm`` lub ``minicom``.
+* **Start** application used for serial port communication, eg. ``miniterm`` or ``minicom``.
 
 .. note::
 
-    *PandaBoard* udostępnia port komunikacji szeregowej. Port pracuje z szybkością 115200bps.
+    *PandaBoard* provides communication over serial port. Port baud speed is 115200bps.
 
-* **Podłącz** *PandaBoard* do komputera posiadającego port komunikacji szeregowej.
-* **Uruchom** płytkę *PandaBoard*.
+* **Connect** *PandaBoard* to PC with serial port.
+* **Turn on** *PandaBoard*.
 
-Pierwsze ładowanie systemu spowoduje, że partycja z systemem rozszerzy się do wielkości karty. **Nie należy przerywać** uruchamiania systemu. **Należy czekać** do momentu, gdy jedna z diod na płytce będzie mrugała cyklicznie.
+First system loading will cause that the system partition will be expanded to the size of memory card. That process **cannot be interrupted**. You **need to wait** till the moment when one of LEDs will blink.
 
-W trakcie pierwszego uruchamiania, w oknie aplikacji użytej do komunikacji z płytką, pojawiać się będą komunikaty o procesie instalacji.
+For the first time configuration wizard will be started. Instructions will be displayed on the console.
 
 .. code-block:: sh
 
@@ -117,7 +117,7 @@ W trakcie pierwszego uruchamiania, w oknie aplikacji użytej do komunikacji z p�
     Checking filesystem before resizing...
     Resizing, please wait...
 
-W trakcie pierwszego uruchomienia następuje rozszerzenie partycji systemowej do rozmiarów użytej karty.
+For the first time system partition will be expanded to the size of memory card.
 
 .. code-block:: sh
 
@@ -130,10 +130,10 @@ W trakcie pierwszego uruchomienia następuje rozszerzenie partycji systemowej do
     Rebooting into configuration session
     [   94.273376] Restarting system.
 
-Drugie uruchomienie konfiguracyjne
-----------------------------------
+Second configuration boot
+-------------------------
 
-Po pierwszym uruchomieniu, następuje drugie uruchomienie systemu z kreatorem konfiguracji.
+Configuration wizard will be started:
 
 .. code-block:: sh
 
@@ -208,9 +208,9 @@ Po pierwszym uruchomieniu, następuje drugie uruchomienie systemu z kreatorem ko
      * Stopping load fallback graphics devices                               [ OK ]
     ...
 
-Po załadowaniu systemu, pojawia się kreator konfiguracji systemu.
+After loading system wizard screen will be displayed.
 
-Pierwszym krokiem jest wybranie języka:
+First step is selecting language:
 
 .. code-block:: sh
 
@@ -237,7 +237,7 @@ Pierwszym krokiem jest wybranie języka:
       │                                                                         │
       └─────────────────────────────────────────────────────────────────────────┘
 
-Kolejnym krokiem jest wybranie kraju:
+Next step is selecting country:
 
 .. code-block:: sh
 
@@ -264,7 +264,7 @@ Kolejnym krokiem jest wybranie kraju:
       │                                                                         │
       └─────────────────────────────────────────────────────────────────────────┘
 
-Wybierając ``other``, kolejnym krokiem jest wybranie kontynentu:
+By selecting other next screen will display list of continents:
 
 .. code-block:: sh
 
@@ -291,7 +291,7 @@ Wybierając ``other``, kolejnym krokiem jest wybranie kontynentu:
       │                                                                         │
       └─────────────────────────────────────────────────────────────────────────┘
 
-Wybierając ``Europe``, kolejnym krokiem jest ponowne wybranie kraju:
+After selecting continent next step will be again selecting country:
 
 .. code-block:: sh
 
@@ -318,7 +318,7 @@ Wybierając ``Europe``, kolejnym krokiem jest ponowne wybranie kraju:
       │                                                                          │
       └──────────────────────────────────────────────────────────────────────────┘
 
-Kolejnym krokiem jest wybranie ustawień lokalizacji:
+Next step is selecting locales settings:
 
 .. code-block:: sh
 
@@ -345,7 +345,7 @@ Kolejnym krokiem jest wybranie ustawień lokalizacji:
       │                                                                          │
       └──────────────────────────────────────────────────────────────────────────┘
 
-Kolejnym krokiem jest wybranie strefy czasowej:
+Next step is selecting time zone used in selected location:
 
 .. code-block:: sh
 
@@ -363,7 +363,7 @@ Kolejnym krokiem jest wybranie strefy czasowej:
     │                                                                         │
     └─────────────────────────────────────────────────────────────────────────┘
 
-Kolejnym krokiem jest ustawienie strefy czasowej zegara płytki:
+Next step is selecting time zone of hardware clock:
 
 .. code-block:: sh
 
@@ -381,7 +381,7 @@ Kolejnym krokiem jest ustawienie strefy czasowej zegara płytki:
      │                                                                           │
      └───────────────────────────────────────────────────────────────────────────┘
 
-Kolejnym krokiem jest ustawienie pełnej nazwy użytkownika:
+Next step is setting full name of user:
 
 .. code-block:: sh
 
@@ -403,8 +403,7 @@ Kolejnym krokiem jest ustawienie pełnej nazwy użytkownika:
      │                                                                           │
      └───────────────────────────────────────────────────────────────────────────┘
 
-
-Kolejnym krokiem jest ustawienie nazwy użytkownika:
+Next step is setting name of user:
 
 .. code-block:: sh
 
@@ -422,7 +421,7 @@ Kolejnym krokiem jest ustawienie nazwy użytkownika:
      │                                                                           │
      └───────────────────────────────────────────────────────────────────────────┘
 
-Kolejnym krokiem jest ustawienie hasła dla nowego użytkownika:
+Next step is setting password for user:
 
 .. code-block:: sh
 
@@ -439,9 +438,9 @@ Kolejnym krokiem jest ustawienie hasła dla nowego użytkownika:
           │                                                                  │
           └──────────────────────────────────────────────────────────────────┘
 
-Następnym krokiem jego powtórzenie.
+Next step is repeating password.
 
-Kolejnym krokiem jest ustawienie domyślnego interfejsu sieciowego:
+Next step is setting default network interface:
 
 .. code-block:: sh
 
@@ -461,7 +460,7 @@ Kolejnym krokiem jest ustawienie domyślnego interfejsu sieciowego:
      │                                                                           │
      └───────────────────────────────────────────────────────────────────────────┘
 
-Należy wybrać ``eth0``. Po wyborze nastąpi testowanie łącza przewodowego. Nie jest wymagane, by ono się zakończyło sukcesem:
+``eth0`` should be selected. After this, network testing will be done. There is no need to finish test with success:
 
 .. code-block:: sh
 
@@ -478,7 +477,7 @@ Należy wybrać ``eth0``. Po wyborze nastąpi testowanie łącza przewodowego. N
      │                                                                           │
      └───────────────────────────────────────────────────────────────────────────┘
 
-Jeśli nie zakończyło się ono sukcesem, to należy manualnie ustawić adres sieciowy:
+If this test was not finished with success, address need to be set manually:
 
 .. code-block:: sh
 
@@ -581,9 +580,9 @@ Jeśli nie zakończyło się ono sukcesem, to należy manualnie ustawić adres s
 
 .. warning::
 
-    Powyższa konfiguracja powoduje przypisanie adresu ``192.168.1.50`` w sieci ``192.168.1.0/24`` do interfejsu sieci przewodowej znajdującego się na płytce. Dodatkowo, ustawiona jest brama domyślna o adresie ``192.168.1.1`` oraz serwer nazw DNS ``192.168.1.1``. W twoim przypadku może być ona inna. Proszę, zwróć uwagę na adresację Twojej sieci.
+    Above configuration causes assigning address ``192.168.2.50`` in network ``192.168.2.0/24`` to the wired interface which is located on board. Additionally, default gateway is set with IP address ``192.168.2.1`` and DNS with IP ``8.8.8.8``.
 
-Kolejnym krokiem jest ustawienie nazwy systemu oraz domeny:
+Next step is setting system name and domain:
 
 .. code-block:: sh
 
@@ -621,7 +620,7 @@ Kolejnym krokiem jest ustawienie nazwy systemu oraz domeny:
      │                                                                           │
      └───────────────────────────────────────────────────────────────────────────┘
 
-Kolejnym krokiem jest wybranie podstawowych funkcji systemu:
+Next step is selecting basic system functions:
 
 .. code-block:: sh
 
@@ -648,7 +647,7 @@ Kolejnym krokiem jest wybranie podstawowych funkcji systemu:
         │                                                                     │
         └─────────────────────────────────────────────────────────────────────┘
 
-Należy wybrać ``OpenSSH server``. Nastąpi instalacja serwera SSH, ustawienie dodatkowych parametrów oraz usunięcie zbędnych pakietów. Po zakończonym procesie, wyświetli się prośba o podanie nazwy użytkownika i hasło:
+``OpenSSH server`` need to be selected. After this, SSH server will be installed, additional parameters will be set and unused packages will be removed. After this, there will be login prompt displayed:
 
 .. code-block:: sh
 
@@ -669,13 +668,13 @@ Należy wybrać ``OpenSSH server``. Nastąpi instalacja serwera SSH, ustawienie 
 
     username@hostname:~$
 
-Aktualizacja oprogramowania
+Updating software
 ---------------------------
 
-Czyszczenie pozostałych pakietów
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Cleaning packages
+~~~~~~~~~~~~~~~~~
 
-Po pierwszym uruchomieniu, należy wyczyścić pozostałe po instalacji pakiety poleceniem ``sudo aptitude install``:
+Unused packages need to be removed. To do this following command can be used ``sudo aptitude install``:
 
 .. code-block:: sh
 
@@ -722,10 +721,10 @@ Po pierwszym uruchomieniu, należy wyczyścić pozostałe po instalacji pakiety 
     Processing triggers for libc-bin ...
     ldconfig deferred processing now taking place
 
-Instalacja sieci bezprzewodowej
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Wireless card installation
+~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Do obsługi sieci bezprzewodowej należy zainstalować pakiet ``wpasupplicant``:
+To use wireless card you need to install package ``wpasupplicant``:
 
 .. code-block:: sh
 
@@ -747,7 +746,7 @@ Do obsługi sieci bezprzewodowej należy zainstalować pakiet ``wpasupplicant``:
     Processing triggers for libc-bin ...
     ldconfig deferred processing now taking place
 
-Po instalacji pakietu ``wpasupplicant``, należy zmienić plik ``/etc/network/interfaces``:
+After this, please update file ``/etc/network/interfaces``:
 
 .. code-block:: sh
 
@@ -771,19 +770,19 @@ Po instalacji pakietu ``wpasupplicant``, należy zmienić plik ``/etc/network/in
         wpa-ssid "SSID"
         wpa-psk "PSK"
 
-Po zapisaniu zmian, wywołać polecenia ``sudo ifconfig eth0 down`` i ``sudo ifup wlan0``. Następnie sprawdzić połączenie z siecią.
+After saving changes, execute commands ``sudo ifconfig eth0 down`` and ``sudo ifup wlan0``. After this, please check network connectivity:
 
 .. note::
 
-    W celu poprawnego działania sieci bezprzewodowej wymagane jest ustawienie adresu MAC kart bezprzewodowej.
+    To have correctly working wireless network it is required to have MAC address manually set.
 
 .. warning::
 
-    Zwróć uwagę na fakt, że adresacja interfejsu sieci przewodowej została zmieniona, tak aby na dwóch interfejsach karty przewodowej i bezprzewodowej nie było takiej samej adresacji sieci.
+    Be aware that network addressing settings have been changed in last step due to fact that the same network cannot be used on both interfaces.
 
 .. note::
 
-    Powyższe ustawienia sieci bezprzewodowej dotyczą sieci bezprzewodowej *robolab* w laboratorium. Aktualne hasło do sieci *robolab* udostępnione jest w laboratorium, w ogłoszeniach znajdujących się w widocznym miejscu. Adresy przydzielane są w oparciu o adresy MAC urządzeń bezprzewodowych. W sieci laboratoryjnej prefiksem MAC jest ``de:ad:be:ef:00:**``. Ostatnie dwa znaki heksadecymalne określają przypisywany adres IP, według następującego schematu:
+    Above configuration is used in wireless network *robolab* which is in laboratory. Current preshared key for wireless network is published in laboratory. IP addresses are connected with MAC addresses. In laboratory used MAC prefix is ``de:ad:be:ef:00:**``. Last two characters decide which IP address will be assigned. Following scheme is used:
 
     ::
 
@@ -793,26 +792,28 @@ Po zapisaniu zmian, wywołać polecenia ``sudo ifconfig eth0 down`` i ``sudo ifu
         de:ad:be:ef:00:09 - 192.168.2.209
         de:ad:be:ef:00:10 - 192.168.2.210
 
-Aktualizacja systemu
-~~~~~~~~~~~~~~~~~~~~
+Updating system
+~~~~~~~~~~~~~~~
 
 .. warning::
 
-    Możliwe jest wykonanie aktualizacji do *Ubuntu 14.04.1* LTS przy pomocy polecenia ``do-release-upgrade``. Ze względu na problemy w obsłudze sterowników dla urządzeń *Ninedof* oraz *Roboclaw* jest to **niezalecane**. Można pominąć poniższe kroki do kroku aktualizacji_ pakietów.
+    It is available updating to *Ubuntu 14.04.1* LTS using command ``do-release-upgrade``. Due to issues with modules for devices *Ninedof* and *Roboclaw* it is **not recommended**. Following steps could skipped and you can jump to step related to `updating packages`_.
+
+.. _updating packages: #updatepackages
 
 .. note::
 
-    Proces aktualizacji przy pomocy ``do-release-upgrade`` może trwać kilka minut. Z wykorzystaniem screen możliwe jest odłączenie się od konsoli poprzez kombinacje klawiszy ``[Ctrl]+[a]`` i ``[d]``. Ponownie podłączenie następuje poprzez wywołanie polecenia ``screen -r``.
+    Update process executed by command ``do-release-upgrade`` can take few minutes. Using *screen* prevents situation that command execution will be interrupted and allows detaching from console/session with keys ``[Ctrl]+[a]`` and ``[d]``.  Reconnecting can be done by executing command ``screen -r``.
 
 .. warning::
 
-    Proszę monitorować stan aktualizacji. W trakcie aktualizacji pojawiać się będą pytania do akceptacji lub nie. Po zakończeniu procesu aktualizacji system zostanie uruchomiony ponownie, co wymaga potwierdzenia.
+    Please monitor updating process. During updating there will be several questions. When updating process will finish system need to be rebooted. Reboot need to be confirmed.
 
 .. seealso::
 
-    Miejscem, gdzie znajdują się pakiety używane na PandaBoard jest repozytorium http://ports.ubuntu.com/pool/main/l/linux-ti-omap4/.
+    Packages which are used by *PandaBoard* are published in the repository http://ports.ubuntu.com/pool/main/l/linux-ti-omap4/.
 
-Po wykonaniu aktualizacji przy pomocy ``do-release-upgrade``, system nie wspiera poprawnie sieci bezprzewodowej. Należy **dodać** do repozytoriów *apt* repozytorium *omap*. Następnie wykonać **aktualizację** listy pakietów i **instalację** następujących pakietów:
+After update done by tool ``do-release-upgrade`` system does not support wireless network. You need **add** *omap* repository to repositories. After this, **update** packages list need to be done and following packages need to be installed:
 
 .. code-block:: sh
 
@@ -824,22 +825,22 @@ Po wykonaniu aktualizacji przy pomocy ``do-release-upgrade``, system nie wspiera
 
 .. warning::
 
-    Instalacja jądra systemu wymaga obecności plików w katalogu ``/boot/``. W razie ich braku, wystarczy stworzyć brakujący plik przy pomocy polecenia ``touch``.
+    Kernel installation requires files in directory ``/boot/``. When some files are missing, please create them using command ``touch``.
 
-* **Wykonaj** ``reboot``.
+* **Execute** ``reboot``.
 
-Aktualizacja pakietów
-~~~~~~~~~~~~~~~~~~~~~
+Updating packages
+~~~~~~~~~~~~~~~~~
 
-Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
+Recommended is to **turn off** installing recommended packages in *aptitude*:
 
-* Uruchomić ``aptitude``
-* Skrót klawiszowy ``[Ctrl]+[t]``
-* Wybór menu ``Options`` → ``Preferences``
-* Odznaczyć ``Install recommended packages automatically``
-* Wyłączyć *aptitude* przy pomocy ``[Ctrl]+[q]``
+* Start ``aptitude``
+* Use keys ``[Ctrl]+[t]``
+* Go to menu ``Options`` → ``Preferences``
+* Disable option ``Install recommended packages automatically``
+* Close *aptitude* using keys ``[Ctrl]+[q]``
 
-* **Wykonaj** aktualizację i **instalację** dodatkowych pakietów:
+* **Perform** update i **install** additional packages:
 
 .. code-block:: sh
 
@@ -847,21 +848,21 @@ Polecam **wyłączyć** opcję instalowania polecanych pakietów w *aptitude*:
     touch /boot/initrd.img-3.2.0-1455-omap4
     aptitude full-upgrade
     aptitude install -y
-    aptitude install -y wireless-crda wireless-regdb # dodatkowe pakiety do obsługi sieci bezprzewodowej
-    aptitude install -y htop psmisc mc unzip bash-completion cpufrequtils ntp # dodatkowe narzędzia
+    aptitude install -y wpasupplicant wireless-crda wireless-regdb
+    aptitude install -y htop psmisc mc unzip bash-completion cpufrequtils ntp
     aptitude install -y byobu tmux
 
 .. warning::
 
-    Instalacja jądra systemu wymaga obecności plików w katalogu ``/boot/``. W razie ich braku, wystarczy stworzyć brakujący plik przy pomocy polecenia ``touch``.
+    Kernel installation requires files in directory ``/boot/``. When some files are missing, please create them using command ``touch``.
 
-* **Dodaj** do pliku ``/etc/rc.local`` linijkę ``iw reg set PL``.
-* **Wyłącz** system przy pomocy polecenia ``sudo poweroff``.
+* **Add** to file ``/etc/rc.local`` line ``iw reg set PL``.
+* **Shutdown** system using command ``sudo poweroff``.
 
-Aktualizacja bootloadera
-~~~~~~~~~~~~~~~~~~~~~~~~
+Updating bootloader
+~~~~~~~~~~~~~~~~~~~
 
-Aby karta uruchamiała się na płytkach w wersji **B3**, należy pobrać ostatnią wersję bootloadera *u-boot* i manualnie go skompilować według poniższej instrukcji. Do wykonania tych poleceń wymagane jest zainstalowanie dodatkowego oprogramowania:
+To have card combatible with board in version **B3**, you need download latest bootloader version *u-boot* and manually compile it as per following instruction. To execute following commands additional software need to be installed:
 
 * make
 * g++
@@ -871,7 +872,9 @@ Aby karta uruchamiała się na płytkach w wersji **B3**, należy pobrać ostatn
 * gcc-arm-linux-gnueabihf
 * binutils-arm-linux-gnueabihf
 
-Polecenie do wywołania: ``apt-get install make g++ gcc u-boot-tools g++-arm-linux-gnueabihf gcc-arm-linux-gnueabihf binutils-arm-linux-gnueabihf``. Dla niektórych systemów, wymagana jest zmiana wersji systemu. Dla systemu Debian, aktualna wersja ``testing`` posiada wymienione pakiety.
+Command to execute: ``apt-get install make g++ gcc u-boot-tools g++-arm-linux-gnueabihf gcc-arm-linux-gnueabihf binutils-arm-linux-gnueabihf``.
+
+For some distributions version need to be changed. For Debian, current ``testing`` version has listed packages.
 
 .. code-block:: sh
 
@@ -908,7 +911,7 @@ Polecenie do wywołania: ``apt-get install make g++ gcc u-boot-tools g++-arm-lin
         Image 0: 156 Bytes = 0.15 kB = 0.00 MB
     $ mkimage -A arm -T script -C none -n "Boot Image" -d boot.script boot.scr
 
-Wynikiem wykonania tych operacji będą pliki, które należy umieścić na pierwszej partycji zamontowanej karty:
+As a result of these commands, following files will be generated and should be copied on first partition of memory card:
 
 * ``boot.scr``
 * ``boot.script``
@@ -916,7 +919,7 @@ Wynikiem wykonania tych operacji będą pliki, które należy umieścić na pier
 * ``u-boot.bin``
 * ``u-boot.img``
 
-Po podmianie tych plików, karta może być używana na obu typach płyt *PandaBoard* **B2** i **B3**.
+After copying that files, card can be used on both *PandaBoard* types **B2** and **B3**.
 
 Post-konfiguracja
 -----------------
@@ -935,4 +938,4 @@ Post-konfiguracja
     GOVERNOR="performance"
     ...
 
-* **Zwróć** uwagę na obecność skryptu ``/etc/init.d/ondemand``. Należy go wyłączyć poprzez ``update-rc.d -f ondemand remove``.
+* **Be aware** about script ``/etc/init.d/ondemand``. It need to be disabled from runlevel by command ``update-rc.d -f ondemand remove``.

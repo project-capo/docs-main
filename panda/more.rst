@@ -1,7 +1,7 @@
-Dodatkowe informacje
-====================
+Additional information
+======================
 
-Więcej informacji na stronach:
+More information you can find on:
 
 * `Wiki/ARM/OMAP`_
 * `Wiki/ARM/Server/Install`_

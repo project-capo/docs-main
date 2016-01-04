@@ -1,16 +1,16 @@
 Panda
 =====
 
-Robot *Panda*, dostępny w laboratorium *Robolab*, posiada następujące komponenty:
+Robot called *Panda* is available in *Robolab* laboratory. That robot has following components:
 
-* silniki *Polulu* obsługiwane przez sterowniki silników *Roboclaw*
-* czujnik ruchu *Ninedof*
-* skaner laserowy *Hokuyo* (opcjonalnie)
-* dodatkowe elementy, np. servo silniki *Maestro* (opcjonalnie)
-* komputer *Pandaboard*
-* baterię, okablowanie, obudowę i napęd
+* *Polulu* engines controlled by *Roboclaw* drivers
+* *Ninedof* motion sensor
+* *Hokuyo* laser scanner (optional)
+* additional things, like servo engines *Maestro* (optional)
+* *Pandaboard* motherboard
+* battery, wiring, cover and driving gear
 
-Kolejne rozdziały opisują, jak zainstalować system operacyjny i przygotować robota do pracy w laboratorium.
+Next chapters describe how to install operating system and prepare robot to work in laboratory.
 
 .. toctree::
 

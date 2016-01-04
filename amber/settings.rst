@@ -1,23 +1,23 @@
-Ustawienia
-==========
+Settings
+========
 
 Mediator
 --------
 
-Do uruchomienia mediatora, potrzeba skonfigurować sterowniki, które będą uruchomiane wraz z mediatorem. `Przykładową konfigurację`_ należy zaadaptować do swoich warunków i zapisać jako ``apps/amber/priv/settings.config``.
+To run mediator you need to configure drivers which will be started together with mediator. `Example configuration`_ should be adapted to new conditions and should be saved as file with name ``apps/amber/priv/settings.config``.
 
 .. note::
 
-    Obecnie w pełni wspierane sterowniki są *Roboclaw*, *Ninedof*, *Hokuyo* oraz *Location*. Te należy odkomentować z pliku konfiguracyjnego mediatora znadującego się w ``apps/amber/priv/settings.config``.
+    Currently fully supported are drivers for devices *Roboclaw*, *Ninedof*, *Hokuyo* and *Location*. These drivers can be uncommented in configuration filer ``apps/amber/priv/settings.config``.
 
-.. _Przykładową konfigurację: https://github.com/project-capo/amber-erlang-mediator/blob/master/apps/amber/priv/settings.config.example
+.. _Example configuration: https://github.com/project-capo/amber-erlang-mediator/blob/master/apps/amber/priv/settings.config.example
 
-Sterowniki
-----------
+Drivers
+-------
 
-Sterownikami i ich konfiguracją zarządzają ich twórcy. Dostarczana jest wraz z sterownikami.
+Drivers and their configuration are managed by developers. Configuration is provided with drivers.
 
 Klienci
 -------
 
-Klientami i ich konfiguracją zarządzają ich twórcy. Dostarczana jest wraz z klientami.
+Clients and their configuration are managed by developers. Configuration is provided with clients.
