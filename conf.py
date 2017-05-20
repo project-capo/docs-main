@@ -12,8 +12,6 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import alabaster
-
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
@@ -36,7 +34,6 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx.ext.pngmath',
-    'alabaster'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -53,7 +50,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'capo-docs'
-copyright = u'2015, CAPO Team'
+copyright = u'2017, CAPO Team'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -107,9 +104,7 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#html_theme = 'default'
-html_theme = 'alabaster'
-html_theme_path = [alabaster.get_path()]
+html_theme = 'default'
 html_sidebars = {
     '**': [
         'about.html', 'navigation.html',
